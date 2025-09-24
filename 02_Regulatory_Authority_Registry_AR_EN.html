@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KSA & International Regulatory Authority Registry</title>
+  <link rel="stylesheet" href="../css/enterprise-design-system.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../Shahin_Vision_Branding_Kit/css/brand.css">
+  <style>
+    body { 
+      font-family: var(--shahin-font-family, system-ui, -apple-system, Segoe UI, Roboto, 'Noto Naskh Arabic', Arial); 
+      margin: 0; 
+      background: var(--shahin-bg-primary, #ffffff); 
+      color: var(--shahin-text-primary, #1f2937); 
+      line-height: 1.6;
+    }
+    .container { 
+      max-width: 1000px; 
+      margin: 0 auto; 
+      padding: var(--shahin-space-8, 32px);
+    }
+    .header { 
+      background: linear-gradient(135deg, var(--shahin-primary, #10b981) 0%, var(--shahin-primary-600, #059669) 100%); 
+      color: var(--shahin-text-on-primary, #ffffff); 
+      padding: var(--shahin-space-12, 48px) var(--shahin-space-8, 32px); 
+      text-align: center;
+      margin-bottom: var(--shahin-space-8, 32px);
+    }
+    .header h1 { 
+      font-size: var(--shahin-text-4xl, 2.25rem); 
+      font-weight: var(--shahin-font-weight-bold, 700); 
+      margin: 0 0 var(--shahin-space-4, 16px) 0;
+    }
+    .header p { 
+      font-size: var(--shahin-text-lg, 1.125rem); 
+      opacity: 0.9; 
+      margin: 0;
+    }
+    .content { 
+      background: var(--shahin-bg-surface, #ffffff); 
+      border-radius: var(--shahin-radius-xl, 1rem); 
+      padding: var(--shahin-space-8, 32px); 
+      box-shadow: var(--shahin-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+    }
+    h2 { 
+      color: var(--shahin-primary, #10b981); 
+      font-size: var(--shahin-text-2xl, 1.5rem); 
+      font-weight: var(--shahin-font-weight-semibold, 600); 
+      margin: var(--shahin-space-8, 32px) 0 var(--shahin-space-4, 16px) 0;
+      border-bottom: 2px solid var(--shahin-primary-200, #a7f3d0);
+      padding-bottom: var(--shahin-space-2, 8px);
+    }
+    h3 { 
+      color: var(--shahin-text-primary, #1f2937); 
+      font-size: var(--shahin-text-xl, 1.25rem); 
+      font-weight: var(--shahin-font-weight-semibold, 600); 
+      margin: var(--shahin-space-6, 24px) 0 var(--shahin-space-3, 12px) 0;
+    }
+    ul, ol { 
+      margin: var(--shahin-space-4, 16px) 0; 
+      padding-left: var(--shahin-space-6, 24px);
+    }
+    li { 
+      margin: var(--shahin-space-2, 8px) 0;
+    }
+    .highlight { 
+      background: var(--shahin-primary-50, #ecfdf5); 
+      padding: var(--shahin-space-4, 16px); 
+      border-radius: var(--shahin-radius-lg, 0.75rem); 
+      border-left: 4px solid var(--shahin-primary, #10b981);
+      margin: var(--shahin-space-6, 24px) 0;
+    }
+    .back-link { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: var(--shahin-space-2, 8px); 
+      margin-bottom: var(--shahin-space-6, 24px); 
+      padding: var(--shahin-space-3, 12px) var(--shahin-space-6, 24px); 
+      background: var(--shahin-primary, #10b981); 
+      color: var(--shahin-text-on-primary, #ffffff); 
+      text-decoration: none; 
+      border-radius: var(--shahin-radius-lg, 0.75rem); 
+      font-weight: var(--shahin-font-weight-semibold, 600);
+      transition: all var(--shahin-transition-fast, 150ms ease);
+    }
+    .back-link:hover { 
+      background: var(--shahin-primary-600, #059669); 
+      transform: translateY(-2px);
+    }
+    .authority-item { 
+      background: var(--shahin-bg-surface, #ffffff); 
+      border: 1px solid var(--shahin-border-light, #e5e7eb); 
+      border-radius: var(--shahin-radius-lg, 0.75rem); 
+      padding: var(--shahin-space-4, 16px); 
+      margin: var(--shahin-space-3, 12px) 0; 
+      transition: all var(--shahin-transition-fast, 150ms ease);
+    }
+    .authority-item:hover { 
+      border-color: var(--shahin-primary-200, #a7f3d0); 
+      box-shadow: var(--shahin-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+    }
+    .authority-name { 
+      font-weight: var(--shahin-font-weight-semibold, 600); 
+      color: var(--shahin-primary, #10b981); 
+      font-size: var(--shahin-text-lg, 1.125rem);
+    }
+    .authority-arabic { 
+      color: var(--shahin-text-secondary, #6b7280); 
+      font-style: italic;
+    }
+    .authority-acronym { 
+      background: var(--shahin-primary-100, #d1fae5); 
+      color: var(--shahin-primary-700, #047857); 
+      padding: var(--shahin-space-1, 4px) var(--shahin-space-2, 8px); 
+      border-radius: var(--shahin-radius-sm, 0.375rem); 
+      font-weight: var(--shahin-font-weight-semibold, 600); 
+      font-size: var(--shahin-text-sm, 0.875rem);
+    }
+    .authority-scope { 
+      color: var(--shahin-text-muted, #9ca3af); 
+      font-size: var(--shahin-text-sm, 0.875rem); 
+      margin-top: var(--shahin-space-1, 4px);
+    }
+    .section-divider { 
+      height: 2px; 
+      background: linear-gradient(90deg, var(--shahin-primary, #10b981), var(--shahin-primary-200, #a7f3d0)); 
+      margin: var(--shahin-space-8, 32px) 0; 
+      border-radius: var(--shahin-radius-full, 9999px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="05_SSOT_Navigator.html" class="back-link">← Back to SSOT Navigator</a>
+    
+    <div class="header">
+      <h1>KSA & International Regulatory Authority Registry</h1>
+      <p>Bilingual Extract • Version: 2025 Q3 • Timestamp: 2025-09-23 14:32</p>
+    </div>
+
+    <div class="content">
+      <div class="highlight">
+        <p>This concise extract is structured into sectors. Full names (EN/AR), legal basis, and scope of authority are shown.</p>
+        <p>The master table is maintained as the <em>single source of truth</em> and will be versioned quarterly.</p>
+      </div>
+
+      <h2>A) Cybersecurity & Data</h2>
+      <div class="authority-item">
+        <div class="authority-name">National Cybersecurity Authority <span class="authority-acronym">NCA</span></div>
+        <div class="authority-arabic">الهيئة الوطنية للأمن السيبراني</div>
+        <div class="authority-scope">Cybersecurity policy, controls, incident reporting</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">Saudi Data & AI Authority <span class="authority-acronym">SDAIA</span></div>
+        <div class="authority-arabic">الهيئة السعودية للبيانات والذكاء الاصطناعي</div>
+        <div class="authority-scope">Data policy; PDPL policy center</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">National Data Management Office <span class="authority-acronym">NDMO</span></div>
+        <div class="authority-arabic">المكتب الوطني لإدارة البيانات</div>
+        <div class="authority-scope">Data governance; PDPL executive regulations</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">Communications, Space & Technology Commission <span class="authority-acronym">CST</span></div>
+        <div class="authority-arabic">هيئة الاتصالات والفضاء والتقنية</div>
+        <div class="authority-scope">Telecom/ICT regulation & cybersecurity</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">Digital Government Authority <span class="authority-acronym">DGA</span></div>
+        <div class="authority-arabic">هيئة الحكومة الرقمية</div>
+        <div class="authority-scope">Gov digital services and interoperability</div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <h2>B) Financial Sector</h2>
+      <div class="authority-item">
+        <div class="authority-name">Saudi Central Bank <span class="authority-acronym">SAMA</span></div>
+        <div class="authority-arabic">البنك المركزي السعودي</div>
+        <div class="authority-scope">Banking/Fintech oversight; cyber security framework; reporting</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">Capital Market Authority <span class="authority-acronym">CMA</span></div>
+        <div class="authority-arabic">هيئة السوق المالية</div>
+        <div class="authority-scope">Securities markets; cyber & operational risk</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">Zakat, Tax and Customs Authority <span class="authority-acronym">ZATCA</span></div>
+        <div class="authority-arabic">هيئة الزكاة والضريبة والجمارك</div>
+        <div class="authority-scope">Tax e‑invoicing, data retention</div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <h2>C) Health & Life Sciences</h2>
+      <div class="authority-item">
+        <div class="authority-name">Ministry of Health <span class="authority-acronym">MoH</span></div>
+        <div class="authority-arabic">وزارة الصحة</div>
+        <div class="authority-scope">Health sector compliance & data protection</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">Saudi Food & Drug Authority <span class="authority-acronym">SFDA</span></div>
+        <div class="authority-arabic">الهيئة العامة للغذاء والدواء</div>
+        <div class="authority-scope">Medical devices, pharma, data integrity</div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <h2>D) Energy, Utilities & Industry</h2>
+      <div class="authority-item">
+        <div class="authority-name">Ministry of Energy <span class="authority-acronym">MoE</span></div>
+        <div class="authority-arabic">وزارة الطاقة</div>
+        <div class="authority-scope">Energy sector policies & cybersecurity</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">Water & Electricity Regulator <span class="authority-acronym">WERA</span></div>
+        <div class="authority-arabic">هيئة تنظيم المياه والكهرباء</div>
+        <div class="authority-scope">Utilities operations and reliability</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">Ministry of Industry & Mineral Resources <span class="authority-acronym">MIM</span></div>
+        <div class="authority-arabic">وزارة الصناعة والثروة المعدنية</div>
+        <div class="authority-scope">Industrial sector regulation</div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <h2>E) Public Sector & Critical Infrastructure</h2>
+      <div class="authority-item">
+        <div class="authority-name">Ministry of Interior <span class="authority-acronym">MoI</span></div>
+        <div class="authority-arabic">وزارة الداخلية</div>
+        <div class="authority-scope">Public security and safety</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">Presidency of State Security <span class="authority-acronym">PSS</span></div>
+        <div class="authority-arabic">رئاسة أمن الدولة</div>
+        <div class="authority-scope">National security oversight</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">National Cybersecurity Center / CERT</div>
+        <div class="authority-arabic">المركز الوطني للأمن السيبراني</div>
+        <div class="authority-scope">Threat intel & coordination</div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <h2>F) Competition, Standards & Commerce</h2>
+      <div class="authority-item">
+        <div class="authority-name">Saudi Standards, Metrology and Quality Organization <span class="authority-acronym">SASO</span></div>
+        <div class="authority-arabic">الهيئة السعودية للمواصفات والمقاييس والجودة</div>
+        <div class="authority-scope">Standards and quality assurance</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">General Authority for Competition <span class="authority-acronym">GAC</span></div>
+        <div class="authority-arabic">الهيئة العامة للمنافسة</div>
+        <div class="authority-scope">Competition regulation</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">Ministry of Commerce <span class="authority-acronym">MoC</span></div>
+        <div class="authority-arabic">وزارة التجارة</div>
+        <div class="authority-scope">Commercial regulation</div>
+      </div>
+      
+      <div class="authority-item">
+        <div class="authority-name">Ministry of Investment <span class="authority-acronym">MISA</span></div>
+        <div class="authority-arabic">وزارة الاستثمار</div>
+        <div class="authority-scope">Investment promotion and regulation</div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <h2>International Bodies (applicable to KSA operations)</h2>
+      <div class="highlight">
+        <p><strong>ISO</strong> (ISO/IEC 27001, 27002, …), <strong>NIST</strong> (CSF 2.0), <strong>PCI SSC</strong>, <strong>IETF</strong>, <strong>HL7</strong>, <strong>ICANN</strong>, <strong>Basel Committee</strong>, <strong>IAIS</strong>, <strong>FATF</strong> (AML guidance), <strong>IMF</strong> (FSAP), <strong>World Bank</strong> (GovTech), <strong>WHO</strong> (health security).</p>
+      </div>
+
+      <div class="highlight">
+        <p>The working master includes 40+ domestic entities; this extract shows grouping and bilingual labels. Sector‑by‑sector applicability is mapped in Paper‑3.</p>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <h2>سجل الجهات التنظيمية — موجز ثنائي اللغة</h2>
+      <div class="highlight">
+        <p>يُنظّم السجل حسب القطاعات مع ذكر الاسم بالعربية والإنجليزية والأساس النظامي ونطاق الاختصاص.</p>
+        <p>يحتفظ الجدول الرئيسي كمصدر موحّد للحقيقة ويتم تحديثه كل ربع سنة.</p>
+      </div>
+
+      <h3>الأمن السيبراني والبيانات</h3>
+      <ul>
+        <li>الهيئة الوطنية للأمن السيبراني (NCA)</li>
+        <li>الهيئة السعودية للبيانات والذكاء الاصطناعي (SDAIA)</li>
+        <li>المكتب الوطني لإدارة البيانات (NDMO)</li>
+        <li>هيئة الاتصالات والفضاء والتقنية (CST)</li>
+        <li>هيئة الحكومة الرقمية (DGA)</li>
+      </ul>
+
+      <h3>القطاع المالي</h3>
+      <ul>
+        <li>البنك المركزي السعودي (SAMA)</li>
+        <li>هيئة السوق المالية (CMA)</li>
+        <li>هيئة الزكاة والضريبة والجمارك (ZATCA)</li>
+      </ul>
+
+      <h3>الصحة والدواء</h3>
+      <ul>
+        <li>وزارة الصحة (MoH)</li>
+        <li>الهيئة العامة للغذاء والدواء (SFDA)</li>
+      </ul>
+
+      <h3>الطاقة والمرافق والصناعة</h3>
+      <ul>
+        <li>وزارة الطاقة (MoE)</li>
+        <li>هيئة تنظيم المياه والكهرباء (WERA)</li>
+        <li>وزارة الصناعة والثروة المعدنية (MIM)</li>
+      </ul>
+
+      <h3>القطاع العام والبنية التحتية الحرجة</h3>
+      <ul>
+        <li>وزارة الداخلية (MoI)</li>
+        <li>رئاسة أمن الدولة (PSS)</li>
+        <li>المركز الوطني للأمن السيبراني</li>
+      </ul>
+
+      <h3>المنافسة والمعايير والتجارة</h3>
+      <ul>
+        <li>الهيئة السعودية للمواصفات والمقاييس والجودة (SASO)</li>
+        <li>الهيئة العامة للمنافسة (GAC)</li>
+        <li>وزارة التجارة (MoC)</li>
+        <li>وزارة الاستثمار (MISA)</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frameworks & Regulatory Requirements Matrix</title>
+  <link rel="stylesheet" href="../css/enterprise-design-system.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../Shahin_Vision_Branding_Kit/css/brand.css">
+  <style>
+    body { 
+      font-family: var(--shahin-font-family, system-ui, -apple-system, Segoe UI, Roboto, 'Noto Naskh Arabic', Arial); 
+      margin: 0; 
+      background: var(--shahin-bg-primary, #ffffff); 
+      color: var(--shahin-text-primary, #1f2937); 
+      line-height: 1.6;
+    }
+    .container { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      padding: var(--shahin-space-8, 32px);
+    }
+    .header { 
+      background: linear-gradient(135deg, var(--shahin-primary, #10b981) 0%, var(--shahin-primary-600, #059669) 100%); 
+      color: var(--shahin-text-on-primary, #ffffff); 
+      padding: var(--shahin-space-12, 48px) var(--shahin-space-8, 32px); 
+      text-align: center;
+      margin-bottom: var(--shahin-space-8, 32px);
+    }
+    .header h1 { 
+      font-size: var(--shahin-text-4xl, 2.25rem); 
+      font-weight: var(--shahin-font-weight-bold, 700); 
+      margin: 0 0 var(--shahin-space-4, 16px) 0;
+    }
+    .header p { 
+      font-size: var(--shahin-text-lg, 1.125rem); 
+      opacity: 0.9; 
+      margin: 0;
+    }
+    .content { 
+      background: var(--shahin-bg-surface, #ffffff); 
+      border-radius: var(--shahin-radius-xl, 1rem); 
+      padding: var(--shahin-space-8, 32px); 
+      box-shadow: var(--shahin-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+    }
+    h2 { 
+      color: var(--shahin-primary, #10b981); 
+      font-size: var(--shahin-text-2xl, 1.5rem); 
+      font-weight: var(--shahin-font-weight-semibold, 600); 
+      margin: var(--shahin-space-8, 32px) 0 var(--shahin-space-4, 16px) 0;
+      border-bottom: 2px solid var(--shahin-primary-200, #a7f3d0);
+      padding-bottom: var(--shahin-space-2, 8px);
+    }
+    h3 { 
+      color: var(--shahin-text-primary, #1f2937); 
+      font-size: var(--shahin-text-xl, 1.25rem); 
+      font-weight: var(--shahin-font-weight-semibold, 600); 
+      margin: var(--shahin-space-6, 24px) 0 var(--shahin-space-3, 12px) 0;
+    }
+    .back-link { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: var(--shahin-space-2, 8px); 
+      margin-bottom: var(--shahin-space-6, 24px); 
+      padding: var(--shahin-space-3, 12px) var(--shahin-space-6, 24px); 
+      background: var(--shahin-primary, #10b981); 
+      color: var(--shahin-text-on-primary, #ffffff); 
+      text-decoration: none; 
+      border-radius: var(--shahin-radius-lg, 0.75rem); 
+      font-weight: var(--shahin-font-weight-semibold, 600);
+      transition: all var(--shahin-transition-fast, 150ms ease);
+    }
+    .back-link:hover { 
+      background: var(--shahin-primary-600, #059669); 
+      transform: translateY(-2px);
+    }
+    .highlight { 
+      background: var(--shahin-primary-50, #ecfdf5); 
+      padding: var(--shahin-space-4, 16px); 
+      border-radius: var(--shahin-radius-lg, 0.75rem); 
+      border-left: 4px solid var(--shahin-primary, #10b981);
+      margin: var(--shahin-space-6, 24px) 0;
+    }
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin: var(--shahin-space-6, 24px) 0; 
+      background: var(--shahin-bg-surface, #ffffff);
+      border-radius: var(--shahin-radius-lg, 0.75rem);
+      overflow: hidden;
+      box-shadow: var(--shahin-shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+    }
+    th, td { 
+      padding: var(--shahin-space-4, 16px); 
+      text-align: left; 
+      border-bottom: 1px solid var(--shahin-border-light, #e5e7eb);
+    }
+    th { 
+      background: var(--shahin-gray-50, #f9fafb); 
+      font-weight: var(--shahin-font-weight-semibold, 600); 
+      color: var(--shahin-text-primary, #1f2937);
+    }
+    .requirement-name { 
+      font-weight: var(--shahin-font-weight-semibold, 600); 
+      color: var(--shahin-text-primary, #1f2937);
+    }
+    .requirement-arabic { 
+      color: var(--shahin-text-secondary, #6b7280); 
+      font-style: italic;
+    }
+    .category-badge { 
+      display: inline-block; 
+      padding: var(--shahin-space-1, 4px) var(--shahin-space-3, 12px); 
+      border-radius: var(--shahin-radius-full, 9999px); 
+      font-size: var(--shahin-text-xs, 0.75rem); 
+      font-weight: var(--shahin-font-weight-semibold, 600);
+    }
+    .category-licensing { 
+      background: var(--shahin-primary-100, #d1fae5); 
+      color: var(--shahin-primary-700, #047857);
+    }
+    .category-operational { 
+      background: var(--shahin-blue-100, #dbeafe); 
+      color: var(--shahin-blue-700, #1d4ed8);
+    }
+    .category-reporting { 
+      background: var(--shahin-yellow-100, #fef3c7); 
+      color: var(--shahin-yellow-700, #b45309);
+    }
+    .category-monitoring { 
+      background: var(--shahin-purple-100, #e9d5ff); 
+      color: var(--shahin-purple-700, #7c3aed);
+    }
+    .framework-header { 
+      background: linear-gradient(135deg, var(--shahin-primary, #10b981), var(--shahin-primary-600, #059669)); 
+      color: var(--shahin-text-on-primary, #ffffff); 
+      padding: var(--shahin-space-6, 24px); 
+      border-radius: var(--shahin-radius-lg, 0.75rem); 
+      margin: var(--shahin-space-8, 32px) 0 var(--shahin-space-4, 16px) 0;
+    }
+    .framework-name { 
+      font-size: var(--shahin-text-2xl, 1.5rem); 
+      font-weight: var(--shahin-font-weight-bold, 700); 
+      margin: 0 0 var(--shahin-space-2, 8px) 0;
+    }
+    .framework-arabic { 
+      font-size: var(--shahin-text-lg, 1.125rem); 
+      opacity: 0.9; 
+      margin: 0;
+    }
+    .evidence-section { 
+      background: var(--shahin-gray-50, #f9fafb); 
+      padding: var(--shahin-space-6, 24px); 
+      border-radius: var(--shahin-radius-lg, 0.75rem); 
+      margin: var(--shahin-space-8, 32px) 0;
+    }
+    .evidence-section h3 { 
+      color: var(--shahin-primary, #10b981); 
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="05_SSOT_Navigator.html" class="back-link">← Back to SSOT Navigator</a>
+    
+    <div class="header">
+      <h1>Frameworks & Regulatory Requirements Matrix</h1>
+      <p>AR/EN • Version: 2025 Q3 • Timestamp: 2025-09-23 14:32</p>
+    </div>
+
+    <div class="content">
+      <div class="highlight">
+        <p>Categorized by <strong>Licensing/Authorization</strong>, <strong>Operational Standards</strong>, <strong>Reporting</strong>, <strong>Monitoring & Audit</strong>. Sector applicability is indicated in Paper‑2.</p>
+        <p>The content aligns with the embedded rules in our compliance engine and will be version‑controlled quarterly.</p>
+      </div>
+
+      <div class="framework-header">
+        <div class="framework-name">NCA (National Cybersecurity Authority)</div>
+        <div class="framework-arabic">الهيئة الوطنية للأمن السيبراني</div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Requirement</th>
+            <th>المتطلب</th>
+            <th>Category</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="requirement-name">Cybersecurity Policy</td>
+            <td class="requirement-arabic">سياسة الأمن السيبراني</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>Board‑approved policy</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Risk Assessment (annual)</td>
+            <td class="requirement-arabic">تقييم مخاطر سنوي</td>
+            <td><span class="category-badge category-monitoring">Monitoring & Audit</span></td>
+            <td>Annual enterprise risk assessment</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Incident Reporting (24h to NCA)</td>
+            <td class="requirement-arabic">الإبلاغ عن الحوادث خلال ٢٤ ساعة</td>
+            <td><span class="category-badge category-reporting">Reporting</span></td>
+            <td>Major incident notification within 24h</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Access Control (MFA)</td>
+            <td class="requirement-arabic">التحكم في الوصول (تحقق متعدد العوامل)</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>MFA for critical systems</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Data Protection (encryption)</td>
+            <td class="requirement-arabic">حماية البيانات (تشفير)</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>At rest and in transit</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Third‑party Risk</td>
+            <td class="requirement-arabic">مخاطر الأطراف الثالثة</td>
+            <td><span class="category-badge category-monitoring">Monitoring & Audit</span></td>
+            <td>Vendor security assessment</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Security Awareness (annual)</td>
+            <td class="requirement-arabic">توعية أمنية سنوية</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>All employees</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Business Continuity (BCP test x2/yr)</td>
+            <td class="requirement-arabic">استمرارية الأعمال (اختبار مرتين سنوياً)</td>
+            <td><span class="category-badge category-monitoring">Monitoring & Audit</span></td>
+            <td>BCP tests twice yearly</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="framework-header">
+        <div class="framework-name">SAMA (Saudi Central Bank)</div>
+        <div class="framework-arabic">البنك المركزي السعودي</div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Requirement</th>
+            <th>المتطلب</th>
+            <th>Category</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="requirement-name">Cyber Resilience Framework</td>
+            <td class="requirement-arabic">إطار المرونة السيبرانية</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>End‑to‑end resilience practices</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Fraud Management (real‑time)</td>
+            <td class="requirement-arabic">إدارة الاحتيال (آني)</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>Real‑time monitoring</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Data Localization (KSA)</td>
+            <td class="requirement-arabic">توطن البيانات داخل المملكة</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>Customer data stored in KSA</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Open Banking API Security</td>
+            <td class="requirement-arabic">أمن واجهات برمجة التطبيقات المصرفية المفتوحة</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>API standards & governance</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Payment Security (PCI‑DSS)</td>
+            <td class="requirement-arabic">أمن المدفوعات (PCI‑DSS)</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>Cardholder data protection</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Audit Trail (complete)</td>
+            <td class="requirement-arabic">سجل تدقيق كامل</td>
+            <td><span class="category-badge category-monitoring">Monitoring & Audit</span></td>
+            <td>Immutable audit logs</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Customer Protection</td>
+            <td class="requirement-arabic">حماية العملاء</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>Privacy & fair treatment</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Regulatory Reporting (monthly)</td>
+            <td class="requirement-arabic">تقارير تنظيمية شهرية</td>
+            <td><span class="category-badge category-reporting">Reporting</span></td>
+            <td>Submission to SAMA</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="framework-header">
+        <div class="framework-name">PDPL (Personal Data Protection Law)</div>
+        <div class="framework-arabic">نظام حماية البيانات الشخصية</div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Requirement</th>
+            <th>المتطلب</th>
+            <th>Category</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="requirement-name">Data Classification</td>
+            <td class="requirement-arabic">تصنيف البيانات الشخصية</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>Data inventory & classification</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Consent Management</td>
+            <td class="requirement-arabic">إدارة الموافقات الصريحة</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>Explicit consent for processing</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Data Subject Rights</td>
+            <td class="requirement-arabic">حقوق أصحاب البيانات</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>Access/erasure/rectification</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Breach Notification (72h)</td>
+            <td class="requirement-arabic">الإخطار عن خرق خلال ٧٢ ساعة</td>
+            <td><span class="category-badge category-reporting">Reporting</span></td>
+            <td>Notify authority/subjects</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Privacy Impact Assessment (PIA)</td>
+            <td class="requirement-arabic">تقييم أثر الخصوصية</td>
+            <td><span class="category-badge category-monitoring">Monitoring & Audit</span></td>
+            <td>For high‑risk processing</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Data Retention & Deletion</td>
+            <td class="requirement-arabic">الاحتفاظ والحذف</td>
+            <td><span class="category-badge category-operational">Operational Standard</span></td>
+            <td>Policy & enforcement</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Cross‑border Transfer Rules</td>
+            <td class="requirement-arabic">نقل البيانات عبر الحدود</td>
+            <td><span class="category-badge category-licensing">Licensing/Authorization</span></td>
+            <td>Approvals/adequacy/clauses</td>
+          </tr>
+          <tr>
+            <td class="requirement-name">Data Protection Officer</td>
+            <td class="requirement-arabic">تعيين مسؤول حماية البيانات</td>
+            <td><span class="category-badge category-licensing">Licensing/Authorization</span></td>
+            <td>Appoint DPO where applicable</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="evidence-section">
+        <h3>Evidence & Verification</h3>
+        <ul>
+          <li><strong>Responsible parties:</strong> CISO/CRO (NCA, SAMA), DPO/Privacy Office (PDPL).</li>
+          <li><strong>Verification methods:</strong> policy review, configuration checks, log sampling, test results, training records.</li>
+          <li><strong>Timelines:</strong> incident (24h NCA; 72h PDPL), recurring audits (annual; BCP twice yearly), SAMA monthly reports.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

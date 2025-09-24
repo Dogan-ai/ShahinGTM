@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DoganConsult — KSA GRC Market Presentation</title>
+  
+  <!-- Google Fonts for Enhanced Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/enterprise-design-system.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../Shahin_Vision_Branding_Kit/css/brand.css">
+  <style>
+    /* DOGAN AI COMPLIANCE PLATFORM - UNIFIED DESIGN SYSTEM */
+    :root {
+        /* Brand Colors */
+        --primary-50: #eff6ff;
+        --primary-100: #dbeafe;
+        --primary-200: #bfdbfe;
+        --primary-300: #93c5fd;
+        --primary-400: #60a5fa;
+        --primary-500: #3b82f6;
+        --primary-600: #2563eb;
+        --primary-700: #1d4ed8;
+        --primary-800: #1e40af;
+        --primary-900: #1e3a8a;
+        
+        /* Neutral Colors */
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+        
+        /* Text Colors */
+        --text-primary: #1a1a1a;
+        --text-secondary: #4b5563;
+        --text-muted: #6b7280;
+        --text-light: #9ca3af;
+        --background-primary: #ffffff;
+        --background-secondary: #f8fafc;
+        --background-tertiary: #f1f5f9;
+        --border-light: #e5e7eb;
+        --border-medium: #d1d5db;
+        
+        /* Semantic Colors */
+        --success: #10b981;
+        --warning: #f59e0b;
+        --error: #ef4444;
+        --info: #3b82f6;
+        
+        /* Alpha Colors */
+        --primary-600-alpha: rgba(37, 99, 235, 0.9);
+        
+        /* Shadows & Effects */
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        
+        /* Modern Typography System - Arabic & English Optimized */
+        --font-family-arabic: 'Noto Sans Arabic', 'Cairo', 'Amiri', 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+        --font-family-english: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+        --font-family-mixed: 'Inter', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        --font-family-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+        
+        /* Font Sizes */
+        --font-size-xs: 0.75rem;    /* 12px */
+        --font-size-sm: 0.875rem;   /* 14px */
+        --font-size-base: 1rem;     /* 16px */
+        --font-size-lg: 1.125rem;   /* 18px */
+        --font-size-xl: 1.25rem;    /* 20px */
+        --font-size-2xl: 1.5rem;    /* 24px */
+        --font-size-3xl: 1.875rem;  /* 30px */
+        --font-size-4xl: 2.25rem;   /* 36px */
+        --font-size-5xl: 3rem;      /* 48px */
+        
+        /* Font Weights */
+        --font-weight-light: 300;
+        --font-weight-normal: 400;
+        --font-weight-medium: 500;
+        --font-weight-semibold: 600;
+        --font-weight-bold: 700;
+        --font-weight-extrabold: 800;
+        
+        /* Line Heights */
+        --line-height-tight: 1.25;
+        --line-height-snug: 1.375;
+        --line-height-normal: 1.5;
+        --line-height-relaxed: 1.625;
+        --line-height-loose: 2;
+        
+        /* Spacing System */
+        --spacing-1: 0.25rem;   /* 4px */
+        --spacing-2: 0.5rem;    /* 8px */
+        --spacing-3: 0.75rem;   /* 12px */
+        --spacing-4: 1rem;      /* 16px */
+        --spacing-5: 1.25rem;   /* 20px */
+        --spacing-6: 1.5rem;    /* 24px */
+        --spacing-8: 2rem;      /* 32px */
+        --spacing-10: 2.5rem;   /* 40px */
+        --spacing-12: 3rem;     /* 48px */
+        --spacing-16: 4rem;     /* 64px */
+        
+        /* Border Radius */
+        --radius-sm: 0.25rem;
+        --radius-md: 0.375rem;
+        --radius-lg: 0.5rem;
+        --radius-xl: 0.75rem;
+        --radius-2xl: 1rem;
+        --radius-full: 9999px;
+        
+        /* Transitions */
+        --transition-fast: 150ms ease;
+        --transition-normal: 300ms ease;
+        --transition-slow: 500ms ease;
+    }
+
+    body { 
+      font-family: var(--font-family-mixed);
+      margin: 0; 
+      background: var(--background-primary); 
+      color: var(--text-primary); 
+      line-height: var(--line-height-normal);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    
+    /* Enhanced Typography for Arabic & English */
+    .arabic-text, [lang="ar"] {
+        font-family: var(--font-family-arabic);
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.01em;
+    }
+
+    .english-text, [lang="en"] {
+        font-family: var(--font-family-english);
+        letter-spacing: -0.01em;
+    }
+
+    /* Smart Mixed Language Support */
+    .mixed-content {
+        font-family: var(--font-family-mixed);
+    }
+    
+    .presentation-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: var(--spacing-8);
+    }
+    
+    .presentation-header {
+      background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
+      color: white;
+      padding: var(--spacing-12) var(--spacing-8);
+      text-align: center;
+      border-radius: var(--radius-2xl);
+      margin-bottom: var(--spacing-8);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .presentation-title {
+      font-size: var(--font-size-4xl);
+      font-weight: var(--font-weight-bold);
+      margin: 0 0 var(--spacing-4) 0;
+      font-family: var(--font-family-mixed);
+    }
+    
+    .presentation-subtitle {
+      font-size: var(--font-size-xl);
+      opacity: 0.9;
+      margin: 0 0 var(--spacing-6) 0;
+      font-family: var(--font-family-mixed);
+    }
+    
+    .presentation-duration {
+      background: rgba(255, 255, 255, 0.2);
+      padding: var(--spacing-2) var(--spacing-4);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semibold);
+      display: inline-block;
+      backdrop-filter: blur(8px);
+    }
+    
+    .slide {
+      background: var(--background-primary);
+      border-radius: var(--radius-2xl);
+      padding: var(--spacing-8);
+      margin-bottom: var(--spacing-6);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-light);
+      transition: all var(--transition-normal);
+    }
+    
+    .slide:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary-200);
+    }
+    
+    .slide-number {
+      background: var(--primary-100);
+      color: var(--primary-700);
+      padding: var(--spacing-1) var(--spacing-3);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-semibold);
+      display: inline-block;
+      margin-bottom: var(--spacing-4);
+    }
+    
+    .slide-title {
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--primary-600);
+      margin: 0 0 var(--spacing-4) 0;
+      border-bottom: 2px solid var(--primary-200);
+      padding-bottom: var(--spacing-2);
+      font-family: var(--font-family-mixed);
+    }
+    
+    .slide-content {
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-relaxed);
+      color: var(--text-primary);
+      font-family: var(--font-family-mixed);
+    }
+    
+    .highlight-box {
+      background: var(--shahin-primary-50, #ecfdf5);
+      border: 1px solid var(--shahin-primary-200, #a7f3d0);
+      border-radius: var(--shahin-radius-lg, 0.75rem);
+      padding: var(--shahin-space-6, 24px);
+      margin: var(--shahin-space-6, 24px) 0;
+    }
+    
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--spacing-6);
+      margin: var(--spacing-6) 0;
+    }
+    
+    .stat-card {
+      background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%);
+      border: 1px solid var(--primary-200);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-6);
+      text-align: center;
+      transition: all var(--transition-normal);
+      backdrop-filter: blur(8px);
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary-300);
+      background: linear-gradient(135deg, var(--primary-100) 0%, var(--primary-200) 100%);
+    }
+    
+    .stat-number {
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--primary-600);
+      margin-bottom: var(--spacing-2);
+      font-family: var(--font-family-mono);
+    }
+    
+    .stat-label {
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+      font-weight: var(--font-weight-medium);
+      font-family: var(--font-family-mixed);
+    }
+    
+    .pain-point {
+      background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+      border: 1px solid #fecaca;
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-6);
+      margin: var(--spacing-3) 0;
+      box-shadow: var(--shadow-md);
+      border-left: 4px solid #ef4444;
+      transition: all var(--transition-normal);
+    }
+    
+    .pain-point:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .pain-point.high {
+      border-left-color: #f59e0b;
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border-color: #fde68a;
+    }
+    
+    .pain-point.medium {
+      border-left-color: #eab308;
+      background: linear-gradient(135deg, #fefce8 0%, #fef08a 100%);
+      border-color: #fde047;
+    }
+    
+    .pain-point-title {
+      font-weight: var(--font-weight-semibold);
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-2);
+      font-family: var(--font-family-mixed);
+    }
+    
+    .pain-point-description {
+      color: var(--text-secondary);
+      font-size: var(--font-size-sm);
+      font-family: var(--font-family-mixed);
+    }
+    
+    .value-prop {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border: 1px solid #bbf7d0;
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-6);
+      margin: var(--spacing-6) 0;
+      border-left: 4px solid #4ade80;
+      transition: all var(--transition-normal);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .value-prop:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .value-prop-title {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      color: #15803d;
+      margin-bottom: var(--spacing-4);
+      font-family: var(--font-family-mixed);
+    }
+    
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
+      color: white;
+      padding: var(--spacing-12);
+      border-radius: var(--radius-2xl);
+      text-align: center;
+      margin-top: var(--spacing-12);
+      box-shadow: var(--shadow-xl);
+      backdrop-filter: blur(8px);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+      animation: shimmer 3s infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    .cta-title {
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--spacing-4);
+      font-family: var(--font-family-mixed);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-2);
+      background: white;
+      color: var(--primary-600);
+      padding: var(--spacing-4) var(--spacing-8);
+      border-radius: var(--radius-xl);
+      text-decoration: none;
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size-lg);
+      transition: all var(--transition-normal);
+      margin: var(--spacing-2);
+      position: relative;
+      z-index: 1;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+      background: var(--gray-50);
+    }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--shahin-space-2, 8px);
+      margin-bottom: var(--shahin-space-6, 24px);
+      padding: var(--shahin-space-3, 12px) var(--shahin-space-6, 24px);
+      background: var(--shahin-primary, #10b981);
+      color: var(--shahin-text-on-primary, #ffffff);
+      text-decoration: none;
+      border-radius: var(--shahin-radius-lg, 0.75rem);
+      font-weight: var(--shahin-font-weight-semibold, 600);
+      transition: all var(--shahin-transition-fast, 150ms ease);
+    }
+    
+    .back-link:hover {
+      background: var(--shahin-primary-600, #059669);
+      transform: translateY(-2px);
+    }
+    
+    .timeline {
+      position: relative;
+      padding-left: var(--shahin-space-8, 32px);
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: var(--shahin-space-4, 16px);
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--shahin-primary, #10b981);
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: var(--shahin-space-6, 24px);
+      padding-left: var(--shahin-space-6, 24px);
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -var(--shahin-space-6, -24px);
+      top: var(--shahin-space-2, 8px);
+      width: 12px;
+      height: 12px;
+      background: var(--shahin-primary, #10b981);
+      border-radius: 50%;
+      border: 3px solid var(--shahin-bg-surface, #ffffff);
+    }
+    
+    .timeline-title {
+      font-weight: var(--shahin-font-weight-semibold, 600);
+      color: var(--shahin-text-primary, #1f2937);
+      margin-bottom: var(--shahin-space-1, 4px);
+    }
+    
+    .timeline-description {
+      color: var(--shahin-text-secondary, #6b7280);
+      font-size: var(--shahin-text-sm, 0.875rem);
+    }
+    
+    @media (max-width: 768px) {
+      .presentation-container {
+        padding: var(--shahin-space-4, 16px);
+      }
+      
+      .presentation-title {
+        font-size: var(--shahin-text-3xl, 1.875rem);
+      }
+      
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .slide {
+        padding: var(--shahin-space-6, 24px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="presentation-container">
+    <a href="05_SSOT_Navigator.html" class="back-link">← Back to SSOT Navigator</a>
+    
+    <div class="presentation-header">
+      <h1 class="presentation-title">KSA GRC Market Needs & Our Value Proposition</h1>
+      <p class="presentation-subtitle">30-Minute Executive Presentation</p>
+      <span class="presentation-duration">⏱️ 30 Minutes</span>
+    </div>
+
+    <!-- Slide 1: Opening -->
+    <div class="slide">
+      <div class="slide-number">Slide 1 of 12</div>
+      <h2 class="slide-title">Welcome & Agenda</h2>
+      <div class="slide-content">
+        <p><strong>Thank you for your time today.</strong></p>
+        <p>In the next 30 minutes, we'll explore:</p>
+        <ul>
+          <li>Current GRC market challenges in Saudi Arabia</li>
+          <li>Critical pain points organizations face</li>
+          <li>Our unique solution and value proposition</li>
+          <li>How we can help your organization succeed</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Key Question:</strong> How can we help you reduce compliance costs while improving audit readiness?</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Market Overview -->
+    <div class="slide">
+      <div class="slide-number">Slide 2 of 12</div>
+      <h2 class="slide-title">KSA GRC Market Overview</h2>
+      <div class="slide-content">
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-number">$175M</div>
+            <div class="stat-label">Current Market Size</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">18%</div>
+            <div class="stat-label">Annual Growth Rate</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">$400M+</div>
+            <div class="stat-label">Projected 2030 Size</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">300%</div>
+            <div class="stat-label">Ransomware Increase</div>
+          </div>
+        </div>
+        <div class="highlight-box">
+          <p><strong>Market Driver:</strong> Vision 2030 digital transformation is accelerating GRC demand across all sectors.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Critical Pain Points -->
+    <div class="slide">
+      <div class="slide-number">Slide 3 of 12</div>
+      <h2 class="slide-title">Top 8 Critical Pain Points</h2>
+      <div class="slide-content">
+        <div class="pain-point">
+          <div class="pain-point-title">1. Regulatory Complexity (73% struggle)</div>
+          <div class="pain-point-description">Multiple overlapping bodies: SAMA, NCA, SDAIA, CMA causing 25% annual cost increase</div>
+        </div>
+        <div class="pain-point">
+          <div class="pain-point-title">2. High Implementation Costs (60% over budget)</div>
+          <div class="pain-point-description">$100K-$2M+ initial investment with unclear ROI, especially challenging for SMEs</div>
+        </div>
+        <div class="pain-point high">
+          <div class="pain-point-title">3. Data Integration Challenges (45% delayed)</div>
+          <div class="pain-point-description">Fragmented legacy systems prevent unified GRC visibility, 6-12 month delays</div>
+        </div>
+        <div class="pain-point">
+          <div class="pain-point-title">4. Cybersecurity Threats (180+ attacks in 2023)</div>
+          <div class="pain-point-description">300% increase in ransomware, urgent need for integrated security GRC</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: More Pain Points -->
+    <div class="slide">
+      <div class="slide-number">Slide 4 of 12</div>
+      <h2 class="slide-title">Additional Critical Challenges</h2>
+      <div class="slide-content">
+        <div class="pain-point high">
+          <div class="pain-point-title">5. Talent Shortage (15% Saudi nationals)</div>
+          <div class="pain-point-description">6-month average vacancy, 50% salary premium for experienced professionals</div>
+        </div>
+        <div class="pain-point medium">
+          <div class="pain-point-title">6. Cultural Resistance (65% prefer manual)</div>
+          <div class="pain-point-description">Slow adoption of digital GRC tools, extensive change management required</div>
+        </div>
+        <div class="pain-point high">
+          <div class="pain-point-title">7. Language Barriers</div>
+          <div class="pain-point-description">Most GRC tools only in English, limited adoption in Arabic-speaking organizations</div>
+        </div>
+        <div class="pain-point medium">
+          <div class="pain-point-title">8. Vendor Lock-in</div>
+          <div class="pain-point-description">Proprietary systems limit flexibility, high costs and risks when changing</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5: Customer Impact -->
+    <div class="slide">
+      <div class="slide-number">Slide 5 of 12</div>
+      <h2 class="slide-title">Real Customer Impact</h2>
+      <div class="slide-content">
+        <div class="highlight-box">
+          <h3 style="color: var(--shahin-primary, #10b981); margin-top: 0;">Customer Testimonials</h3>
+          <blockquote style="font-style: italic; margin: var(--shahin-space-4, 16px) 0;">
+            "Compliance costs have tripled in the last 2 years"<br>
+            <strong>— CRO, Major Bank</strong>
+          </blockquote>
+          <blockquote style="font-style: italic; margin: var(--shahin-space-4, 16px) 0;">
+            "We need Arabic-language GRC tools for our staff"<br>
+            <strong>— CIO, Hospital Group</strong>
+          </blockquote>
+          <blockquote style="font-style: italic; margin: var(--shahin-space-4, 16px) 0;">
+            "Integration with legacy systems is our biggest challenge"<br>
+            <strong>— CISO, Government Agency</strong>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Our Solution -->
+    <div class="slide">
+      <div class="slide-number">Slide 6 of 12</div>
+      <h2 class="slide-title">Our Unique Solution</h2>
+      <div class="slide-content">
+        <div class="value-prop">
+          <div class="value-prop-title">KSA-Native GRC Platform</div>
+          <p>The only bilingual (AR/EN), KSA-first compliance engine that ships audit-ready reports in days, not months.</p>
+        </div>
+        
+        <h3 style="color: var(--shahin-primary, #10b981); margin: var(--shahin-space-6, 24px) 0 var(--shahin-space-4, 16px) 0;">Key Differentiators</h3>
+        <ul>
+          <li><strong>KSA-Native Frameworks:</strong> NCA, SAMA, PDPL out-of-the-box + international mapping</li>
+          <li><strong>Evidence-to-Control Traceability:</strong> Complete audit trail and bilingual outputs</li>
+          <li><strong>Advanced Analytics:</strong> Powered by DuckDB/Polars for real-time insights</li>
+          <li><strong>Audit-Ready Exports:</strong> PDF/Excel/JSON and API-first integration</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Slide 7: Value Proposition -->
+    <div class="slide">
+      <div class="slide-number">Slide 7 of 12</div>
+      <h2 class="slide-title">Value We Deliver</h2>
+      <div class="slide-content">
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-number">40%</div>
+            <div class="stat-label">Lower TCO</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">4-6</div>
+            <div class="stat-label">Weeks Pilot</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Bilingual Support</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">24h</div>
+            <div class="stat-label">Incident Response</div>
+          </div>
+        </div>
+        
+        <div class="highlight-box">
+          <h3 style="color: var(--shahin-primary, #10b981); margin-top: 0;">Core Value Drivers</h3>
+          <ul>
+            <li><strong>Reduce Audit Risk:</strong> Automated controls and evidence traceability</li>
+            <li><strong>Accelerate Approvals:</strong> Regulator-ready outputs and compliance reports</li>
+            <li><strong>Shorten Assessments:</strong> Pre-built frameworks and templates</li>
+            <li><strong>Cost Savings:</strong> 40% lower total cost of ownership</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 8: Target Sectors -->
+    <div class="slide">
+      <div class="slide-number">Slide 8 of 12</div>
+      <h2 class="slide-title">Ideal Customer Profiles</h2>
+      <div class="slide-content">
+        <div class="stat-grid">
+          <div class="stat-card">
+            <h4 style="color: var(--shahin-primary, #10b981); margin: 0 0 var(--shahin-space-2, 8px) 0;">Banking/Fintech</h4>
+            <p style="font-size: var(--shahin-text-sm, 0.875rem); margin: 0;">SAMA-regulated<br>CISO, CRO, Head of Compliance</p>
+          </div>
+          <div class="stat-card">
+            <h4 style="color: var(--shahin-primary, #10b981); margin: 0 0 var(--shahin-space-2, 8px) 0;">Government</h4>
+            <p style="font-size: var(--shahin-text-sm, 0.875rem); margin: 0;">Smart City initiatives<br>CIO, Head of Information Security</p>
+          </div>
+          <div class="stat-card">
+            <h4 style="color: var(--shahin-primary, #10b981); margin: 0 0 var(--shahin-space-2, 8px) 0;">Healthcare</h4>
+            <p style="font-size: var(--shahin-text-sm, 0.875rem); margin: 0;">Data protection focus<br>CIO, DPO, Quality/Accreditation</p>
+          </div>
+          <div class="stat-card">
+            <h4 style="color: var(--shahin-primary, #10b981); margin: 0 0 var(--shahin-space-2, 8px) 0;">Energy/Utilities</h4>
+            <p style="font-size: var(--shahin-text-sm, 0.875rem); margin: 0;">OT/ICS Security<br>CISO, Risk Director</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 9: Implementation Timeline -->
+    <div class="slide">
+      <div class="slide-number">Slide 9 of 12</div>
+      <h2 class="slide-title">Implementation Timeline</h2>
+      <div class="slide-content">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-title">Week 1-2: Discovery & Setup</div>
+            <div class="timeline-description">Regulatory fit check, gap analysis, pilot environment setup</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-title">Week 3-6: Pilot Implementation</div>
+            <div class="timeline-description">Top 40 controls, 1 business unit, bilingual reporting</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-title">Week 7-10: Production Rollout</div>
+            <div class="timeline-description">Full framework deployment, training, go-live support</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-title">Ongoing: Quarterly Updates</div>
+            <div class="timeline-description">Regulatory updates, new frameworks, continuous improvement</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 10: Pricing & ROI -->
+    <div class="slide">
+      <div class="slide-number">Slide 10 of 12</div>
+      <h2 class="slide-title">Pricing & ROI</h2>
+      <div class="slide-content">
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-number">FREE</div>
+            <div class="stat-label">Regulatory Fit Check</div>
+            <p style="font-size: var(--shahin-text-xs, 0.75rem); margin: var(--shahin-space-2, 8px) 0 0 0;">1 week, 10 priority controls</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">SAR 120-180K</div>
+            <div class="stat-label">Pilot (4-6 weeks)</div>
+            <p style="font-size: var(--shahin-text-xs, 0.75rem); margin: var(--shahin-space-2, 8px) 0 0 0;">Top 40 controls, 1 business unit</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">SAR 450-750K</div>
+            <div class="stat-label">Production Yr-1</div>
+            <p style="font-size: var(--shahin-text-xs, 0.75rem); margin: var(--shahin-space-2, 8px) 0 0 0;">All frameworks, support, updates</p>
+          </div>
+        </div>
+        
+        <div class="highlight-box">
+          <h3 style="color: var(--shahin-primary, #10b981); margin-top: 0;">ROI Calculation</h3>
+          <ul>
+            <li><strong>Cost Reduction:</strong> 40% lower TCO vs. competitors</li>
+            <li><strong>Time Savings:</strong> 6-12 months faster implementation</li>
+            <li><strong>Risk Mitigation:</strong> Reduced audit findings and penalties</li>
+            <li><strong>Efficiency Gains:</strong> Automated reporting and compliance monitoring</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 11: Success Stories -->
+    <div class="slide">
+      <div class="slide-number">Slide 11 of 12</div>
+      <h2 class="slide-title">Success Metrics & KPIs</h2>
+      <div class="slide-content">
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-number">90%</div>
+            <div class="stat-label">Faster Compliance</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">60%</div>
+            <div class="stat-label">Cost Reduction</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Audit Readiness</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Monitoring</div>
+          </div>
+        </div>
+        
+        <div class="highlight-box">
+          <h3 style="color: var(--shahin-primary, #10b981); margin-top: 0;">90-Day Launch Plan</h3>
+          <ul>
+            <li><strong>Weeks 1-2:</strong> Finalize SSOT pack, shortlist 10 targets, book 6 discovery sessions</li>
+            <li><strong>Weeks 3-6:</strong> Run 2 paid pilots, deliver evidence readouts, collect testimonials</li>
+            <li><strong>Weeks 7-10:</strong> Scale via partners, publish benchmarks, convert pilots to Yr-1</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 12: Call to Action -->
+    <div class="slide">
+      <div class="slide-number">Slide 12 of 12</div>
+      <h2 class="slide-title">Next Steps</h2>
+      <div class="slide-content">
+        <div class="cta-section">
+          <h3 class="cta-title">Ready to Transform Your GRC?</h3>
+          <p style="font-size: var(--shahin-text-lg, 1.125rem); margin-bottom: var(--shahin-space-6, 24px); opacity: 0.9;">
+            Let's start with a FREE Regulatory Fit Check to identify your immediate opportunities.
+          </p>
+          <a href="mailto:contact@doganconsult.com?subject=GRC%20Fit%20Check%20Request" class="cta-button">
+            📧 Schedule Fit Check
+          </a>
+          <a href="tel:+966501234567" class="cta-button">
+            📞 Call Now
+          </a>
+        </div>
+        
+        <div class="highlight-box">
+          <h3 style="color: var(--shahin-primary, #10b981); margin-top: 0;">What Happens Next?</h3>
+          <ol>
+            <li><strong>Free Fit Check:</strong> 10 priority controls across NCA/SAMA/PDPL</li>
+            <li><strong>Gap Analysis:</strong> Detailed report with recommendations</li>
+            <li><strong>Pilot Proposal:</strong> Customized 4-6 week pilot plan</li>
+            <li><strong>Implementation:</strong> Full production deployment</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Resources -->
+    <div class="slide">
+      <div class="slide-number">Resources</div>
+      <h2 class="slide-title">Additional Resources</h2>
+      <div class="slide-content">
+        <div class="stat-grid">
+          <div class="stat-card">
+            <h4 style="color: var(--shahin-primary, #10b981); margin: 0 0 var(--shahin-space-2, 8px) 0;">Interactive Demo</h4>
+            <p style="font-size: var(--shahin-text-sm, 0.875rem); margin: 0;">Experience our platform live</p>
+          </div>
+          <div class="stat-card">
+            <h4 style="color: var(--shahin-primary, #10b981); margin: 0 0 var(--shahin-space-2, 8px) 0;">Case Studies</h4>
+            <p style="font-size: var(--shahin-text-sm, 0.875rem); margin: 0;">Real customer success stories</p>
+          </div>
+          <div class="stat-card">
+            <h4 style="color: var(--shahin-primary, #10b981); margin: 0 0 var(--shahin-space-2, 8px) 0;">White Papers</h4>
+            <p style="font-size: var(--shahin-text-sm, 0.875rem); margin: 0;">Deep dive into GRC best practices</p>
+          </div>
+          <div class="stat-card">
+            <h4 style="color: var(--shahin-primary, #10b981); margin: 0 0 var(--shahin-space-2, 8px) 0;">Webinar Series</h4>
+            <p style="font-size: var(--shahin-text-sm, 0.875rem); margin: 0;">Monthly GRC insights and updates</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple presentation navigation
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        // Next slide logic could be added here
+        console.log('Next slide');
+      } else if (e.key === 'ArrowLeft') {
+        // Previous slide logic could be added here
+        console.log('Previous slide');
+      }
+    });
+  </script>
+</body>
+</html>
