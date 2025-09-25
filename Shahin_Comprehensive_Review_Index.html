@@ -344,41 +344,60 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             color: white;
-            padding: 1rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 212, 170, 0.3);
             z-index: 1000;
-            transition: all 0.3s ease;
-            opacity: 0.7;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.2;
+            transform: translateX(80%) scale(0.8);
+            max-width: 200px;
+            overflow: hidden;
         }
 
         .shortcuts-panel:hover {
             opacity: 1;
-            transform: scale(1.05);
+            transform: translateX(0) scale(1);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.2);
+            border-color: rgba(0, 212, 170, 0.6);
         }
 
         .shortcuts-title {
             font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #10b981;
+            margin-bottom: 0.3rem;
+            color: #00d4aa;
+            font-size: 0.65rem;
+            text-align: center;
+            opacity: 0.8;
         }
 
         .shortcut-item {
             display: flex;
             justify-content: space-between;
-            margin: 0.2rem 0;
+            margin: 0.1rem 0;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .shortcut-item span:first-child {
+            font-size: 0.6rem;
+            opacity: 0.9;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .shortcut-key {
-            background: #374151;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
+            background: rgba(0, 212, 170, 0.2);
+            color: #00d4aa;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
             font-family: monospace;
-            font-size: 0.7rem;
+            font-size: 0.55rem;
+            border: 1px solid rgba(0, 212, 170, 0.3);
         }
 
         .progress-indicator {
@@ -478,42 +497,13 @@
             display: none;
         }
 
-        /* Floating controls styles */
+        /* Floating controls styles - HIDDEN */
         .floating-controls {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 1000;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-        .floating-controls:hover {
-            opacity: 1;
+            display: none !important;
         }
 
         .floating-control {
-            width: 50px;
-            height: 50px;
-            background: rgba(16, 185, 129, 0.9);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .floating-control:hover {
-            background: rgba(16, 185, 129, 1);
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            display: none !important;
         }
 
         /* Mini map styles */
@@ -899,274 +889,7 @@
             }
         }
 
-        /* Keyboard Shortcuts Overlay */
-        .shortcuts-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 10000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
 
-        .shortcuts-overlay.active {
-            display: flex;
-        }
-
-        .shortcuts-container {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            padding: 2rem;
-            max-width: 90vw;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-        }
-
-        .shortcuts-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: white;
-        }
-
-        .shortcuts-header h2 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .shortcuts-header p {
-            opacity: 0.8;
-            font-size: 1.1rem;
-        }
-
-        .shortcuts-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: rgba(255, 59, 48, 0.8);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            font-size: 1.8rem;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            z-index: 10001;
-        }
-
-        .shortcuts-close:hover,
-        .shortcuts-close:active {
-            background: rgba(255, 59, 48, 1);
-            transform: scale(1.1);
-            box-shadow: 0 4px 20px rgba(255, 59, 48, 0.4);
-        }
-
-        /* Mobile-specific improvements for close button */
-        @media (max-width: 768px) {
-            .shortcuts-close {
-                width: 60px;
-                height: 60px;
-                font-size: 2rem;
-                top: 10px;
-                right: 15px;
-                background: rgba(255, 59, 48, 0.9);
-            }
-        }
-
-        .shortcuts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .shortcuts-section {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 1.5rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .shortcuts-section h3 {
-            color: white;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .shortcut-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 16px;
-            margin: 8px 0;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 1px solid transparent;
-            min-height: 50px;
-        }
-
-        .shortcut-item:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .shortcut-item:active {
-            transform: scale(0.98);
-        }
-
-        .shortcut-action {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: white;
-            font-size: 1rem;
-        }
-
-        .shortcut-icon {
-            font-size: 1.2rem;
-            width: 24px;
-            text-align: center;
-            color: #00d4aa;
-        }
-
-        .shortcut-key {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            font-size: 0.9rem;
-            min-width: 32px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .shortcuts-help {
-            background: rgba(16, 185, 129, 0.2);
-            border-radius: 15px;
-            padding: 1.5rem;
-            text-align: center;
-            color: white;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .shortcuts-help h4 {
-            margin-bottom: 1rem;
-            color: #00d4aa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .shortcuts-help p {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        /* Mobile optimizations for shortcuts overlay */
-        @media (max-width: 768px) {
-            .shortcuts-container {
-                padding: 1.5rem;
-                margin: 10px;
-                max-width: calc(100vw - 20px);
-                max-height: calc(100vh - 20px);
-            }
-
-            .shortcuts-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .shortcuts-header h2 {
-                font-size: 1.5rem;
-            }
-
-            .shortcut-item {
-                padding: 16px;
-                min-height: 60px;
-            }
-
-            .shortcut-action {
-                font-size: 1.1rem;
-            }
-
-            .shortcut-icon {
-                font-size: 1.4rem;
-            }
-
-            .shortcut-key {
-                padding: 8px 12px;
-                font-size: 1rem;
-            }
-        }
-
-        /* Keyboard shortcut trigger button */
-        .shortcuts-trigger {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #00d4aa, #10b981);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0, 212, 170, 0.4);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .shortcuts-trigger:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(0, 212, 170, 0.6);
-        }
-
-        .shortcuts-trigger:active {
-            transform: scale(0.95);
-        }
-
-        @media (max-width: 768px) {
-            .shortcuts-trigger {
-                width: 70px;
-                height: 70px;
-                font-size: 1.7rem;
-                bottom: 30px;
-                right: 30px;
-            }
-        }
 
 
     </style>
@@ -1356,23 +1079,23 @@
     <!-- Progress Indicator -->
     <div id="progress-indicator" class="progress-indicator"></div>
 
-    <!-- Keyboard Shortcuts Panel -->
-    <div class="shortcuts-panel">
-        <div class="shortcuts-title">⌨️ Keyboard Shortcuts</div>
+    <!-- Smart Keyboard Shortcuts Panel -->
+    <div class="shortcuts-panel" title="Hover to see shortcuts">
+        <div class="shortcuts-title">⌨️ Quick Nav</div>
         <div class="shortcut-item">
             <span>Home</span>
-            <span class="shortcut-key">ESC / H</span>
+            <span class="shortcut-key">H</span>
         </div>
         <div class="shortcut-item">
-            <span>Architecture</span>
+            <span>Arch</span>
             <span class="shortcut-key">1</span>
         </div>
         <div class="shortcut-item">
-            <span>Market Analysis</span>
+            <span>Market</span>
             <span class="shortcut-key">2</span>
         </div>
         <div class="shortcut-item">
-            <span>Regulations</span>
+            <span>Rules</span>
             <span class="shortcut-key">3</span>
         </div>
         <div class="shortcut-item">
@@ -1380,7 +1103,7 @@
             <span class="shortcut-key">←</span>
         </div>
         <div class="shortcut-item">
-            <span>Toggle Intro</span>
+            <span>Intro</span>
             <span class="shortcut-key">I</span>
         </div>
     </div>
@@ -1540,61 +1263,8 @@
 
         // Enhanced floating controls functionality for mobile
         function addFloatingControls() {
-            // Remove existing floating controls if any
-            removeFloatingControls();
-            
-            const isMobile = document.body.classList.contains('mobile-device');
-            
-            const floatingControls = document.createElement('div');
-            floatingControls.className = 'floating-controls';
-            
-            if (isMobile) {
-                // Mobile-optimized floating controls
-                floatingControls.innerHTML = `
-                    <div class="floating-control mobile-control" onclick="backToMain()" title="Back to Main">
-                         <i class="fas fa-home"></i>
-                         <span class="control-label">Home</span>
-                     </div>
-                    <div class="floating-control mobile-control" onclick="toggleMiniMap()" title="Mini Map">
-                        <i class="fas fa-map"></i>
-                        <span class="control-label">Map</span>
-                    </div>
-                    <div class="floating-control mobile-control" onclick="toggleFullscreen()" title="Exit Fullscreen">
-                        <i class="fas fa-compress"></i>
-                        <span class="control-label">Exit</span>
-                    </div>
-                    <div class="floating-control mobile-control mobile-menu-trigger" onclick="toggleMobileFullscreenMenu()" title="More Options">
-                        <i class="fas fa-ellipsis-v"></i>
-                        <span class="control-label">More</span>
-                    </div>
-                `;
-            } else {
-                // Desktop floating controls
-                floatingControls.innerHTML = `
-                    <div class="floating-control" onclick="backToMain()" title="Back to Main">
-                         <i class="fas fa-home"></i>
-                     </div>
-                    <div class="floating-control" onclick="toggleMiniMap()" title="Mini Map">
-                        <i class="fas fa-map"></i>
-                    </div>
-                    <div class="floating-control" onclick="toggleFullscreen()" title="Exit Fullscreen">
-                        <i class="fas fa-compress"></i>
-                    </div>
-                    <div class="floating-control" onclick="toggleShortcuts()" title="Shortcuts">
-                        <i class="fas fa-keyboard"></i>
-                    </div>
-                `;
-            }
-            
-            document.body.appendChild(floatingControls);
-            
-            // Add mobile-specific touch feedback
-            if (isMobile) {
-                const controls = floatingControls.querySelectorAll('.floating-control');
-                controls.forEach(control => {
-                    addTouchFeedback(control);
-                });
-            }
+            // Disabled - no floating controls will be added
+            return;
         }
 
         function toggleMobileFullscreenMenu() {
@@ -1825,8 +1495,11 @@
             setTimeout(() => updateProgressIndicator(0), 1000);
         }
 
-        // Enhanced keyboard shortcuts with visual feedback and smart features
+        // Enhanced keyboard shortcuts with visual feedback and smart features - DISABLED
         document.addEventListener('keydown', function(e) {
+            // Keyboard shortcuts disabled to prevent mobile interface interference
+            return;
+            
             if (isTransitioning) return;
             
             if (e.ctrlKey || e.metaKey) {
@@ -1863,11 +1536,7 @@
                         toggleMiniMap();
                         showKeyboardFeedback('🗺️ Mini Map');
                         break;
-                    case 'k':
-                        e.preventDefault();
-                        toggleShortcuts();
-                        showKeyboardFeedback('⌨️ Shortcuts');
-                        break;
+
                     case 'i':
                         e.preventDefault();
                         toggleIntro();
@@ -1978,12 +1647,7 @@
             showKeyboardFeedback('⬇️ Scroll Down');
         }
 
-        function toggleShortcuts() {
-             const panel = document.querySelector('.shortcuts-panel');
-             if (panel) {
-                 panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-             }
-         }
+
 
          // Auto-hide intro section functionality
          let introAutoHideTimer;
@@ -2086,8 +1750,11 @@
              initializeMobileEnhancements();
          });
 
-         // Mobile-specific enhancements for executive users
+         // Mobile-specific enhancements for executive users - DISABLED
          function initializeMobileEnhancements() {
+             // Mobile enhancements disabled - return immediately
+             return;
+             
              // Detect mobile device
              const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
              
@@ -2193,6 +1860,9 @@
          }
 
          function addMobileControls() {
+             // Mobile controls disabled - return immediately
+             return;
+             
              // Add floating mobile menu button
              const mobileMenuButton = document.createElement('div');
              mobileMenuButton.className = 'mobile-menu-button';
@@ -2225,6 +1895,9 @@
          }
 
          function toggleMobileMenu() {
+             // Mobile menu disabled - return immediately
+             return;
+             
              const existingMenu = document.querySelector('.mobile-quick-menu');
              
              if (existingMenu) {
@@ -2379,44 +2052,36 @@
                       gap: 12px !important;
                   }
 
+                  /* All floating controls hidden */
                   .floating-control.mobile-control {
-                      width: 60px !important;
-                      height: 60px !important;
-                      flex-direction: column !important;
-                      padding: 8px !important;
-                      border-radius: 16px !important;
-                      background: linear-gradient(135deg, #10b981, #059669) !important;
-                      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4) !important;
+                      display: none !important;
                   }
 
                   .floating-control.mobile-control i {
-                      font-size: 1.1rem !important;
-                      margin-bottom: 2px !important;
+                      display: none !important;
                   }
 
                   .control-label {
-                      font-size: 0.65rem !important;
-                      font-weight: 500 !important;
-                      color: white !important;
-                      text-align: center !important;
-                      line-height: 1 !important;
-                      opacity: 0.9 !important;
+                      display: none !important;
                   }
 
                   .floating-control.mobile-control:active {
-                      transform: scale(0.95) !important;
-                      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.6) !important;
+                      display: none !important;
                   }
 
-                  /* Hide desktop floating controls on mobile */
+                  /* Hide all floating controls */
                   .floating-control:not(.mobile-control) {
                       display: none !important;
                   }
               }
 
-              /* Desktop floating controls - hide mobile elements */
+              /* Desktop floating controls - hide all floating elements */
               @media (min-width: 769px) {
                   .mobile-control {
+                      display: none !important;
+                  }
+                  
+                  .floating-control {
                       display: none !important;
                   }
                   
@@ -2502,8 +2167,11 @@
           `;
           document.head.appendChild(mobileStyles);
 
-        // Visual feedback for keyboard shortcuts
+        // Visual feedback for keyboard shortcuts - DISABLED
         function showKeyboardFeedback(key) {
+            // Keyboard feedback disabled to prevent mobile interface interference
+            return;
+            
             const feedback = document.createElement('div');
             feedback.textContent = `Key: ${key}`;
             feedback.style.cssText = `
@@ -2577,166 +2245,7 @@
         });
     </script>
 
-    <!-- Keyboard Shortcuts Overlay -->
-    <div id="shortcuts-overlay" class="shortcuts-overlay">
-        <div class="shortcuts-container">
-            <button class="shortcuts-close" onclick="toggleShortcutsOverlay()">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div class="shortcuts-header">
-                <h2><i class="fas fa-keyboard"></i> Keyboard Shortcuts</h2>
-                <p>Navigate faster with these keyboard shortcuts</p>
-            </div>
 
-            <div class="shortcuts-grid">
-                <!-- Navigation Shortcuts -->
-                <div class="shortcuts-section">
-                    <h3><i class="fas fa-compass"></i> Navigation</h3>
-                    <div class="shortcut-item" onclick="executeShortcut('home')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-home shortcut-icon"></i>
-                            <span>Go to Main Dashboard</span>
-                        </div>
-                        <div class="shortcut-key">H</div>
-                    </div>
-                    <div class="shortcut-item" onclick="executeShortcut('architecture')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-building shortcut-icon"></i>
-                            <span>System Architecture</span>
-                        </div>
-                        <div class="shortcut-key">1</div>
-                    </div>
-                    <div class="shortcut-item" onclick="executeShortcut('market')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-chart-line shortcut-icon"></i>
-                            <span>Market Analysis</span>
-                        </div>
-                        <div class="shortcut-key">2</div>
-                    </div>
-                    <div class="shortcut-item" onclick="executeShortcut('regulations')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-gavel shortcut-icon"></i>
-                            <span>Regulations & Compliance</span>
-                        </div>
-                        <div class="shortcut-key">3</div>
-                    </div>
-                </div>
-
-                <!-- View Controls -->
-                <div class="shortcuts-section">
-                    <h3><i class="fas fa-eye"></i> View Controls</h3>
-                    <div class="shortcut-item" onclick="executeShortcut('fullscreen')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-expand shortcut-icon"></i>
-                            <span>Toggle Fullscreen</span>
-                        </div>
-                        <div class="shortcut-key">F</div>
-                    </div>
-                    <div class="shortcut-item" onclick="executeShortcut('minimap')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-map shortcut-icon"></i>
-                            <span>Toggle Mini Map</span>
-                        </div>
-                        <div class="shortcut-key">M</div>
-                    </div>
-                    <div class="shortcut-item" onclick="executeShortcut('search')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-search shortcut-icon"></i>
-                            <span>Search Content</span>
-                        </div>
-                        <div class="shortcut-key">S</div>
-                    </div>
-                    <div class="shortcut-item" onclick="executeShortcut('print')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-print shortcut-icon"></i>
-                            <span>Print Current View</span>
-                        </div>
-                        <div class="shortcut-key">P</div>
-                    </div>
-                </div>
-
-                <!-- Mobile Actions -->
-                <div class="shortcuts-section">
-                    <h3><i class="fas fa-mobile-alt"></i> Mobile Actions</h3>
-                    <div class="shortcut-item" onclick="executeShortcut('share')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-share-alt shortcut-icon"></i>
-                            <span>Share Current Page</span>
-                        </div>
-                        <div class="shortcut-key">Tap</div>
-                    </div>
-                    <div class="shortcut-item" onclick="executeShortcut('bookmark')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-bookmark shortcut-icon"></i>
-                            <span>Bookmark Page</span>
-                        </div>
-                        <div class="shortcut-key">Tap</div>
-                    </div>
-                    <div class="shortcut-item" onclick="executeShortcut('menu')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-bars shortcut-icon"></i>
-                            <span>Open Mobile Menu</span>
-                        </div>
-                        <div class="shortcut-key">Long Press</div>
-                    </div>
-                    <div class="shortcut-item" onclick="executeShortcut('feedback')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-comment shortcut-icon"></i>
-                            <span>Send Feedback</span>
-                        </div>
-                        <div class="shortcut-key">Tap</div>
-                    </div>
-                </div>
-
-                <!-- Advanced Features -->
-                <div class="shortcuts-section">
-                    <h3><i class="fas fa-cogs"></i> Advanced</h3>
-                    <div class="shortcut-item" onclick="executeShortcut('export')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-download shortcut-icon"></i>
-                            <span>Export Data</span>
-                        </div>
-                        <div class="shortcut-key">E</div>
-                    </div>
-                    <div class="shortcut-item" onclick="executeShortcut('refresh')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-sync-alt shortcut-icon"></i>
-                            <span>Refresh Content</span>
-                        </div>
-                        <div class="shortcut-key">R</div>
-                    </div>
-                    <div class="shortcut-item" onclick="executeShortcut('settings')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-cog shortcut-icon"></i>
-                            <span>Open Settings</span>
-                        </div>
-                        <div class="shortcut-key">Ctrl+,</div>
-                    </div>
-                    <div class="shortcut-item" onclick="executeShortcut('help')">
-                        <div class="shortcut-action">
-                            <i class="fas fa-question-circle shortcut-icon"></i>
-                            <span>Show Help</span>
-                        </div>
-                        <div class="shortcut-key">?</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="shortcuts-help">
-                <h4><i class="fas fa-lightbulb"></i> Pro Tips</h4>
-                <p>• On mobile devices, tap any shortcut item to execute the action directly<br>
-                • Long press on elements for additional context menus<br>
-                • Swipe gestures work on touch-enabled devices<br>
-                • Press ESC to close this overlay anytime</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Floating Shortcuts Trigger Button -->
-    <button id="shortcuts-trigger" class="shortcuts-trigger" onclick="toggleShortcutsOverlay()" title="Keyboard Shortcuts (?)">
-        <i class="fas fa-keyboard"></i>
-    </button>
 
 
 
@@ -2745,12 +2254,7 @@
         let activeOverlays = new Set();
         
         function closeAllOverlays() {
-            // Close keyboard shortcuts overlay
-            const shortcutsOverlay = document.getElementById('shortcuts-overlay');
-            if (shortcutsOverlay && shortcutsOverlay.classList.contains('active')) {
-                shortcutsOverlay.classList.remove('active');
-                activeOverlays.delete('shortcuts');
-            }
+
             
 
             
@@ -2772,110 +2276,11 @@
             document.body.style.overflow = '';
         }
         
-        // Keyboard Shortcuts Overlay Functions
-        function toggleShortcutsOverlay() {
-            const overlay = document.getElementById('shortcuts-overlay');
-            
-            // If opening, close all other overlays first
-            if (!overlay.classList.contains('active')) {
-                closeAllOverlays();
-                overlay.classList.add('active');
-                activeOverlays.add('shortcuts');
-                document.body.style.overflow = 'hidden';
-                showMobileFeedback('Shortcuts Panel Opened');
-            } else {
-                overlay.classList.remove('active');
-                activeOverlays.delete('shortcuts');
-                document.body.style.overflow = '';
-                showMobileFeedback('Shortcuts Panel Closed');
-            }
-        }
-
-
-
-        function executeShortcut(action) {
-            const overlay = document.getElementById('shortcuts-overlay');
-            
-            switch(action) {
-                case 'home':
-                    backToMain();
-                    showMobileFeedback('Navigated to Home');
-                    break;
-                case 'architecture':
-                    showSection('architecture');
-                    showMobileFeedback('Opened Architecture');
-                    break;
-                case 'market':
-                    showSection('market-analysis');
-                    showMobileFeedback('Opened Market Analysis');
-                    break;
-                case 'regulations':
-                    showSection('gtm-strategy');
-                    showMobileFeedback('Opened Regulations');
-                    break;
-                case 'fullscreen':
-                    if (currentSection) {
-                        openFullscreen(currentSection);
-                        showMobileFeedback('Fullscreen Mode');
-                    }
-                    break;
-                case 'minimap':
-                    toggleMiniMap();
-                    showMobileFeedback('Mini Map Toggled');
-                    break;
-                case 'search':
-                    showMobileFeedback('Search Feature Coming Soon');
-                    break;
-                case 'print':
-                    window.print();
-                    showMobileFeedback('Print Dialog Opened');
-                    break;
-                case 'share':
-                    if (navigator.share) {
-                        navigator.share({
-                            title: 'Shahin Vision Platform',
-                            text: 'Check out this comprehensive business analysis platform',
-                            url: window.location.href
-                        });
-                    } else {
-                        navigator.clipboard.writeText(window.location.href);
-                        showMobileFeedback('Link Copied to Clipboard');
-                    }
-                    break;
-                case 'bookmark':
-                    showMobileFeedback('Bookmark Added');
-                    break;
-                case 'menu':
-                    showMobileMenu();
-                    showMobileFeedback('Mobile Menu Opened');
-                    break;
-                case 'feedback':
-                    showMobileFeedback('Feedback Feature Coming Soon');
-                    break;
-                case 'export':
-                    showMobileFeedback('Export Feature Coming Soon');
-                    break;
-                case 'refresh':
-                    location.reload();
-                    break;
-                case 'settings':
-                    showMobileFeedback('Settings Feature Coming Soon');
-                    break;
-                case 'help':
-                    toggleShortcutsOverlay();
-                    showMobileFeedback('Help Panel Opened');
-                    break;
-            }
-            
-            // Close overlay after action (except for help)
-            if (action !== 'help') {
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        }
-
-        // Enhanced keyboard event listener
+        // Enhanced ESC key listener for closing overlays - DISABLED
         document.addEventListener('keydown', function(e) {
+            // ESC key listener disabled to prevent mobile interface interference
+            return;
+            
             // Close all overlays with ESC (improved mobile support)
             if (e.key === 'Escape') {
                 e.preventDefault();
@@ -2885,80 +2290,9 @@
                 }
                 return;
             }
-            
-            // Open shortcuts overlay with ? (only if no other overlays are open)
-            if (e.key === '?' && !e.ctrlKey && !e.altKey && activeOverlays.size === 0) {
-                e.preventDefault();
-                toggleShortcutsOverlay();
-                return;
-            }
-            
-            // Existing keyboard shortcuts...
-            if (e.ctrlKey || e.altKey) return;
-            
-            switch(e.key.toLowerCase()) {
-                case 'h':
-                    e.preventDefault();
-                    executeShortcut('home');
-                    break;
-                case '1':
-                    e.preventDefault();
-                    executeShortcut('architecture');
-                    break;
-                case '2':
-                    e.preventDefault();
-                    executeShortcut('market');
-                    break;
-                case '3':
-                    e.preventDefault();
-                    executeShortcut('regulations');
-                    break;
-                case 'f':
-                    e.preventDefault();
-                    executeShortcut('fullscreen');
-                    break;
-                case 'm':
-                    e.preventDefault();
-                    executeShortcut('minimap');
-                    break;
-                case 's':
-                    e.preventDefault();
-                    executeShortcut('search');
-                    break;
-                case 'p':
-                    e.preventDefault();
-                    executeShortcut('print');
-                    break;
-                case 'e':
-                    e.preventDefault();
-                    executeShortcut('export');
-                    break;
-                case 'r':
-                    e.preventDefault();
-                    executeShortcut('refresh');
-                    break;
-            }
         });
 
-        // Close overlay when clicking outside (improved for mobile)
-        document.addEventListener('click', function(e) {
-            const overlay = document.getElementById('shortcuts-overlay');
-            const container = document.querySelector('.shortcuts-container');
-            const trigger = document.getElementById('shortcuts-trigger');
-            
-            // Only handle if shortcuts overlay is active
-            if (overlay && overlay.classList.contains('active')) {
-                // Check if click is outside the container and trigger
-                if (container && !container.contains(e.target) && 
-                    trigger && !trigger.contains(e.target)) {
-                    e.preventDefault();
-                    closeAllOverlays();
-                    showMobileFeedback('Panel closed');
-                }
-            }
-        });
-
-        // Touch gestures for mobile (improved)
+        // Simple touch gestures for mobile (swipe down to close overlays only)
         let touchStartY = 0;
         let touchStartX = 0;
         let touchStartTime = 0;
@@ -2979,12 +2313,6 @@
             
             // Only process quick gestures (less than 500ms)
             if (duration > 500) return;
-            
-            // Swipe up gesture to open shortcuts (only if no overlays are open)
-            if (deltaY > 100 && Math.abs(deltaX) < 50 && activeOverlays.size === 0) {
-                e.preventDefault();
-                toggleShortcutsOverlay();
-            }
             
             // Swipe down gesture to close all overlays
             if (deltaY < -100 && Math.abs(deltaX) < 50 && activeOverlays.size > 0) {
