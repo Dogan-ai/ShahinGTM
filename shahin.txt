@@ -1,0 +1,292 @@
+
+1) Mission profile (autonomous)
+
+Fully on-prem & air-gapped capable so PDPL/data-residency is met; all engines run locally (API, DB, analytics, AI) with optional offline update bundles.
+
+Self-healing services via containers; health & metrics endpoints exposed for ops dashboards.
+
+Bilingual (AR/EN) ops UI for field use (Arabic RTL, Hijri in reports).
+
+2) Microservices (API-first)
+
+Use a thin gateway in front of independently deployable services:
+
+Auth service (JWT HS256, bcrypt; /api/auth/*) with role-based access.
+
+Compliance-engine (NCA ECC v2.0, SAMA CSF, PDPL, ISO/NIST overlays; auto assessments, rule validators).
+
+Risk-engine (5×5 scoring, residual risk calc, heatmaps, trend forecasting).
+
+Analytics-engine (DuckDB+Polars sidecar attached to Postgres; scorecards, monthly trends, risk slices).
+
+Reporting (Compliance/Risk/Executive/Audit/Regulatory; PDF/Excel JSON structure).
+
+Vendor-risk (questionnaires + AI scoring; third-party due-diligence hooks).
+
+Gateway (rate-limit, mTLS upstream, JWT verification) fronting the above.
+
+The repo’s “microservices roadmap” already segments compliance-engine, ai-ml, integrations, ui, shared-libs → align to those service cuts.
+
+3) Security layers (defense-in-depth)
+
+Identity & transport
+
+JWT with exp; OAuth2 bearer; per-service mTLS; strict CORS at gateway.
+
+API rate-limits & WAF rules at the edge (headers already hardened in the Next.js config).
+
+Data & runtime
+
+Postgres at rest encryption; evidence objects hashed & time-stamped in Evidence/ControlImplementation models (audit-grade traceability).
+
+Minimal base images, image scanning, secrets via env/TPM; guidance in SECURITY.md.
+
+Observability & audit
+
+/health, /metrics, audit logging entities & notifications; executive/audit reports for regulators.
+
+4) Network & capacity (mobile lab)
+
+Edge transport
+
+5G modem (SA/NSA) for field ops + Wi-Fi 6E AP; fall back to wired.
+
+Zero-trust overlay (WireGuard) for secure hop back to HQ if needed.
+
+Ingress
+
+API gateway on the lab box; service mesh optional. Redis is optional cache if radio links are lossy.
+
+Throughput targets (field)
+
+API p95 ≤ 85 ms (benchmarked in project data), 99.9% availability goal.
+
+5) Hardware prerequisites (mobile AI lab — “first in KSA”)
+
+Primary mobile workstation (single-node autonomy)
+
+CPU: 12–16 cores (x86_64).
+
+RAM: 96 GB (expandable to 128 GB if possible).
+
+Storage: ≥ 2 TB NVMe Gen4 (add a second NVMe for analytics scratch).
+
+Graphics: external eGPU enclosure (OCuLink/Thunderbolt) with ≥ 24 GB VRAM (4090-class) for local LLM and PyTorch inferencing.
+
+Radio: 5G modem + Wi-Fi 6E; GPS (if needed).
+
+Power: 800–1000 W inverter + UPS for brownouts.
+
+Edge-cluster (optional “clustered wide”)
+
+2–3 mini-PC nodes (32–64 GB RAM, NVMe) running K3s; one is control-plane; the mobile workstation is GPU worker.
+
+Container registry cached locally for air-gapped deploys.
+
+Your platform is already designed to run as an appliance (on-prem, GPU-accelerated, fully offline if needed); this mobile spec mirrors the larger appliance in a portable form.
+
+6) Software stack (field-proven)
+
+Base OS & runtime
+
+Ubuntu LTS, NVIDIA drivers, Docker Engine; optional K3s for clustering.
+
+FastAPI services with async asyncpg pool; Postgres primary DB; optional Redis; DuckDB analytics sidecar.
+
+Engines
+
+Compliance engine (KSA frameworks + validators), Risk engine (scores/heatmaps/trends), Analytics (scorecards/trends/risk slices), Reporting (regulatory/Audit/Exec).
+
+UI
+
+Field dashboard: Streamlit (Arabic/English) and Next.js+MUI/Tailwind enterprise UI with API rewrites.
+
+7) APIs you’ll expose (minimal surface, high value)
+
+POST /api/assessments → run NCA/SAMA/PDPL automated assessment, compute score & maturity.
+
+GET /api/risks, POST /api/risks → register risks (auto-score), list sorted by severity/score.
+
+GET /api/risks/heatmap/{orgId} → JSON heatmap for dashboards.
+
+GET /api/risks/trends/{orgId} → 30-day risk forecast.
+
+GET /api/analytics/dashboard → framework scorecards + risk distribution.
+
+POST /api/reports/generate → Compliance/Risk/Regulatory/Audit/Exec bundles.
+
+8) Deployment plan (portable & clustered)
+
+Provision HW (above spec), enable Secure Boot/TPM, LUKS encrypt disks.
+
+Install OS, NVIDIA, Docker; pull images from local registry bundle (air-gapped).
+
+Bring up Postgres, then Auth → Compliance → Risk → Analytics → Reporting services.
+
+Seed frameworks & baseline orgs; verify /health & /metrics.
+
+(Optional) Join K3s cluster; set gateway ingress + mTLS; enable Redis cache if radio link is constrained.
+
+Validate Arabic/RTL UI and regulatory reports (NCA/SAMA/PDPL) on the field console.
+
+9) Why this wins (vs market)
+
+Saudi-native (frameworks + Arabic/Hijri) and on-prem air-gapped operation are baked in—not custom projects.
+
+Automation replaces manual/consulting workflows (evidence, scoring, reporting).
+
+Portable performance (85 ms p95 API, 99.9% target) with DuckDB analytics detached from OLTP.
+
+TL;DR bill of materials (your ask)
+
+Compute: 12–16C CPU, 96 GB RAM, ≥ 2 TB NVMe.
+
+GPU: eGPU ≥ 24 GB VRAM (4090-class).
+
+Radio: 5G + Wi-Fi 6E.
+
+Cluster: optional K3s 2–3 mini-nodes (“clustered wide”).
+
+Stack: FastAPI + Postgres (+Redis opt) + DuckDB sidecar; JWT auth; Compliance/Risk/Analytics/Reporting services; Streamlit & Next.js UI.
+
+If you want, I can turn this into a one-click installer checklist (scripts + env files) and a cluster topology diagram so you can hand it to the field team and roll the mobile lab immediately.
+
+You said:
+so need full detial fo doganai شاهينالرويه
+ChatGPT said:
+
+تمام — هذه نسخة “كاملة ومكثّفة” من رؤية دوغان AI / شاهين (DoganAI / Shahin Vision) تجمع بين الرسالة، القيمة السوقية، العمارة التقنية، الأمن، الذكاء الاصطناعي، التشغيل الميداني (Mobile AI Lab)، الـAPIs، خارطة الطريق، وقياس الأثر — بصيغة عملية جاهزة للتنفيذ والعرض.
+
+1) الرؤية والرسالة | Vision & Mission
+
+الرؤية: تمكين الجهات السعودية من امتثال ذاتي مؤتمت 24/7 مع ذكاء تنبؤي، عربيًّا وبالهوية التنظيمية المحلية (NCA/SAMA/PDPL)، وبنماذج تشغيل On-Prem/Air-gapped.
+
+المهمة: تحويل الامتثال من مشروعٍ سنويّ بطيء إلى قدرة تشغيلية مستمرة، مع تقارير عربية جاهزة للمدققين، وإعادة استخدام الأدلة عبر الأطر (map-once-comply-to-many).
+
+لماذا الآن في السعودية؟ سوق GRC المحلي يتسارع بدفع Vision 2030 والتشريعات (NCA ECC v2.0, SAMA CSF, PDPL)، والنقص في الأدوات المحلية المؤتمتة.
+
+2) المشكلة والقيمة | Problem → Value
+
+ثغرات السوق (Top-10): غياب محتوى سعودي جاهز، ضعف العربية/الهجري، اعتماد مفرط على الاستشارات، غياب أتمتة الأدلة، لا خرائط تقاطعية بين الأطر، عدم توفر On-Prem/Air-gapped، ضعف Vendor Risk، تجزؤ قطاعي، بطء النشر، غياب المراقبة المستمرة/التنبؤية. (تمت معالجتها بالكامل في شاهين)
+
+قيمة شاهين:
+
+تغطية سعودية أصلية (NCA/SAMA/PDPL) + ISO/NIST، بواجهات وتقارير عربية وهجري.
+
+أتمتة الفحوص والأدلة، تقييمات تلقائية، إنذارات لحظية، ذكاء تنبؤي للمخاطر.
+
+تشغيل ميداني/معزول عبر Appliance محلي وMobile AI Lab.
+
+3) المنتج – الطبقات الوظيفية | Product Pillars
+
+Compliance Engine
+
+مكتبات تحكم لـ NCA/SAMA/PDPL + Validators برمجية واحتساب نتيجة/نضج تلقائي وتوصيات.
+
+Risk Engine
+
+مصفوفة 5×5 (شدة × احتمال)، Residual Risk، Heatmaps، تنبؤ اتجاه 30 يومًا.
+
+Analytics Engine (DuckDB+Polars)
+
+لوحات أداء سريعة، اتجاهات شهرية، توزيع المخاطر، مصفوفات امتثال.
+
+Reporting (Regulatory/Audit/Exec)
+
+تقارير امتثال/مخاطر/تنفيذي/تدقيق/جهات تنظيمية بالعربية/الإنجليزية، بنى جاهزة PDF/Excel.
+
+Vendor Risk
+
+استبيانات آلية، تجميع أدلة، تصنيف مخاطرة مورّد (سرعة من شهور لأيام).
+
+4) العمارة التقنية | Architecture (API-first, Async)
+
+FastAPI مع إدارة دورة حياة الخدمات (Postgres pool، Redis اختياري، ربط المحركات عند الإقلاع)، نقاط /health و**/metrics**، CORS مضبوط.
+
+نموذج البيانات (SQLAlchemy/Postgres): منظمات، أطر/ضوابط، تقييمات (نتيجة/نضج/توصيات)، تطبيق الضوابط Evidence، مخاطر، أدلة، نتائج امتثال، سجلات تدقيق، تنبيهات، تقارير، مورّدون.
+
+Endpoints أساسية: منظمات/أطر/ضوابط/تقييمات/مخاطر/تقارير/تحليلات؛ مع حقول عربية والاستعلامات المجمّعة.
+
+بوابة واجهات وأمن: JWT HS256, bcrypt، أدوار، + رأس حماية في واجهة Next.js.
+
+Microservices Roadmap (تجزئة خدمية): compliance-engine, ai-ml, integrations, ui, shared-libs (جاهز للتوسع أفقيًا).
+
+5) طبقات الأمن | Security Layers
+
+هوية ونقل: OAuth2 Bearer + JWT exp، CORS دقيق، يفضّل mTLS بين الخدمات، Rate-limit/WAF على البوابة.
+
+البيانات والتشغيل: تشفير القرص، دلائل Evidence مُوقعة/مؤرشفة، نماذج Evidence/ControlImplementation مع Hash وتتبّع زمني.
+
+الرصد والتدقيق: /metrics، AuditLog، تنبيهات Notifications، تقارير تدقيق/تنظيمية جاهزة.
+
+6) الذكاء الاصطناعي & التحليلات | AI/ML & Analytics
+
+تنبؤ مخاطر (Linear trend) وAnomaly Signals على بيانات الامتثال، مع PyTorch على GPU عند الحاجة.
+
+DuckDB Sidecar ملحق ببوستغرس لأحمال التحليل دون تعطيل OLTP، وتوليد scorecards/Trends فورًا.
+
+7) تجربة المستخدم (AR/EN) | UI/UX
+
+لوحة ميدانية: Streamlit عربية/إنجليزية (RTL)، فحص صحة النظام، تقييمات، تصدير JSON للتقارير.
+
+واجهة مؤسسية: Next.js + MUI/Tailwind، إعادة كتابة /api للـ backend، رؤوس أمان مفعّلة.
+
+8) التشغيل الميداني – Mobile AI Lab (الأول في KSA)
+
+الهدف: مختبر امتثال ذكي مستقل يعمل 5G/واي-فاي، قادر على Air-gapped، مع eGPU لنماذج LLM محليًا.
+مواصفات العتاد (اقتراح):
+
+RAM 96 GB (قابل للترقية 128 GB)؛ NVMe ≥ 2 TB Gen4؛ معالج 12–16C.
+
+eGPU ≥ 24 GB VRAM (فئة 4090) عبر OCuLink/Thunderbolt.
+
+5G SA/NSA + Wi-Fi 6E، UPS/Inverter.
+
+عنقود K3s اختياري (2–3 عقد Mini-PC) لتوزيع الأحمال؛ الجهاز المتنقل كعقدة GPU.
+السوفتوير: Ubuntu LTS + Docker، FastAPI + Postgres (+Redis اختياري) + DuckDB، محركات Compliance/Risk/Analytics/Reporting، UIs. (متوافق مع نموذج الـAppliance الموثّق)
+
+9) واجهات برمجية رئيسية | Public APIs (مختارة)
+
+Assessments: POST /api/assessments لتشغيل تقييم NCA/SAMA/PDPL تلقائيًا (نتيجة + نضج + توصيات).
+
+Risks: POST/GET /api/risks (تسجيل + حساب تلقائي)، GET /api/risks/heatmap/{orgId}، GET /api/risks/trends/{orgId}.
+
+Analytics: GET /api/analytics/dashboard (Framework scores, Risk dist).
+
+Reports: POST /api/reports/generate (Compliance/Risk/Regulatory/Audit/Exec).
+
+10) النشر والتشغيل | Deployment & Ops
+
+On-Prem/Air-gapped Appliance (جاهز)، أو Mobile Lab، أو عنقود داخلي (K8s/K3s).
+
+صحة/قياسات: /health, /metrics، مع سجل監 AuditLog وتنبيهات.
+
+أمن البرمجيات: سياسة أمنية، تحديثات تبعيات، رؤوس أمان للـUI.
+
+11) خارطة الطريق | Roadmap (6–12 شهرًا)
+
+Integrations موسعة: QRadar/Splunk، ServiceNow، Purview، STC/Aramco Digital.
+
+Sector Packs: قوالب MoH/SFDA، GACA، Energy-OT (IEC/ISA99) مع خرائط NCA.
+
+Explainable AI: شروحات نموذجية للدرجات/الإنذارات (RegTech-grade).
+
+Marketplace/Agents: وحدات إضافية تحت مظلة AI-Compliance Kit (microservices roadmap).
+
+12) مؤشرات القياس | KPIs
+
+زمن استجابة API p95 ≤ 85ms؛ توفر ≥ 99.9%.
+
+تخفيض زمن إعداد التقارير ≥ 40%؛ تغطية NCA/SAMA/PDPL 100% (مكتبات جاهزة).
+
+خفض الاعتماد الاستشاري > 50%، ووقت اعتماد المورّد Down to Days.
+
+ملخص تنفيذي (TL;DR)
+
+شاهين/دوغانAI = حل امتثال سعودي أصيل، مؤتمت، ثنائي اللغة، On-Prem/Air-gapped، مع ذكاء تنبؤي وتقارير تنظيمية جاهزة.
+
+طبقات المنتج: Compliance, Risk, Analytics, Reporting, Vendor Risk، بواجهات وAPIs قياسية.
+
+Mobile AI Lab (الأول محليًا): 96GB RAM، NVMe ≥ 2TB، eGPU 24GB+، 5G، وعنقود K3s اختياري — امتثال ذكي متنقّل.
+
+إذا رغبت، أحوّل هذا إلى عرض (2–4 صفحات PDF/HTML) بالعربية/الإنجليزية يتضمّن رسومات العمارة، قائمة الـAPIs،

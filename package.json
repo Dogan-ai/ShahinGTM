@@ -1,0 +1,29 @@
+{
+  "name": "shahin-ai-business-analysis",
+  "version": "1.0.0",
+  "description": "Mobile-optimized business analysis platform for executive decision making",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Static site - no build required'",
+    "start": "python -m http.server 8000"
+  },
+  "keywords": [
+    "business-analysis",
+    "executive-dashboard",
+    "mobile-optimized",
+    "ksa-market",
+    "grc-solutions",
+    "responsive-design"
+  ],
+  "author": "Shahin AI",
+  "license": "MIT",
+  "homepage": "https://shahin-ai.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shahin-ai/business-analysis.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

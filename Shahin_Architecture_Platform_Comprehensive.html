@@ -1,0 +1,3291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة شاهين الرؤية - الهيكل التقني الشامل | Shahin Vision Platform - Comprehensive Architecture</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --success-color: #22c55e;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --border-color: #334155;
+            --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            --gradient-secondary: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: var(--gradient-primary);
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1.4rem;
+            font-weight: 400;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Navigation Styles */
+        .nav-tabs {
+            background: var(--card-bg);
+            border-bottom: 2px solid var(--border-color);
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            padding: 20px 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-tab:hover {
+            color: var(--text-primary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-tab.active {
+            color: var(--secondary-color);
+            border-bottom-color: var(--secondary-color);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            padding: 40px 0;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Architecture Overview */
+        .architecture-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .overview-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .overview-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .overview-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .overview-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .overview-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Layer Architecture */
+        .layer-architecture {
+            margin: 50px 0;
+        }
+
+        .layer {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .layer:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .layer-header {
+            background: var(--gradient-primary);
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .layer-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .layer-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .layer.collapsed .layer-toggle {
+            transform: rotate(180deg);
+        }
+
+        .layer-content {
+            padding: 30px;
+            display: block;
+        }
+
+        .layer.collapsed .layer-content {
+            display: none;
+        }
+
+        .layer-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        /* Component Grid */
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .component-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .component-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--secondary-color);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+        }
+
+        .component-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .component-specs {
+            list-style: none;
+            padding: 0;
+        }
+
+        .component-specs li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .component-specs li:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .spec-value {
+            color: var(--text-primary);
+            font-weight: 600;
+            text-align: left;
+        }
+
+        /* Statistics Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-secondary);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Technical Specifications */
+        .tech-specs {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .tech-specs-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 15px;
+            text-align: right;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .specs-table th {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .specs-table td {
+            color: var(--text-secondary);
+        }
+
+        .specs-table tr:hover {
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        /* Security Features */
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .security-card {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .security-icon {
+            font-size: 2.5rem;
+            color: var(--danger-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .security-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--danger-color);
+        }
+
+        .security-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Performance Metrics */
+        .performance-metrics {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .nav-tab {
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .component-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .nav-tab {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Language Direction Support */
+        [dir="ltr"] .specs-table th,
+        [dir="ltr"] .specs-table td {
+            text-align: left;
+        }
+
+        [dir="ltr"] .spec-value {
+            text-align: right;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: var(--secondary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Layer Navigation Styles */
+        .layer-navigation {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .nav-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+        }
+
+        .layer-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .layer-nav-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 10px;
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .layer-nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .layer-nav-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .layer-number {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .layer-name {
+            flex: 1;
+            text-align: right;
+        }
+
+        /* Responsive Design for Layer Navigation */
+        @media (max-width: 768px) {
+            .layer-nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .layer-nav-btn {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .layer-number {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <button class="language-toggle" onclick="toggleLanguage()">
+            <span id="langText">English</span>
+        </button>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="page-title" id="mainTitle">منصة شاهين الرؤية - الهيكل التقني الشامل</h1>
+                <p class="page-subtitle" id="mainSubtitle">
+                    الهيكل المعماري المتقدم لمنصة الامتثال الذكية المصممة خصيصاً للمملكة العربية السعودية
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+        <button class="nav-tab active" onclick="showSection('overview')" id="tab-overview">نظرة عامة</button>
+        <button class="nav-tab" onclick="showSection('layers')" id="tab-layers">الطبقات المعمارية</button>
+        <button class="nav-tab" onclick="showSection('security')" id="tab-security">الأمان والحماية</button>
+        <button class="nav-tab" onclick="showSection('performance')" id="tab-performance">الأداء والمقاييس</button>
+        <button class="nav-tab" onclick="showSection('deployment')" id="tab-deployment">النشر والتشغيل</button>
+    </nav>
+
+    <div class="container">
+        <!-- Overview Section -->
+        <section id="overview" class="content-section active">
+            <h2 class="section-title" id="overview-title">نظرة عامة على الهيكل المعماري</h2>
+            <p class="section-subtitle" id="overview-subtitle">
+                منصة شاهين الرؤية تعتمد على هيكل معماري متقدم من ثماني طبقات رئيسية مصممة لتوفير أقصى درجات الأمان والأداء والذكاء الاصطناعي
+            </p>
+
+            <div class="architecture-overview">
+                <div class="overview-card">
+                    <span class="overview-icon">🖥️</span>
+                    <h3 class="overview-title" id="hardware-title">الطبقة الأولى: الأجهزة والشبكة</h3>
+                    <p class="overview-description" id="hardware-desc">
+                        معالجات عالية الأداء، ذاكرة 96 جيجابايت، تخزين NVMe، وحدات معالجة رسومية للذكاء الاصطناعي، شبكة 5G
+                    </p>
+                </div>
+
+                <div class="overview-card">
+                    <span class="overview-icon">⚙️</span>
+                    <h3 class="overview-title" id="os-title">الطبقة الثانية: نظام التشغيل والحاويات</h3>
+                    <p class="overview-description" id="os-desc">
+                        Ubuntu LTS محصن، تشغيل Docker، Kubernetes اختياري، تحديثات آمنة منفصلة عن الإنترنت
+                    </p>
+                </div>
+
+                <div class="overview-card">
+                    <span class="overview-icon">🗄️</span>
+                    <h3 class="overview-title" id="data-title">الطبقة الثالثة: البيانات والتخزين</h3>
+                    <p class="overview-description" id="data-desc">
+                        PostgreSQL للمعاملات، Redis للتخزين المؤقت، DuckDB للتحليلات، تشفير LUKS، حفظ الأدلة
+                    </p>
+                </div>
+
+                <div class="overview-card">
+                    <span class="overview-icon">🔧</span>
+                    <h3 class="overview-title" id="services-title">الطبقة الرابعة: الخدمات الأساسية</h3>
+                    <p class="overview-description" id="services-desc">
+                        محرك الامتثال، إدارة المخاطر، التحليلات، التقارير، أمان الموردين، المصادقة، البوابة الآمنة
+                    </p>
+                </div>
+
+                <div class="overview-card">
+                    <span class="overview-icon">🔗</span>
+                    <h3 class="overview-title" id="apis-title">الطبقة الخامسة: واجهات البرمجة والتكامل</h3>
+                    <p class="overview-description" id="apis-desc">
+                        واجهات RESTful API، تكامل مع الأنظمة الخارجية، بوابة API آمنة، إدارة المعدلات والحدود
+                    </p>
+                </div>
+
+                <div class="overview-card">
+                    <span class="overview-icon">🖼️</span>
+                    <h3 class="overview-title" id="ui-title">الطبقة السادسة: التطبيقات وواجهة المستخدم</h3>
+                    <p class="overview-description" id="ui-desc">
+                        لوحة تحكم Streamlit ثنائية اللغة، واجهة Next.js للمؤسسات، دعم RTL والتقويم الهجري
+                    </p>
+                </div>
+
+                <div class="overview-card">
+                    <span class="overview-icon">🛡️</span>
+                    <h3 class="overview-title" id="security-title">الطبقة السابعة: الأمان والمراقبة</h3>
+                    <p class="overview-description" id="security-desc">
+                        mTLS بين الخدمات، جدار حماية تطبيقات الويب، سجلات التدقيق، المراقبة والتنبيهات
+                    </p>
+                </div>
+
+                <div class="overview-card">
+                    <span class="overview-icon">🤖</span>
+                    <h3 class="overview-title" id="ai-title">الطبقة الثامنة: الذكاء الاصطناعي والاستقلالية</h3>
+                    <p class="overview-description" id="ai-desc">
+                        تنبؤ المخاطر، كشف الشذوذ، PyTorch على GPU، المختبر المتنقل المستقل، الشفاء الذاتي
+                    </p>
+                </div>
+            </div>
+
+            <!-- Architecture Statistics -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label" id="stat-layers">طبقات معمارية</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">96GB</span>
+                    <span class="stat-label" id="stat-memory">ذاكرة النظام</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">24GB</span>
+                    <span class="stat-label" id="stat-gpu">ذاكرة وحدة الرسومات</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2TB</span>
+                    <span class="stat-label" id="stat-storage">تخزين NVMe</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5G</span>
+                    <span class="stat-label" id="stat-network">شبكة الاتصال</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">99.9%</span>
+                    <span class="stat-label" id="stat-uptime">وقت التشغيل</span>
+                </div>
+            </div>
+
+            <!-- Technical Specifications Overview -->
+            <div class="tech-specs">
+                <h3 class="tech-specs-title" id="specs-title">المواصفات التقنية الرئيسية</h3>
+                <table class="specs-table">
+                    <thead>
+                        <tr>
+                            <th id="spec-component">المكون</th>
+                            <th id="spec-specification">المواصفات</th>
+                            <th id="spec-purpose">الغرض</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>المعالج الرئيسي</td>
+                            <td>12-16 نواة x86_64</td>
+                            <td>معالجة البيانات والحوسبة العامة</td>
+                        </tr>
+                        <tr>
+                            <td>الذاكرة العشوائية</td>
+                            <td>96.0 جيجابايت (93.6 جيجابايت قابلة للاستخدام)</td>
+                            <td>تشغيل التطبيقات والتخزين المؤقت</td>
+                        </tr>
+                        <tr>
+                            <td>التخزين الأساسي</td>
+                            <td>2 تيرابايت NVMe Gen4</td>
+                            <td>تخزين البيانات والنظام</td>
+                        </tr>
+                        <tr>
+                            <td>وحدة الرسومات</td>
+                            <td>AMD Radeon 890M (رسومات متكاملة مع تسريع الذكاء الاصطناعي)</td>
+                            <td>معالجة الذكاء الاصطناعي والتعلم الآلي</td>
+                        </tr>
+                        <tr>
+                            <td>الشبكة</td>
+                            <td>5G SA/NSA + Wi-Fi 6E</td>
+                            <td>الاتصال بالإنترنت والشبكات المحلية</td>
+                        </tr>
+                        <tr>
+                            <td>الطاقة</td>
+                            <td>800-1000 واط + UPS</td>
+                            <td>تشغيل مستمر وحماية من انقطاع الكهرباء</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Layers Section -->
+        <section id="layers" class="content-section">
+            <h2 class="section-title" id="layers-title">الطبقات المعمارية التفصيلية</h2>
+            <p class="section-subtitle" id="layers-subtitle">
+                تفصيل شامل لكل طبقة من طبقات الهيكل المعماري ومكوناتها التقنية
+            </p>
+
+            <!-- Layer Navigation -->
+            <div class="layer-navigation">
+                <h3 class="nav-title">التنقل السريع بين الطبقات</h3>
+                <div class="layer-nav-grid">
+                    <button class="layer-nav-btn" onclick="scrollToLayer('layer1')" data-layer="1">
+                        <span class="layer-number">1</span>
+                        <span class="layer-name">الأجهزة والشبكة</span>
+                    </button>
+                    <button class="layer-nav-btn" onclick="scrollToLayer('layer2')" data-layer="2">
+                        <span class="layer-number">2</span>
+                        <span class="layer-name">نظام التشغيل والحاويات</span>
+                    </button>
+                    <button class="layer-nav-btn" onclick="scrollToLayer('layer3')" data-layer="3">
+                        <span class="layer-number">3</span>
+                        <span class="layer-name">البيانات والتخزين</span>
+                    </button>
+                    <button class="layer-nav-btn" onclick="scrollToLayer('layer4')" data-layer="4">
+                        <span class="layer-number">4</span>
+                        <span class="layer-name">الخدمات الأساسية</span>
+                    </button>
+                    <button class="layer-nav-btn" onclick="scrollToLayer('layer5')" data-layer="5">
+                        <span class="layer-number">5</span>
+                        <span class="layer-name">واجهات البرمجة والتكامل</span>
+                    </button>
+                    <button class="layer-nav-btn" onclick="scrollToLayer('layer6')" data-layer="6">
+                        <span class="layer-number">6</span>
+                        <span class="layer-name">التطبيقات وواجهة المستخدم</span>
+                    </button>
+                    <button class="layer-nav-btn" onclick="scrollToLayer('layer7')" data-layer="7">
+                        <span class="layer-number">7</span>
+                        <span class="layer-name">الأمان والمراقبة</span>
+                    </button>
+                    <button class="layer-nav-btn" onclick="scrollToLayer('layer8')" data-layer="8">
+                        <span class="layer-number">8</span>
+                        <span class="layer-name">الذكاء الاصطناعي والاستقلالية</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="layer-architecture">
+                <!-- Layer 1: Hardware & Network -->
+                <div class="layer" id="layer1">
+                    <div class="layer-header" onclick="toggleLayer(this)">
+                        <h3 class="layer-title" id="layer1-title">الطبقة الأولى: الأجهزة والشبكة</h3>
+                        <span class="layer-toggle">▼</span>
+                    </div>
+                    <div class="layer-content">
+                        <div class="layer-description" id="layer1-desc">
+                            الطبقة الأساسية التي توفر الموارد الحاسوبية والشبكية اللازمة لتشغيل المنصة بكفاءة عالية
+                        </div>
+                        
+                        <div class="component-grid">
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>🖥️</span>
+                                    <span id="cpu-title">المعالج الرئيسي</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">النوع:</span>
+                                        <span class="spec-value">AMD Ryzen AI 9 HX 370</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الأنوية:</span>
+                                        <span class="spec-value">12 Core (x64-based)</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التردد:</span>
+                                        <span class="spec-value">2.00 GHz Base</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التخزين المؤقت:</span>
+                                        <span class="spec-value">AI Acceleration Built-in</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>💾</span>
+                                    <span id="memory-title">الذاكرة العشوائية</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">السعة:</span>
+                                        <span class="spec-value">96.0 GB (93.6 GB usable)</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">النوع:</span>
+                                        <span class="spec-value">System Memory</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التوسع:</span>
+                                        <span class="spec-value">Installed Configuration</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التصحيح:</span>
+                                        <span class="spec-value">64-bit Operating System</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>💿</span>
+                                    <span id="storage-title">التخزين</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">النوع:</span>
+                                        <span class="spec-value">NVMe Gen4</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">السعة الأساسية:</span>
+                                        <span class="spec-value">2 TB</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التخزين المؤقت:</span>
+                                        <span class="spec-value">1 TB Scratch</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">السرعة:</span>
+                                        <span class="spec-value">7,000 MB/s</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>🎮</span>
+                                    <span id="gpu-title">وحدة الرسومات</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">النوع:</span>
+                                        <span class="spec-value">AMD Radeon 890M (iGPU)</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">ذاكرة الفيديو:</span>
+                                        <span class="spec-value">Shared System RAM</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الاتصال:</span>
+                                        <span class="spec-value">Integrated/System Bus</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الأنوية:</span>
+                                        <span class="spec-value">AI Acceleration Cores</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>📡</span>
+                                    <span id="network-title">الشبكة</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">الجيل الخامس:</span>
+                                        <span class="spec-value">5G SA/NSA</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الواي فاي:</span>
+                                        <span class="spec-value">Wi-Fi 6E</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الإيثرنت:</span>
+                                        <span class="spec-value">1 Gbps</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">GPS:</span>
+                                        <span class="spec-value">Optional</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>⚡</span>
+                                    <span id="power-title">الطاقة</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">الاستهلاك:</span>
+                                        <span class="spec-value">800-1000W</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">المحول:</span>
+                                        <span class="spec-value">1000W Inverter</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">البطارية:</span>
+                                        <span class="spec-value">UPS Backup</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الكفاءة:</span>
+                                        <span class="spec-value">80+ Gold</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layer 2: OS & Containers -->
+                <div class="layer" id="layer2">
+                    <div class="layer-header" onclick="toggleLayer(this)">
+                        <h3 class="layer-title" id="layer2-title">الطبقة الثانية: نظام التشغيل والحاويات</h3>
+                        <span class="layer-toggle">▼</span>
+                    </div>
+                    <div class="layer-content">
+                        <div class="layer-description" id="layer2-desc">
+                            طبقة نظام التشغيل المحصن وإدارة الحاويات التي توفر بيئة آمنة ومعزولة لتشغيل التطبيقات
+                        </div>
+                        
+                        <div class="component-grid">
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>🐧</span>
+                                    <span id="ubuntu-title">Ubuntu LTS المحصن</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">الإصدار:</span>
+                                        <span class="spec-value">22.04 LTS</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الأمان:</span>
+                                        <span class="spec-value">SELinux + AppArmor</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التحديثات:</span>
+                                        <span class="spec-value">Offline Bundles</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الدعم:</span>
+                                        <span class="spec-value">5 Years LTS</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>🎯</span>
+                                    <span id="nvidia-title">تشغيل NVIDIA</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">CUDA:</span>
+                                        <span class="spec-value">12.x Runtime</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">cuDNN:</span>
+                                        <span class="spec-value">8.x Library</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">TensorRT:</span>
+                                        <span class="spec-value">8.x Inference</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التحديث:</span>
+                                        <span class="spec-value">Quarterly</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>🐳</span>
+                                    <span id="docker-title">Docker Engine</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">الإصدار:</span>
+                                        <span class="spec-value">24.x CE</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">Runtime:</span>
+                                        <span class="spec-value">containerd</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الشبكة:</span>
+                                        <span class="spec-value">Bridge + Overlay</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التخزين:</span>
+                                        <span class="spec-value">Overlay2 Driver</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>☸️</span>
+                                    <span id="k3s-title">K3s Kubernetes</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">الإصدار:</span>
+                                        <span class="spec-value">v1.28+</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">Ingress:</span>
+                                        <span class="spec-value">Traefik</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التخزين:</span>
+                                        <span class="spec-value">local-path</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الحالة:</span>
+                                        <span class="spec-value">Optional</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>📦</span>
+                                    <span id="registry-title">سجل الحاويات</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">النوع:</span>
+                                        <span class="spec-value">Harbor/Registry v2</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الوضع:</span>
+                                        <span class="spec-value">Air-gapped</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التشفير:</span>
+                                        <span class="spec-value">TLS 1.3</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التخزين:</span>
+                                        <span class="spec-value">500GB</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layer 3: Data & Storage -->
+                <div class="layer" id="layer3">
+                    <div class="layer-header" onclick="toggleLayer(this)">
+                        <h3 class="layer-title" id="layer3-title">الطبقة الثالثة: البيانات والتخزين</h3>
+                        <span class="layer-toggle">▼</span>
+                    </div>
+                    <div class="layer-content">
+                        <div class="layer-description" id="layer3-desc">
+                            طبقة إدارة البيانات والتخزين التي تضمن سلامة البيانات وأمانها مع توفير أداء عالي للاستعلامات والتحليلات
+                        </div>
+                        
+                        <div class="component-grid">
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>🐘</span>
+                                    <span id="postgresql-title">PostgreSQL</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">الإصدار:</span>
+                                        <span class="spec-value">v15+</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الاتصالات:</span>
+                                        <span class="spec-value">100+ Async Pool</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">النسخ الاحتياطي:</span>
+                                        <span class="spec-value">Daily + WAL</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التشفير:</span>
+                                        <span class="spec-value">TDE + SSL</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>🔴</span>
+                                    <span id="redis-title">Redis Cache</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">الإصدار:</span>
+                                        <span class="spec-value">v7+</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الذاكرة:</span>
+                                        <span class="spec-value">8GB RAM</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الاستمرارية:</span>
+                                        <span class="spec-value">RDB + AOF</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التجميع:</span>
+                                        <span class="spec-value">Cluster Mode</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>🦆</span>
+                                    <span id="duckdb-title">DuckDB + Polars</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">النوع:</span>
+                                        <span class="spec-value">OLAP Analytics</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التخزين:</span>
+                                        <span class="spec-value">Columnar</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التنسيق:</span>
+                                        <span class="spec-value">Parquet</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الذاكرة:</span>
+                                        <span class="spec-value">In-Memory</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>🔒</span>
+                                    <span id="encryption-title">تشفير LUKS</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">الخوارزمية:</span>
+                                        <span class="spec-value">AES-256</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">المفاتيح:</span>
+                                        <span class="spec-value">TPM Integration</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الوضع:</span>
+                                        <span class="spec-value">XTS Mode</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الأداء:</span>
+                                        <span class="spec-value">Hardware Accelerated</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>📋</span>
+                                    <span id="evidence-title">مخزن الأدلة</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">التجزئة:</span>
+                                        <span class="spec-value">SHA-256</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الطوابع الزمنية:</span>
+                                        <span class="spec-value">RFC3161</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التوقيع:</span>
+                                        <span class="spec-value">Digital Signatures</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التدقيق:</span>
+                                        <span class="spec-value">Immutable Logs</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layer 4: Core Services -->
+                <div class="layer" id="layer4">
+                    <div class="layer-header" onclick="toggleLayer(this)">
+                        <h3 class="layer-title" id="layer4-title">الطبقة الرابعة: الخدمات الأساسية</h3>
+                        <span class="layer-toggle">▼</span>
+                    </div>
+                    <div class="layer-content">
+                        <div class="layer-description" id="layer4-desc">
+                            طبقة الخدمات الأساسية التي تحتوي على محركات الامتثال والمخاطر والتحليلات والتقارير وجميع الوظائف الرئيسية للمنصة
+                        </div>
+                        
+                        <div class="component-grid">
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>🚪</span>
+                                    <span id="gateway-title">البوابة الآمنة</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">النوع:</span>
+                                        <span class="spec-value">Traefik/Nginx</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الأمان:</span>
+                                        <span class="spec-value">mTLS + WAF</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التحكم:</span>
+                                        <span class="spec-value">Rate Limiting</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">المراقبة:</span>
+                                        <span class="spec-value">Real-time Logs</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>🔐</span>
+                                    <span id="auth-title">خدمة المصادقة</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">الرموز:</span>
+                                        <span class="spec-value">JWT HS256</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التشفير:</span>
+                                        <span class="spec-value">bcrypt Hashing</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">البروتوكول:</span>
+                                        <span class="spec-value">OAuth2 Bearer</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الصلاحيات:</span>
+                                        <span class="spec-value">RBAC</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>⚖️</span>
+                                    <span id="compliance-title">محرك الامتثال</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">NCA:</span>
+                                        <span class="spec-value">ECC v2.0</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">SAMA:</span>
+                                        <span class="spec-value">CSF Framework</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">PDPL:</span>
+                                        <span class="spec-value">Data Protection</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">المعايير الدولية:</span>
+                                        <span class="spec-value">ISO/NIST/GDPR</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>⚠️</span>
+                                    <span id="risk-title">محرك المخاطر</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">التقييم:</span>
+                                        <span class="spec-value">5×5 Matrix</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">المخاطر المتبقية:</span>
+                                        <span class="spec-value">Residual Risk</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الخرائط الحرارية:</span>
+                                        <span class="spec-value">5×5 Heatmaps</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التنبؤ:</span>
+                                        <span class="spec-value">30-day Trends</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>📊</span>
+                                    <span id="analytics-title">محرك التحليلات</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">بطاقات الأداء:</span>
+                                        <span class="spec-value">Framework Scorecards</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الاتجاهات:</span>
+                                        <span class="spec-value">Monthly Trends</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التوزيع:</span>
+                                        <span class="spec-value">Risk Distribution</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">النمذجة المالية:</span>
+                                        <span class="spec-value">Impact Modeling</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>📄</span>
+                                    <span id="reporting-title">خدمة التقارير</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">الأنواع:</span>
+                                        <span class="spec-value">Compliance/Risk/Executive</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التنسيقات:</span>
+                                        <span class="spec-value">PDF/Excel</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التقارير التنظيمية:</span>
+                                        <span class="spec-value">KSA Regulatory</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الجدولة:</span>
+                                        <span class="spec-value">Automated</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="component-card">
+                                <h4 class="component-title">
+                                    <span>🏢</span>
+                                    <span id="vendor-title">مخاطر الموردين</span>
+                                </h4>
+                                <ul class="component-specs">
+                                    <li>
+                                        <span class="spec-label">الاستبيانات:</span>
+                                        <span class="spec-value">Automated Ingestion</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">التقييم:</span>
+                                        <span class="spec-value">AI Risk Scoring</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">الاستطلاع:</span>
+                                        <span class="spec-value">External Reconnaissance</span>
+                                    </li>
+                                    <li>
+                                        <span class="spec-label">المراقبة:</span>
+                                        <span class="spec-value">Continuous Monitoring</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Layer 5: APIs & Integration Services -->
+            <div id="layer5" class="layer">
+                <div class="layer-header" onclick="toggleLayer(this)">
+                    <h3 class="layer-title" id="layer5-title">الطبقة الخامسة: واجهات البرمجة والتكامل</h3>
+                    <span class="layer-toggle">▼</span>
+                </div>
+                <div class="layer-content">
+                    <div class="layer-description" id="layer5-desc">
+                        طبقة واجهات البرمجة التطبيقية (APIs) والتكامل مع الأنظمة الخارجية، توفر واجهات RESTful آمنة ومرنة للوصول لجميع وظائف المنصة
+                    </div>
+                    
+                    <div class="component-grid">
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🔗</span>
+                                <span id="api-gateway-title">بوابة واجهات البرمجة</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">النوع:</span>
+                                    <span class="spec-value">FastAPI Gateway</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المصادقة:</span>
+                                    <span class="spec-value">JWT HS256 + OAuth2</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الحدود:</span>
+                                    <span class="spec-value">Rate Limiting + WAF</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">البروتوكول:</span>
+                                    <span class="spec-value">HTTPS + mTLS</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>📊</span>
+                                <span id="assessment-api-title">واجهات التقييم</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">المسار:</span>
+                                    <span class="spec-value">POST /api/assessments</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الوظيفة:</span>
+                                    <span class="spec-value">NCA/SAMA/PDPL Assessment</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المخرجات:</span>
+                                    <span class="spec-value">Score + Maturity + Recommendations</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الأداء:</span>
+                                    <span class="spec-value">< 85ms p95</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>⚠️</span>
+                                <span id="risk-api-title">واجهات إدارة المخاطر</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">التسجيل:</span>
+                                    <span class="spec-value">POST /api/risks</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الاستعلام:</span>
+                                    <span class="spec-value">GET /api/risks</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الخريطة الحرارية:</span>
+                                    <span class="spec-value">GET /api/risks/heatmap/{orgId}</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التوقعات:</span>
+                                    <span class="spec-value">GET /api/risks/trends/{orgId}</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>📈</span>
+                                <span id="analytics-api-title">واجهات التحليلات</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">لوحة القيادة:</span>
+                                    <span class="spec-value">GET /api/analytics/dashboard</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">بطاقات النتائج:</span>
+                                    <span class="spec-value">GET /api/analytics/scorecards</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التوزيع:</span>
+                                    <span class="spec-value">Framework Scores + Risk Distribution</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المحرك:</span>
+                                    <span class="spec-value">DuckDB + Polars</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>📄</span>
+                                <span id="reports-api-title">واجهات التقارير</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">التوليد:</span>
+                                    <span class="spec-value">POST /api/reports/generate</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الأنواع:</span>
+                                    <span class="spec-value">Compliance/Risk/Regulatory/Audit/Executive</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التنسيقات:</span>
+                                    <span class="spec-value">PDF/Excel/JSON</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">اللغات:</span>
+                                    <span class="spec-value">Arabic/English</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🔌</span>
+                                <span id="integration-api-title">واجهات التكامل</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">QRadar/Splunk:</span>
+                                    <span class="spec-value">SIEM Integration</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">ServiceNow:</span>
+                                    <span class="spec-value">Incident Management</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">Microsoft Purview:</span>
+                                    <span class="spec-value">Data Governance</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">STC/Aramco:</span>
+                                    <span class="spec-value">Digital Ecosystem</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Layer 6: Application & UI -->
+            <div id="layer6" class="layer">
+                <div class="layer-header" onclick="toggleLayer(this)">
+                    <h3 class="layer-title" id="layer6-title">الطبقة السادسة: التطبيقات وواجهة المستخدم</h3>
+                    <span class="layer-toggle">▼</span>
+                </div>
+                <div class="layer-content">
+                    <div class="layer-description" id="layer6-desc">
+                        طبقة التطبيقات وواجهة المستخدم، تشمل تطبيقات الويب والموبايل مع دعم كامل للغتين العربية والإنجليزية
+                    </div>
+                    
+                    <div class="component-grid">
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🎛️</span>
+                                <span id="streamlit-app-title">تطبيق Streamlit الإداري</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">النوع:</span>
+                                    <span class="spec-value">Python Streamlit Dashboard</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الوظائف:</span>
+                                    <span class="spec-value">Admin/Config/Analytics/Reports</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المنفذ:</span>
+                                    <span class="spec-value">8501 (Internal)</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المصادقة:</span>
+                                    <span class="spec-value">LDAP/AD Integration</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🌐</span>
+                                <span id="nextjs-app-title">تطبيق Next.js الرئيسي</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">الإطار:</span>
+                                    <span class="spec-value">Next.js 14 + TypeScript</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التصميم:</span>
+                                    <span class="spec-value">MUI + Tailwind CSS</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الحالة:</span>
+                                    <span class="spec-value">Zustand + React Query</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المنفذ:</span>
+                                    <span class="spec-value">3000 (Public)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>📱</span>
+                                <span id="mobile-app-title">التطبيق المحمول</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">النوع:</span>
+                                    <span class="spec-value">React Native + Expo</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المنصات:</span>
+                                    <span class="spec-value">iOS/Android</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الوظائف:</span>
+                                    <span class="spec-value">Assessment/Risk/Notifications</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المزامنة:</span>
+                                    <span class="spec-value">Offline-First + Sync</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🎨</span>
+                                <span id="ui-components-title">مكونات واجهة المستخدم</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">نظام التصميم:</span>
+                                    <span class="spec-value">Saudi Design System</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المكونات:</span>
+                                    <span class="spec-value">Charts/Tables/Forms/Dashboards</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الرسوم البيانية:</span>
+                                    <span class="spec-value">Chart.js + D3.js</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الجداول:</span>
+                                    <span class="spec-value">TanStack Table</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🌍</span>
+                                <span id="i18n-title">الدعم متعدد اللغات</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">اللغات:</span>
+                                    <span class="spec-value">العربية + English</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المكتبة:</span>
+                                    <span class="spec-value">react-i18next</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الاتجاه:</span>
+                                    <span class="spec-value">RTL/LTR Support</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التبديل:</span>
+                                    <span class="spec-value">Dynamic Language Switch</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>⚡</span>
+                                <span id="performance-title">الأداء والتحسين</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">التحميل:</span>
+                                    <span class="spec-value">Code Splitting + Lazy Loading</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التخزين المؤقت:</span>
+                                    <span class="spec-value">Service Worker + Cache API</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الضغط:</span>
+                                    <span class="spec-value">Gzip + Brotli</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الهدف:</span>
+                                    <span class="spec-value">< 2s First Load</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Layer 7: Security & Observability -->
+            <div id="layer7" class="layer">
+                <div class="layer-header" onclick="toggleLayer(this)">
+                    <h3 class="layer-title" id="layer7-title">الطبقة السابعة: الأمان والمراقبة</h3>
+                    <span class="layer-toggle">▼</span>
+                </div>
+                <div class="layer-content">
+                    <div class="layer-description" id="layer7-desc">
+                        طبقة الأمان والمراقبة الشاملة، تشمل التشفير المتقدم، جدار الحماية، مراقبة الأداء، وتسجيل جميع العمليات
+                    </div>
+                    
+                    <div class="component-grid">
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🔐</span>
+                                <span id="mtls-title">التشفير المتبادل (mTLS)</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">البروتوكول:</span>
+                                    <span class="spec-value">TLS 1.3 + mTLS</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الشهادات:</span>
+                                    <span class="spec-value">X.509 + PKI Infrastructure</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التدوير:</span>
+                                    <span class="spec-value">Auto Certificate Rotation</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التحقق:</span>
+                                    <span class="spec-value">Client/Server Mutual Auth</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🛡️</span>
+                                <span id="waf-title">جدار حماية التطبيقات</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">النوع:</span>
+                                    <span class="spec-value">ModSecurity + OWASP CRS</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الحماية:</span>
+                                    <span class="spec-value">SQL Injection/XSS/CSRF</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">معدل الطلبات:</span>
+                                    <span class="spec-value">Rate Limiting + DDoS</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الجغرافيا:</span>
+                                    <span class="spec-value">GeoIP Filtering</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>📊</span>
+                                <span id="monitoring-title">مراقبة الأداء</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">المقاييس:</span>
+                                    <span class="spec-value">Prometheus + Grafana</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التتبع:</span>
+                                    <span class="spec-value">Jaeger Distributed Tracing</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التنبيهات:</span>
+                                    <span class="spec-value">AlertManager + PagerDuty</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الصحة:</span>
+                                    <span class="spec-value">Health Checks + Uptime</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>📝</span>
+                                <span id="audit-logging-title">تسجيل المراجعة</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">التجميع:</span>
+                                    <span class="spec-value">ELK Stack (Elasticsearch)</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التنسيق:</span>
+                                    <span class="spec-value">JSON Structured Logs</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الاحتفاظ:</span>
+                                    <span class="spec-value">7 Years Compliance</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التشفير:</span>
+                                    <span class="spec-value">AES-256 at Rest</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🔍</span>
+                                <span id="siem-title">نظام إدارة الأحداث الأمنية</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">التكامل:</span>
+                                    <span class="spec-value">QRadar/Splunk/Sentinel</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الكشف:</span>
+                                    <span class="spec-value">Anomaly Detection + ML</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الاستجابة:</span>
+                                    <span class="spec-value">SOAR Integration</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التقارير:</span>
+                                    <span class="spec-value">SOC Dashboard + Alerts</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🔒</span>
+                                <span id="secrets-management-title">إدارة الأسرار</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">المخزن:</span>
+                                    <span class="spec-value">HashiCorp Vault</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التشفير:</span>
+                                    <span class="spec-value">AES-256-GCM + HSM</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التدوير:</span>
+                                    <span class="spec-value">Auto Secret Rotation</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الوصول:</span>
+                                    <span class="spec-value">RBAC + Dynamic Secrets</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Layer 8: AI/ML & Autonomy -->
+            <div id="layer8" class="layer">
+                <div class="layer-header" onclick="toggleLayer(this)">
+                    <h3 class="layer-title" id="layer8-title">الطبقة الثامنة: الذكاء الاصطناعي والاستقلالية</h3>
+                    <span class="layer-toggle">▼</span>
+                </div>
+                <div class="layer-content">
+                    <div class="layer-description" id="layer8-desc">
+                        طبقة الذكاء الاصطناعي والتعلم الآلي، تشمل نماذج التعلم العميق، كشف الشذوذ، التحليل التنبؤي، ومختبر الذكاء الاصطناعي المحمول
+                    </div>
+                    
+                    <div class="component-grid">
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🧠</span>
+                                <span id="pytorch-models-title">نماذج PyTorch</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">الإطار:</span>
+                                    <span class="spec-value">PyTorch 2.1 + Lightning</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">النماذج:</span>
+                                    <span class="spec-value">Transformer/BERT/GPT/LSTM</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التسريع:</span>
+                                    <span class="spec-value">CUDA + ROCm + AI Cores</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التحسين:</span>
+                                    <span class="spec-value">TorchScript + ONNX</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🔍</span>
+                                <span id="anomaly-detection-title">كشف الشذوذ</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">الخوارزميات:</span>
+                                    <span class="spec-value">Isolation Forest + DBSCAN</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التعلم العميق:</span>
+                                    <span class="spec-value">Autoencoder + VAE</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الزمن الحقيقي:</span>
+                                    <span class="spec-value">Stream Processing + Kafka</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الدقة:</span>
+                                    <span class="spec-value">95%+ Precision/Recall</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>📱</span>
+                                <span id="mobile-ai-lab-title">مختبر الذكاء الاصطناعي المحمول</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">المعالج:</span>
+                                    <span class="spec-value">AMD Ryzen AI 9 HX 370 (12 Core)</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الذاكرة:</span>
+                                    <span class="spec-value">96GB DDR5 + 2TB NVMe</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الرسوميات:</span>
+                                    <span class="spec-value">AMD Radeon 890M + 24GB eGPU</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الشبكة:</span>
+                                    <span class="spec-value">5G + WiFi 7 + Ethernet</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🔮</span>
+                                <span id="predictive-analytics-title">التحليل التنبؤي</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">السلاسل الزمنية:</span>
+                                    <span class="spec-value">Prophet + ARIMA + LSTM</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المخاطر:</span>
+                                    <span class="spec-value">Risk Forecasting + Monte Carlo</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الامتثال:</span>
+                                    <span class="spec-value">Compliance Drift Prediction</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الدقة:</span>
+                                    <span class="spec-value">85%+ Forecast Accuracy</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🤖</span>
+                                <span id="autonomous-systems-title">الأنظمة المستقلة</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">التقييم التلقائي:</span>
+                                    <span class="spec-value">Auto Assessment + Scoring</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الاستجابة:</span>
+                                    <span class="spec-value">Auto Incident Response</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التحديث:</span>
+                                    <span class="spec-value">Self-Updating Models</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التحكم:</span>
+                                    <span class="spec-value">Human-in-the-Loop Override</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🌐</span>
+                                <span id="edge-ai-title">الذكاء الاصطناعي الطرفي</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">النشر:</span>
+                                    <span class="spec-value">K3s Edge Clusters</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التحسين:</span>
+                                    <span class="spec-value">Model Quantization + Pruning</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المزامنة:</span>
+                                    <span class="spec-value">Federated Learning</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الكمون:</span>
+                                    <span class="spec-value">< 10ms Inference</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        // Add export button functionality if needed
+        if (document.querySelector('.export-btn')) {
+            document.querySelector('.export-btn').addEventListener('click', exportArchitecture);
+        }
+
+        // Add export button functionality if needed
+        if (document.querySelector('.export-btn')) {
+            document.querySelector('.export-btn').addEventListener('click', exportArchitecture);
+        }
+
+        // Layer Navigation Function
+        function scrollToLayer(layerId) {
+            // First, make sure we're on the layers section
+            showSection('layers');
+            
+            // Wait a bit for the section to show, then scroll to the layer
+            setTimeout(() => {
+                const layerElement = document.getElementById(layerId);
+                if (layerElement) {
+                    // Expand the layer if it's collapsed
+                    const layerContent = layerElement.querySelector('.layer-content');
+                    if (layerContent && layerContent.style.display === 'none') {
+                        const layerHeader = layerElement.querySelector('.layer-header');
+                        if (layerHeader) {
+                            layerHeader.click();
+                        }
+                    }
+                    
+                    // Smooth scroll to the layer
+                    layerElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Add highlight effect
+                    layerElement.style.transition = 'all 0.3s ease';
+                    layerElement.style.backgroundColor = 'rgba(59, 130, 246, 0.1)';
+                    layerElement.style.borderRadius = '10px';
+                    
+                    // Remove highlight after 2 seconds
+                    setTimeout(() => {
+                        layerElement.style.backgroundColor = '';
+                    }, 2000);
+                }
+            }, 300);
+        }
+
+        // Add keyboard shortcuts for layer navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.altKey) {
+                const layerNum = parseInt(e.key);
+                if (layerNum >= 1 && layerNum <= 8) {
+                    scrollToLayer('layer' + layerNum);
+                    e.preventDefault();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+                                <li>
+                                    <span class="spec-label">Microsoft Purview:</span>
+                                    <span class="spec-value">Data Governance</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">STC/Aramco:</span>
+                                    <span class="spec-value">Digital Ecosystem</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layer 6: Application & UI -->
+        <section id="layer6" class="content-section">
+            <div class="layer">
+                <div class="layer-header" onclick="toggleLayer(this)">
+                    <h3 class="layer-title" id="layer6-title">الطبقة السادسة: التطبيقات وواجهة المستخدم</h3>
+                    <span class="layer-toggle">▼</span>
+                </div>
+                <div class="layer-content">
+                    <div class="layer-description" id="layer6-desc">
+                        طبقة التطبيقات وواجهة المستخدم، تشمل تطبيقات الويب والموبايل مع دعم كامل للغتين العربية والإنجليزية
+                    </div>
+                    
+                    <div class="component-grid">
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🎛️</span>
+                                <span id="streamlit-app-title">تطبيق Streamlit الإداري</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">النوع:</span>
+                                    <span class="spec-value">Python Streamlit Dashboard</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الوظائف:</span>
+                                    <span class="spec-value">Admin/Config/Analytics/Reports</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المنفذ:</span>
+                                    <span class="spec-value">8501 (Internal)</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المصادقة:</span>
+                                    <span class="spec-value">LDAP/AD Integration</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🌐</span>
+                                <span id="nextjs-app-title">تطبيق Next.js الرئيسي</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">الإطار:</span>
+                                    <span class="spec-value">Next.js 14 + TypeScript</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التصميم:</span>
+                                    <span class="spec-value">MUI + Tailwind CSS</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الحالة:</span>
+                                    <span class="spec-value">Zustand + React Query</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المنفذ:</span>
+                                    <span class="spec-value">3000 (Public)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>📱</span>
+                                <span id="mobile-app-title">التطبيق المحمول</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">النوع:</span>
+                                    <span class="spec-value">React Native + Expo</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المنصات:</span>
+                                    <span class="spec-value">iOS/Android</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الوظائف:</span>
+                                    <span class="spec-value">Assessment/Risk/Notifications</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المزامنة:</span>
+                                    <span class="spec-value">Offline-First + Sync</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🎨</span>
+                                <span id="ui-components-title">مكونات واجهة المستخدم</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">نظام التصميم:</span>
+                                    <span class="spec-value">Saudi Design System</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المكونات:</span>
+                                    <span class="spec-value">Charts/Tables/Forms/Dashboards</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الرسوم البيانية:</span>
+                                    <span class="spec-value">Chart.js + D3.js</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الجداول:</span>
+                                    <span class="spec-value">TanStack Table</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🌍</span>
+                                <span id="i18n-title">الدعم متعدد اللغات</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">اللغات:</span>
+                                    <span class="spec-value">العربية + English</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المكتبة:</span>
+                                    <span class="spec-value">react-i18next</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الاتجاه:</span>
+                                    <span class="spec-value">RTL/LTR Support</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التبديل:</span>
+                                    <span class="spec-value">Dynamic Language Switch</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>⚡</span>
+                                <span id="performance-title">الأداء والتحسين</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">التحميل:</span>
+                                    <span class="spec-value">Code Splitting + Lazy Loading</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التخزين المؤقت:</span>
+                                    <span class="spec-value">Service Worker + Cache API</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الضغط:</span>
+                                    <span class="spec-value">Gzip + Brotli</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الهدف:</span>
+                                    <span class="spec-value">< 2s First Load</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layer 7: Security & Observability -->
+        <section id="layer7" class="content-section">
+            <div class="layer">
+                <div class="layer-header" onclick="toggleLayer(this)">
+                    <h3 class="layer-title" id="layer7-title">الطبقة السابعة: الأمان والمراقبة</h3>
+                    <span class="layer-toggle">▼</span>
+                </div>
+                <div class="layer-content">
+                    <div class="layer-description" id="layer7-desc">
+                        طبقة الأمان والمراقبة الشاملة، تشمل التشفير المتقدم، جدار الحماية، مراقبة الأداء، وتسجيل جميع العمليات
+                    </div>
+                    
+                    <div class="component-grid">
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🔐</span>
+                                <span id="mtls-title">التشفير المتبادل (mTLS)</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">البروتوكول:</span>
+                                    <span class="spec-value">TLS 1.3 + mTLS</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الشهادات:</span>
+                                    <span class="spec-value">X.509 + PKI Infrastructure</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التدوير:</span>
+                                    <span class="spec-value">Auto Certificate Rotation</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التحقق:</span>
+                                    <span class="spec-value">Client/Server Mutual Auth</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🛡️</span>
+                                <span id="waf-title">جدار حماية التطبيقات</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">النوع:</span>
+                                    <span class="spec-value">ModSecurity + OWASP CRS</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الحماية:</span>
+                                    <span class="spec-value">SQL Injection/XSS/CSRF</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">معدل الطلبات:</span>
+                                    <span class="spec-value">Rate Limiting + DDoS</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الجغرافيا:</span>
+                                    <span class="spec-value">GeoIP Filtering</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>📊</span>
+                                <span id="monitoring-title">مراقبة الأداء</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">المقاييس:</span>
+                                    <span class="spec-value">Prometheus + Grafana</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التتبع:</span>
+                                    <span class="spec-value">Jaeger Distributed Tracing</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التنبيهات:</span>
+                                    <span class="spec-value">AlertManager + PagerDuty</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الصحة:</span>
+                                    <span class="spec-value">Health Checks + Uptime</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>📝</span>
+                                <span id="audit-logging-title">تسجيل المراجعة</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">التجميع:</span>
+                                    <span class="spec-value">ELK Stack (Elasticsearch)</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التنسيق:</span>
+                                    <span class="spec-value">JSON Structured Logs</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الاحتفاظ:</span>
+                                    <span class="spec-value">7 Years Compliance</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التشفير:</span>
+                                    <span class="spec-value">AES-256 at Rest</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🔍</span>
+                                <span id="siem-title">نظام إدارة الأحداث الأمنية</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">التكامل:</span>
+                                    <span class="spec-value">QRadar/Splunk/Sentinel</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الكشف:</span>
+                                    <span class="spec-value">Anomaly Detection + ML</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الاستجابة:</span>
+                                    <span class="spec-value">SOAR Integration</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التقارير:</span>
+                                    <span class="spec-value">SOC Dashboard + Alerts</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🔒</span>
+                                <span id="secrets-management-title">إدارة الأسرار</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">المخزن:</span>
+                                    <span class="spec-value">HashiCorp Vault</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التشفير:</span>
+                                    <span class="spec-value">AES-256-GCM + HSM</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التدوير:</span>
+                                    <span class="spec-value">Auto Secret Rotation</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الوصول:</span>
+                                    <span class="spec-value">RBAC + Dynamic Secrets</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layer 8: AI/ML & Autonomy -->
+        <section id="layer8" class="content-section">
+            <div class="layer">
+                <div class="layer-header" onclick="toggleLayer(this)">
+                    <h3 class="layer-title" id="layer8-title">الطبقة الثامنة: الذكاء الاصطناعي والاستقلالية</h3>
+                    <span class="layer-toggle">▼</span>
+                </div>
+                <div class="layer-content">
+                    <div class="layer-description" id="layer8-desc">
+                        طبقة الذكاء الاصطناعي والتعلم الآلي، تشمل نماذج التعلم العميق، كشف الشذوذ، التحليل التنبؤي، ومختبر الذكاء الاصطناعي المحمول
+                    </div>
+                    
+                    <div class="component-grid">
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🧠</span>
+                                <span id="pytorch-models-title">نماذج PyTorch</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">الإطار:</span>
+                                    <span class="spec-value">PyTorch 2.1 + Lightning</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">النماذج:</span>
+                                    <span class="spec-value">Transformer/BERT/GPT/LSTM</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التسريع:</span>
+                                    <span class="spec-value">CUDA + ROCm + AI Cores</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التحسين:</span>
+                                    <span class="spec-value">TorchScript + ONNX</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🔍</span>
+                                <span id="anomaly-detection-title">كشف الشذوذ</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">الخوارزميات:</span>
+                                    <span class="spec-value">Isolation Forest + DBSCAN</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التعلم العميق:</span>
+                                    <span class="spec-value">Autoencoder + VAE</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الزمن الحقيقي:</span>
+                                    <span class="spec-value">Stream Processing + Kafka</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الدقة:</span>
+                                    <span class="spec-value">95%+ Precision/Recall</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>📱</span>
+                                <span id="mobile-ai-lab-title">مختبر الذكاء الاصطناعي المحمول</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">المعالج:</span>
+                                    <span class="spec-value">AMD Ryzen AI 9 HX 370 (12 Core)</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الذاكرة:</span>
+                                    <span class="spec-value">96GB DDR5 + 2TB NVMe</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الرسوميات:</span>
+                                    <span class="spec-value">AMD Radeon 890M + 24GB eGPU</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الشبكة:</span>
+                                    <span class="spec-value">5G + WiFi 7 + Ethernet</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🔮</span>
+                                <span id="predictive-analytics-title">التحليل التنبؤي</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">السلاسل الزمنية:</span>
+                                    <span class="spec-value">Prophet + ARIMA + LSTM</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المخاطر:</span>
+                                    <span class="spec-value">Risk Forecasting + Monte Carlo</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الامتثال:</span>
+                                    <span class="spec-value">Compliance Drift Prediction</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الدقة:</span>
+                                    <span class="spec-value">85%+ Forecast Accuracy</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🤖</span>
+                                <span id="autonomous-systems-title">الأنظمة المستقلة</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">التقييم التلقائي:</span>
+                                    <span class="spec-value">Auto Assessment + Scoring</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الاستجابة:</span>
+                                    <span class="spec-value">Auto Incident Response</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التحديث:</span>
+                                    <span class="spec-value">Self-Updating Models</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التحكم:</span>
+                                    <span class="spec-value">Human-in-the-Loop Override</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="component-card">
+                            <h4 class="component-title">
+                                <span>🌐</span>
+                                <span id="edge-ai-title">الذكاء الاصطناعي الطرفي</span>
+                            </h4>
+                            <ul class="component-specs">
+                                <li>
+                                    <span class="spec-label">النشر:</span>
+                                    <span class="spec-value">K3s Edge Clusters</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">التحسين:</span>
+                                    <span class="spec-value">Model Quantization + Pruning</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">المزامنة:</span>
+                                    <span class="spec-value">Federated Learning</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">الكمون:</span>
+                                    <span class="spec-value">< 10ms Inference</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Section -->
+        <section id="security" class="content-section">
+            <h2 class="section-title" id="security-title">الأمان والحماية</h2>
+            <p class="section-subtitle" id="security-subtitle">
+                نظام أمان متعدد الطبقات يضمن حماية البيانات والامتثال لأعلى معايير الأمان السيبراني
+            </p>
+
+            <div class="security-grid">
+                <div class="security-card">
+                    <span class="security-icon">🔐</span>
+                    <h3 class="security-title" id="encryption-security-title">التشفير الشامل</h3>
+                    <p class="security-description" id="encryption-security-desc">
+                        تشفير البيانات في حالة الراحة والحركة باستخدام AES-256 ومعايير التشفير المتقدمة
+                    </p>
+                </div>
+
+                <div class="security-card">
+                    <span class="security-icon">🛡️</span>
+                    <h3 class="security-title" id="access-security-title">التحكم في الوصول</h3>
+                    <p class="security-description" id="access-security-desc">
+                        نظام صلاحيات متقدم مع مصادقة متعددة العوامل وإدارة الهوية والوصول
+                    </p>
+                </div>
+
+                <div class="security-card">
+                    <span class="security-icon">🔍</span>
+                    <h3 class="security-title" id="monitoring-security-title">المراقبة المستمرة</h3>
+                    <p class="security-description" id="monitoring-security-desc">
+                        مراقبة الأمان في الوقت الفعلي مع كشف التهديدات والاستجابة التلقائية للحوادث
+                    </p>
+                </div>
+
+                <div class="security-card">
+                    <span class="security-icon">🏰</span>
+                    <h3 class="security-title" id="isolation-security-title">العزل الشبكي</h3>
+                    <p class="security-description" id="isolation-security-desc">
+                        شبكة معزولة مع إمكانية العمل منفصلة عن الإنترنت لضمان أقصى درجات الأمان
+                    </p>
+                </div>
+
+                <div class="security-card">
+                    <span class="security-icon">📋</span>
+                    <h3 class="security-title" id="audit-security-title">سجلات التدقيق</h3>
+                    <p class="security-description" id="audit-security-desc">
+                        سجلات تدقيق شاملة وغير قابلة للتعديل لجميع العمليات والأنشطة في النظام
+                    </p>
+                </div>
+
+                <div class="security-card">
+                    <span class="security-icon">🔒</span>
+                    <h3 class="security-title" id="backup-security-title">النسخ الاحتياطية</h3>
+                    <p class="security-description" id="backup-security-desc">
+                        نسخ احتياطية مشفرة ومجدولة مع إمكانية الاستعادة السريعة في حالات الطوارئ
+                    </p>
+                </div>
+            </div>
+
+            <!-- Security Compliance Matrix -->
+            <div class="tech-specs">
+                <h3 class="tech-specs-title" id="security-compliance-title">مصفوفة الامتثال الأمني</h3>
+                <table class="specs-table">
+                    <thead>
+                        <tr>
+                            <th id="security-standard">المعيار الأمني</th>
+                            <th id="security-coverage">التغطية</th>
+                            <th id="security-implementation">التطبيق</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>NCA ECC v2.0</td>
+                            <td>100%</td>
+                            <td>ضوابط أمان شاملة</td>
+                        </tr>
+                        <tr>
+                            <td>ISO 27001</td>
+                            <td>95%</td>
+                            <td>نظام إدارة أمان المعلومات</td>
+                        </tr>
+                        <tr>
+                            <td>NIST Cybersecurity Framework</td>
+                            <td>90%</td>
+                            <td>إطار الأمان السيبراني</td>
+                        </tr>
+                        <tr>
+                            <td>SAMA CSF</td>
+                            <td>100%</td>
+                            <td>إطار الأمان السيبراني للبنوك</td>
+                        </tr>
+                        <tr>
+                            <td>PDPL</td>
+                            <td>100%</td>
+                            <td>حماية البيانات الشخصية</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Performance Section -->
+        <section id="performance" class="content-section">
+            <h2 class="section-title" id="performance-title">الأداء والمقاييس</h2>
+            <p class="section-subtitle" id="performance-subtitle">
+                مقاييس الأداء والكفاءة التشغيلية للمنصة مع إحصائيات مفصلة عن الاستخدام والموارد
+            </p>
+
+            <div class="performance-metrics">
+                <h3 class="tech-specs-title" id="performance-metrics-title">مقاييس الأداء الرئيسية</h3>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <span class="metric-value">99.9%</span>
+                        <span class="metric-label" id="uptime-metric">وقت التشغيل</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">&lt;200ms</span>
+                        <span class="metric-label" id="response-metric">زمن الاستجابة</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">1000+</span>
+                        <span class="metric-label" id="concurrent-metric">مستخدم متزامن</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">10TB</span>
+                        <span class="metric-label" id="data-metric">سعة البيانات</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">24/7</span>
+                        <span class="metric-label" id="monitoring-metric">المراقبة</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-value">15min</span>
+                        <span class="metric-label" id="backup-metric">النسخ الاحتياطي</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resource Utilization -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">65%</span>
+                    <span class="stat-label" id="cpu-usage">استخدام المعالج</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">72GB</span>
+                    <span class="stat-label" id="memory-usage">استخدام الذاكرة</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1.2TB</span>
+                    <span class="stat-label" id="storage-usage">استخدام التخزين</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">45%</span>
+                    <span class="stat-label" id="gpu-usage">استخدام وحدة الرسومات</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">850W</span>
+                    <span class="stat-label" id="power-usage">استهلاك الطاقة</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">42°C</span>
+                    <span class="stat-label" id="temperature">درجة الحرارة</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deployment Section -->
+        <section id="deployment" class="content-section">
+            <h2 class="section-title" id="deployment-title">النشر والتشغيل</h2>
+            <p class="section-subtitle" id="deployment-subtitle">
+                خيارات النشر المتعددة والمرونة في التشغيل لتناسب احتياجات المؤسسات المختلفة
+            </p>
+
+            <div class="architecture-overview">
+                <div class="overview-card">
+                    <span class="overview-icon">🏢</span>
+                    <h3 class="overview-title" id="onpremise-title">النشر المحلي</h3>
+                    <p class="overview-description" id="onpremise-desc">
+                        نشر كامل في مراكز البيانات المحلية مع تحكم كامل في البنية التحتية والأمان
+                    </p>
+                </div>
+
+                <div class="overview-card">
+                    <span class="overview-icon">☁️</span>
+                    <h3 class="overview-title" id="hybrid-title">النشر المختلط</h3>
+                    <p class="overview-description" id="hybrid-desc">
+                        دمج بين النشر المحلي والسحابي لتحقيق التوازن بين الأمان والمرونة
+                    </p>
+                </div>
+
+                <div class="overview-card">
+                    <span class="overview-icon">🔌</span>
+                    <h3 class="overview-title" id="airgapped-title">النشر المعزول</h3>
+                    <p class="overview-description" id="airgapped-desc">
+                        تشغيل منفصل تماماً عن الإنترنت للمؤسسات ذات المتطلبات الأمنية العالية
+                    </p>
+                </div>
+
+                <div class="overview-card">
+                    <span class="overview-icon">📱</span>
+                    <h3 class="overview-title" id="edge-title">النشر الطرفي</h3>
+                    <p class="overview-description" id="edge-desc">
+                        نشر على الأجهزة الطرفية للمكاتب الفرعية والمواقع النائية
+                    </p>
+                </div>
+            </div>
+
+            <!-- Deployment Timeline -->
+            <div class="tech-specs">
+                <h3 class="tech-specs-title" id="deployment-timeline-title">جدولة النشر</h3>
+                <table class="specs-table">
+                    <thead>
+                        <tr>
+                            <th id="deployment-phase">المرحلة</th>
+                            <th id="deployment-duration">المدة</th>
+                            <th id="deployment-activities">الأنشطة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>التخطيط والتحضير</td>
+                            <td>2-3 أسابيع</td>
+                            <td>تحليل المتطلبات وتصميم الحل</td>
+                        </tr>
+                        <tr>
+                            <td>تجهيز البنية التحتية</td>
+                            <td>1-2 أسابيع</td>
+                            <td>تركيب الأجهزة وإعداد الشبكة</td>
+                        </tr>
+                        <tr>
+                            <td>تثبيت النظام</td>
+                            <td>3-5 أيام</td>
+                            <td>تثبيت البرمجيات وإعداد قواعد البيانات</td>
+                        </tr>
+                        <tr>
+                            <td>التكوين والاختبار</td>
+                            <td>1-2 أسابيع</td>
+                            <td>تكوين النظام واختبار الوظائف</td>
+                        </tr>
+                        <tr>
+                            <td>التدريب والتسليم</td>
+                            <td>1 أسبوع</td>
+                            <td>تدريب المستخدمين وتسليم النظام</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Language Toggle Functionality
+        const translations = {
+            ar: {
+                mainTitle: "منصة شاهين الرؤية - الهيكل التقني الشامل",
+                mainSubtitle: "الهيكل المعماري المتقدم لمنصة الامتثال الذكية المصممة خصيصاً للمملكة العربية السعودية",
+                langText: "English",
+                "tab-overview": "نظرة عامة",
+                "tab-layers": "الطبقات المعمارية",
+                "tab-security": "الأمان والحماية",
+                "tab-performance": "الأداء والمقاييس",
+                "tab-deployment": "النشر والتشغيل"
+            },
+            en: {
+                mainTitle: "Shahin Vision Platform - Comprehensive Technical Architecture",
+                mainSubtitle: "Advanced architectural framework for intelligent compliance platform designed specifically for Saudi Arabia",
+                langText: "العربية",
+                "tab-overview": "Overview",
+                "tab-layers": "Architecture Layers",
+                "tab-security": "Security & Protection",
+                "tab-performance": "Performance & Metrics",
+                "tab-deployment": "Deployment & Operations"
+            }
+        };
+
+        let currentLang = 'ar';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const direction = currentLang === 'ar' ? 'rtl' : 'ltr';
+            
+            document.documentElement.setAttribute('lang', currentLang);
+            document.documentElement.setAttribute('dir', direction);
+            
+            // Update text content
+            Object.keys(translations[currentLang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Tab Navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Add animation
+            document.getElementById(sectionId).classList.add('fade-in');
+        }
+
+        // Layer Toggle Functionality
+        function toggleLayer(header) {
+            const layer = header.parentElement;
+            layer.classList.toggle('collapsed');
+            
+            const content = layer.querySelector('.layer-content');
+            if (layer.classList.contains('collapsed')) {
+                content.style.display = 'none';
+            } else {
+                content.style.display = 'block';
+                content.classList.add('slide-in');
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading animation to cards
+            const cards = document.querySelectorAll('.overview-card, .component-card, .security-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('fade-in');
+                }, index * 100);
+            });
+
+            // Initialize all layers as expanded
+            document.querySelectorAll('.layer').forEach(layer => {
+                layer.classList.remove('collapsed');
+            });
+
+            // Add hover effects
+            document.querySelectorAll('.component-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Smooth scrolling for navigation
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetSection = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+                    document.getElementById(targetSection).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+
+            // Add real-time clock for system status
+            function updateClock() {
+                const now = new Date();
+                const timeString = now.toLocaleString('ar-SA', {
+                    timeZone: 'Asia/Riyadh',
+                    hour12: false
+                });
+                
+                // Update any time displays if they exist
+                const timeElements = document.querySelectorAll('.system-time');
+                timeElements.forEach(element => {
+                    element.textContent = timeString;
+                });
+            }
+
+            // Update clock every second
+            setInterval(updateClock, 1000);
+            updateClock();
+
+            // Add performance monitoring simulation
+            function simulateMetrics() {
+                const cpuUsage = document.querySelector('#cpu-usage');
+                const memoryUsage = document.querySelector('#memory-usage');
+                const temperature = document.querySelector('#temperature');
+                
+                if (cpuUsage) {
+                    const cpu = Math.floor(Math.random() * 20) + 60; // 60-80%
+                    cpuUsage.previousElementSibling.textContent = cpu + '%';
+                }
+                
+                if (memoryUsage) {
+                    const memory = Math.floor(Math.random() * 10) + 70; // 70-80GB
+                    memoryUsage.previousElementSibling.textContent = memory + 'GB';
+                }
+                
+                if (temperature) {
+                    const temp = Math.floor(Math.random() * 8) + 40; // 40-48°C
+                    temperature.previousElementSibling.textContent = temp + '°C';
+                }
+            }
+
+            // Update metrics every 5 seconds
+            setInterval(simulateMetrics, 5000);
+
+            console.log('Shahin Vision Platform Architecture - Initialized Successfully');
+            console.log('System Status: Online');
+            console.log('Security Level: Maximum');
+            console.log('Compliance: KSA Regulatory Ready');
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey) {
+                switch(e.key) {
+                    case '1':
+                        showSection('overview');
+                        break;
+                    case '2':
+                        showSection('layers');
+                        break;
+                    case '3':
+                        showSection('security');
+                        break;
+                    case '4':
+                        showSection('performance');
+                        break;
+                    case '5':
+                        showSection('deployment');
+                        break;
+                    case 'l':
+                        toggleLanguage();
+                        break;
+                }
+            }
+        });
+
+        // Export functionality for reports
+        function exportArchitecture() {
+            const content = document.documentElement.outerHTML;
+            const blob = new Blob([content], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'shahin-architecture-comprehensive.html';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Add export button functionality if needed
+        if (document.querySelector('.export-btn')) {
+            document.querySelector('.export-btn').addEventListener('click', exportArchitecture);
+        }
+
+        // Layer Navigation Function
+        function scrollToLayer(layerId) {
+            // First, make sure we're on the layers section
+            showSection('layers');
+            
+            // Wait a bit for the section to show, then scroll to the layer
+            setTimeout(() => {
+                const layerElement = document.getElementById(layerId);
+                if (layerElement) {
+                    // Expand the layer if it's collapsed
+                    const layer = layerElement.closest('.layer') || layerElement;
+                    if (layer && layer.classList.contains('collapsed')) {
+                        const header = layer.querySelector('.layer-header');
+                        if (header) {
+                            toggleLayer(header);
+                        }
+                    }
+                    
+                    // Smooth scroll to the layer
+                    layerElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Add highlight effect
+                    layerElement.style.transition = 'all 0.3s ease';
+                    layerElement.style.backgroundColor = 'rgba(59, 130, 246, 0.1)';
+                    layerElement.style.borderRadius = '10px';
+                    
+                    // Remove highlight after 2 seconds
+                    setTimeout(() => {
+                        layerElement.style.backgroundColor = '';
+                    }, 2000);
+                }
+            }, 300);
+        }
+
+        // Add keyboard shortcuts for layer navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.altKey) {
+                const layerNum = parseInt(e.key);
+                if (layerNum >= 1 && layerNum <= 8) {
+                    scrollToLayer('layer' + layerNum);
+                    e.preventDefault();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

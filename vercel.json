@@ -1,0 +1,77 @@
+{
+  "version": 2,
+  "name": "shahin-ai-business-analysis",
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/Shahin_Comprehensive_Review_Index.html"
+    },
+    {
+      "src": "/index",
+      "dest": "/Shahin_Comprehensive_Review_Index.html"
+    },
+    {
+      "src": "/main",
+      "dest": "/Shahin_Comprehensive_Review_Index.html"
+    },
+    {
+      "src": "/analysis",
+      "dest": "/Shahin_Comprehensive_Review_Index.html"
+    },
+    {
+      "src": "/architecture",
+      "dest": "/Shahin_Architecture_Platform_Comprehensive.html"
+    },
+    {
+      "src": "/market",
+      "dest": "/Saudi_Market_Regulations_Requirements_Comprehensive.html"
+    },
+    {
+      "src": "/grc",
+      "dest": "/GRC_Problems_Gaps_Solutions_KSA_Comprehensive.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/*.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ],
+  "functions": {
+    "*.html": {
+      "maxDuration": 10
+    }
+  }
+}

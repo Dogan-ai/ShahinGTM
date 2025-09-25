@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Shahin Vision">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#10b981">
+    <meta name="msapplication-navbutton-color" content="#10b981">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <title>Shahin Vision Platform - Comprehensive Review Index</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --secondary-color: #3b82f6;
+            --accent-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+            --border-radius: 0.5rem;
+            --border-radius-lg: 1rem;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--dark-color);
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: var(--dark-color);
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .navigation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .nav-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-card:hover::before {
+            left: 100%;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary-color);
+            box-shadow: 0 25px 50px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-card:active {
+            transform: translateY(-8px) scale(1.01);
+            transition: all 0.1s ease;
+        }
+
+        .nav-card.architecture {
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .nav-card.market-analysis {
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .nav-card.gtm-strategy {
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .nav-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .nav-card.architecture .nav-icon {
+            color: var(--primary-color);
+        }
+
+        .nav-card.market-analysis .nav-icon {
+            color: var(--secondary-color);
+        }
+
+        .nav-card.gtm-strategy .nav-icon {
+            color: var(--accent-color);
+        }
+
+        .nav-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .nav-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-features li {
+            padding: 0.5rem 0;
+            color: #4b5563;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-features li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .content-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius-lg);
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .navigation-bar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb-link {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb-link:hover {
+            color: #059669;
+        }
+
+        .breadcrumb-separator {
+            color: #d1d5db;
+            font-weight: 600;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+
+        .back-button:active {
+            transform: translateY(0);
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 80vh;
+            border: none;
+            background: white;
+        }
+
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 3rem;
+        }
+
+        .shortcuts-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .shortcuts-panel:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .shortcuts-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #10b981;
+        }
+
+        .shortcut-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.2rem 0;
+        }
+
+        .shortcut-key {
+            background: #374151;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.7rem;
+        }
+
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(16, 185, 129, 0.3);
+            z-index: 10000;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        /* Clickable Elements Styles */
+        .clickable-text {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .clickable-text:hover {
+            color: #10b981;
+            border-bottom-color: #10b981;
+            text-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+        }
+
+        .clickable-keyword {
+            cursor: pointer;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid transparent;
+        }
+
+        .clickable-keyword:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #10b981;
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+        }
+
+        .clickable-feature {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: 0.2rem 0;
+            border-radius: 4px;
+        }
+
+        .clickable-feature:hover {
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            padding-left: 0.5rem;
+            transform: translateX(5px);
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .quick-link {
+            cursor: pointer;
+            padding: 0.4rem 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .quick-link:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #10b981;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Auto-hide header styles */
+        .header.hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .main-container.fullscreen {
+            padding-top: 0;
+        }
+
+        .main-container.fullscreen .header {
+            display: none;
+        }
+
+        /* Floating controls styles */
+        .floating-controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 10000;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .floating-controls:hover {
+            opacity: 1;
+        }
+
+        .floating-control {
+            width: 50px;
+            height: 50px;
+            background: rgba(16, 185, 129, 0.9);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .floating-control:hover {
+            background: rgba(16, 185, 129, 1);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Mini map styles */
+        .mini-map {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            min-width: 200px;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mini-map.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mini-map-header {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #10b981;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .mini-map-item {
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            margin: 0.2rem 0;
+        }
+
+        .mini-map-item:hover {
+            background: rgba(16, 185, 129, 0.2);
+            transform: translateX(5px);
+        }
+
+        .mini-map-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .mini-map-close:hover {
+             color: #dc2626;
+         }
+
+         /* Auto-hide intro section styles */
+         .intro-section {
+             max-height: 200px;
+             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+         }
+
+         .intro-section.collapsed {
+             max-height: 80px;
+             padding: 1rem 1.5rem;
+             overflow: hidden;
+         }
+
+         .intro-section.collapsed .intro-content {
+             opacity: 0;
+             transform: translateY(-10px);
+             pointer-events: none;
+         }
+
+         .intro-section.collapsed .intro-collapsed {
+             opacity: 1;
+             transform: translateY(0);
+         }
+
+         .intro-content {
+             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+             opacity: 1;
+             transform: translateY(0);
+         }
+
+         .intro-collapsed {
+             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+             opacity: 0;
+             transform: translateY(10px);
+             position: relative;
+             width: 100%;
+             margin: 0 auto;
+             max-width: 800px;
+         }
+
+         .intro-section.collapsed .intro-collapsed {
+             opacity: 1;
+             transform: translateY(0);
+         }
+
+         .intro-toggle:hover {
+             color: #10b981 !important;
+             transform: scale(1.1);
+         }
+
+         .intro-auto-hide-timer {
+             position: absolute;
+             bottom: 5px;
+             left: 15px;
+             font-size: 0.8rem;
+             color: rgba(255, 255, 255, 0.6);
+             transition: opacity 0.3s ease;
+         }
+
+        /* Mobile-First Responsive Design for Executive Users */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px; /* Prevent zoom on iOS */
+                -webkit-text-size-adjust: 100%;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            .navigation-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 0.5rem;
+            }
+            
+            .navigation-card {
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+                min-height: 120px;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                transition: all 0.3s ease;
+                cursor: pointer;
+                -webkit-tap-highlight-color: rgba(0, 212, 170, 0.2);
+            }
+
+            .navigation-card:active {
+                transform: scale(0.98);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .navigation-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 0.75rem;
+                line-height: 1.3;
+            }
+
+            .navigation-card p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+            
+            .header {
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+                line-height: 1.2;
+                margin: 0;
+            }
+            
+            .container {
+                padding: 0.5rem;
+                max-width: 100%;
+            }
+
+            /* Mobile-optimized intro section */
+            .intro-section {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 12px;
+                max-height: 180px;
+            }
+
+            .intro-section.collapsed {
+                max-height: 70px;
+                padding: 0.75rem 1rem;
+            }
+
+            .intro-content p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin: 0.5rem 0;
+            }
+
+            .intro-toggle {
+                font-size: 1.2rem;
+                padding: 8px;
+                min-width: 44px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* Mobile floating controls */
+            .floating-controls {
+                top: 15px;
+                left: 15px;
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .floating-control {
+                width: 48px;
+                height: 48px;
+                font-size: 1.1rem;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+                -webkit-tap-highlight-color: rgba(0, 212, 170, 0.3);
+            }
+
+            .floating-control:active {
+                transform: scale(0.95);
+            }
+            
+            /* Mobile mini-map */
+            .mini-map {
+                right: 15px;
+                top: 15px;
+                min-width: 200px;
+                max-width: calc(100vw - 30px);
+                padding: 1rem;
+                border-radius: 12px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .mini-map-item {
+                padding: 12px;
+                margin: 8px 0;
+                border-radius: 8px;
+                font-size: 0.95rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            /* Mobile quick actions */
+            .quick-actions {
+                margin-top: 1rem;
+                gap: 8px;
+            }
+
+            .quick-link {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                border-radius: 8px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                -webkit-tap-highlight-color: rgba(0, 212, 170, 0.3);
+            }
+
+            .quick-link:active {
+                transform: scale(0.96);
+            }
+
+            /* Mobile clickable elements */
+            .clickable-text, .clickable-keyword, .clickable-feature {
+                padding: 4px 8px;
+                border-radius: 6px;
+                min-height: 32px;
+                display: inline-flex;
+                align-items: center;
+                -webkit-tap-highlight-color: rgba(0, 212, 170, 0.2);
+            }
+
+            /* Mobile shortcuts panel */
+            .shortcuts-panel {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+                width: auto;
+                max-height: 60vh;
+                overflow-y: auto;
+                border-radius: 12px;
+                padding: 1rem;
+            }
+
+            .shortcut-item {
+                padding: 12px;
+                margin: 8px 0;
+                border-radius: 8px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            /* Mobile stats */
+            .quick-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+                margin: 1rem 0;
+            }
+
+            .stat-card {
+                padding: 1rem;
+                border-radius: 10px;
+                min-height: 80px;
+            }
+
+            .stat-card h4 {
+                font-size: 0.85rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .stat-card .stat-value {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Tablet optimization */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .navigation-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .navigation-card {
+                padding: 1.75rem;
+                min-height: 140px;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .navigation-card {
+                padding: 1.25rem;
+                min-height: 110px;
+            }
+
+            .navigation-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .navigation-card p {
+                font-size: 0.9rem;
+            }
+
+            .quick-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-control {
+                width: 44px;
+                height: 44px;
+                font-size: 1rem;
+            }
+
+            .mini-map {
+                min-width: 180px;
+                padding: 0.75rem;
+            }
+
+            .intro-section {
+                margin: 0.25rem;
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><i class="fas fa-shield-alt"></i> Shahin Vision Platform</h1>
+        <p>Comprehensive Review Index - Team Collaboration Hub</p>
+        <div id="intro-section" class="intro-section" style="margin-top: 1rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5)); border-radius: 12px; border-left: 5px solid #00d4aa; backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); transition: all 0.5s ease; position: relative; overflow: hidden;">
+          <div class="intro-toggle" onclick="toggleIntro()" style="position: absolute; top: 10px; right: 15px; cursor: pointer; color: #00d4aa; font-size: 1.2rem; z-index: 10; transition: all 0.3s ease;" title="Toggle Introduction">
+              <i class="fas fa-chevron-up" id="intro-toggle-icon"></i>
+          </div>
+          <div id="intro-content" class="intro-content" style="transition: all 0.5s ease;">
+              <p style="margin: 0; font-size: 1.15rem; line-height: 1.7; color: #ffffff; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">This comprehensive platform integrates advanced GRC architecture, regulatory compliance frameworks, and strategic market analysis to deliver enterprise-grade governance solutions for the Saudi Arabian market. The documentation encompasses technical specifications, regulatory mappings, and implementation strategies designed to meet the highest standards of government and enterprise requirements.</p>
+              <p style="margin: 1rem 0 0 0; font-size: 1rem; color: #00d4aa; text-align: right; font-weight: 600; text-shadow: 1px 1px 2px rgba(0,0,0,0.7);"><i class="fas fa-certificate" style="color: #00d4aa;"></i> <strong style="font-weight: 800; color: #ffffff; cursor: pointer; transition: all 0.3s ease;" onclick="backToMain()" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#ffffff'">DoganConsult</strong> | <span style="color: #e0f7f3;">Engineering Consultant Accredited by Saudi Engineering Council</span> | <span style="color: #ffffff;">Strategic Advisory Excellence</span> | Led by <strong style="font-weight: 700; color: #00d4aa;">Dr. Ahmet Dogan</strong></p>
+          </div>
+          <div class="intro-collapsed" id="intro-collapsed" style="display: none; text-align: center; padding: 0.75rem; color: #ffffff; font-weight: 500; background: rgba(0, 212, 170, 0.1); border-radius: 8px; border-left: 3px solid #00d4aa;">
+              <i class="fas fa-chart-line" style="color: #00d4aa; margin-right: 8px;"></i>
+              <span style="color: #00d4aa; font-weight: 600;">DoganConsult</span> 
+              <span style="color: rgba(255, 255, 255, 0.8); margin: 0 8px;">|</span>
+              <span style="color: rgba(255, 255, 255, 0.9);">Comprehensive Review Dashboard</span>
+          </div>
+      </div>
+    </div>
+
+    <div class="container">
+        <!-- Main Navigation -->
+        <div id="main-navigation">
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Core Documents</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Saudi Regulators</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">847</div>
+                    <div class="stat-label">Automated Controls</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Architecture Layers</div>
+                </div>
+            </div>
+
+            <div class="navigation-grid">
+                <!-- Architecture Document -->
+                <div class="nav-card architecture" onclick="showSection('architecture')">
+                    <i class="fas fa-layer-group nav-icon"></i>
+                    <h3 class="nav-title"><span class="clickable-text" data-action="architecture">Platform Architecture</span></h3>
+                    <p class="nav-description">
+                        Complete 7-layer architecture of <span class="clickable-keyword" data-action="architecture">Shahin Vision</span> platform with detailed component specifications and <span class="clickable-keyword" data-action="architecture">technical implementation</span>.
+                    </p>
+                    <ul class="nav-features">
+                        <li><span class="clickable-feature" data-action="architecture">7-Layer Architecture Stack</span></li>
+                        <li><span class="clickable-feature" data-action="architecture">Component Specifications</span></li>
+                        <li><span class="clickable-feature" data-action="architecture">Technical Implementation</span></li>
+                        <li><span class="clickable-feature" data-action="architecture">Integration Points</span></li>
+                        <li><span class="clickable-feature" data-action="architecture">Security Framework</span></li>
+                    </ul>
+                    <div class="quick-actions">
+                        <span class="quick-link" onclick="event.stopPropagation(); showSection('architecture')">📖 View Details</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openFullscreen('architecture')">🔍 Fullscreen</span>
+                    </div>
+                    <button class="nav-button">
+                        <i class="fas fa-arrow-right"></i> View Architecture
+                    </button>
+                </div>
+
+                <!-- Market Analysis Document -->
+                <div class="nav-card market-analysis" onclick="showSection('market-analysis')">
+                    <i class="fas fa-chart-line nav-icon"></i>
+                    <h3 class="nav-title"><span class="clickable-text" data-action="market-analysis">Market Analysis & Gaps</span></h3>
+                    <p class="nav-description">
+                        Comprehensive analysis of <span class="clickable-keyword" data-action="market-analysis">GRC market gaps</span> in Saudi Arabia, <span class="clickable-keyword" data-action="market-analysis">competitor landscape</span>, and solution positioning.
+                    </p>
+                    <ul class="nav-features">
+                        <li><span class="clickable-feature" data-action="market-analysis">10 Critical Market Gaps</span></li>
+                        <li><span class="clickable-feature" data-action="market-analysis">Competitor Analysis</span></li>
+                        <li><span class="clickable-feature" data-action="market-analysis">Local vs Global Platforms</span></li>
+                        <li><span class="clickable-feature" data-action="market-analysis">Regulatory Landscape</span></li>
+                        <li><span class="clickable-feature" data-action="market-analysis">Solution Positioning</span></li>
+                    </ul>
+                    <div class="quick-actions">
+                        <span class="quick-link" onclick="event.stopPropagation(); showSection('market-analysis')">📊 View Analysis</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openFullscreen('market-analysis')">🔍 Fullscreen</span>
+                    </div>
+                    <button class="nav-button">
+                        <i class="fas fa-arrow-right"></i> View Analysis
+                    </button>
+                </div>
+
+                <!-- Saudi Market Regulations Document -->
+                <div class="nav-card gtm-strategy" onclick="showSection('gtm-strategy')">
+                    <i class="fas fa-balance-scale nav-icon"></i>
+                    <h3 class="nav-title"><span class="clickable-text" data-action="gtm-strategy">Saudi Market Regulations</span></h3>
+                    <p class="nav-description">
+                        Comprehensive overview of <span class="clickable-keyword" data-action="gtm-strategy">Saudi Arabia's regulatory landscape</span>, <span class="clickable-keyword" data-action="gtm-strategy">compliance requirements</span>, and market regulations.
+                    </p>
+                    <ul class="nav-features">
+                        <li><span class="clickable-feature" data-action="gtm-strategy">Regulatory Framework</span></li>
+                        <li><span class="clickable-feature" data-action="gtm-strategy">Compliance Requirements</span></li>
+                        <li><span class="clickable-feature" data-action="gtm-strategy">Market Standards</span></li>
+                        <li><span class="clickable-feature" data-action="gtm-strategy">Legal Guidelines</span></li>
+                        <li><span class="clickable-feature" data-action="gtm-strategy">Industry Regulations</span></li>
+                    </ul>
+                    <div class="quick-actions">
+                        <span class="quick-link" onclick="event.stopPropagation(); showSection('gtm-strategy')">⚖️ View Regulations</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openFullscreen('gtm-strategy')">🔍 Fullscreen</span>
+                    </div>
+                    <button class="nav-button">
+                        <i class="fas fa-arrow-right"></i> View Regulations
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div id="architecture-section" class="content-section">
+            <div class="navigation-bar">
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">
+                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home"></i> Home</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span><i class="fas fa-layer-group"></i> Platform Architecture</span>
+                    </div>
+                </div>
+                <button class="back-button" onclick="showMain()">
+                    <i class="fas fa-arrow-left"></i> Back to Index
+                </button>
+            </div>
+            <div class="section-header">
+                <h2><i class="fas fa-layer-group"></i> Platform Architecture</h2>
+                <p>7-Layer Shahin Vision Architecture with Complete Technical Specifications</p>
+            </div>
+            <iframe src="Shahin_Architecture_Platform_Comprehensive.html" class="iframe-container"></iframe>
+        </div>
+
+        <div id="market-analysis-section" class="content-section">
+            <div class="navigation-bar">
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">
+                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home"></i> Home</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span><i class="fas fa-chart-line"></i> Market Analysis & Gaps</span>
+                    </div>
+                </div>
+                <button class="back-button" onclick="showMain()">
+                    <i class="fas fa-arrow-left"></i> Back to Index
+                </button>
+            </div>
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> Market Analysis & Gaps</h2>
+                <p>Comprehensive GRC Market Analysis for Saudi Arabia</p>
+            </div>
+            <iframe src="GRC_Problems_Gaps_Solutions_KSA_Comprehensive.html" class="iframe-container"></iframe>
+        </div>
+
+        <div id="gtm-strategy-section" class="content-section">
+            <div class="navigation-bar">
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">
+                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home"></i> Home</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span><i class="fas fa-balance-scale"></i> Saudi Market Regulations</span>
+                    </div>
+                </div>
+                <button class="back-button" onclick="showMain()">
+                    <i class="fas fa-arrow-left"></i> Back to Index
+                </button>
+            </div>
+            <div class="section-header">
+                <h2><i class="fas fa-balance-scale"></i> Saudi Market Regulations</h2>
+                <p>Comprehensive Regulatory Framework and Compliance Requirements</p>
+            </div>
+            <iframe src="Saudi_Market_Regulations_Requirements_Comprehensive.html" class="iframe-container"></iframe>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p style="font-weight: 600;"><i class="fas fa-shield-alt"></i> Shahin Vision Platform - Comprehensive Review Index</p>
+        <p style="font-weight: 500;">Enterprise-Grade GRC Solutions | <strong style="font-weight: 700;">DoganConsult</strong> - Engineering Consultant Accredited by Saudi Engineering Council | Led by <strong style="font-weight: 700;">Dr. Ahmet Dogan</strong></p>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div id="progress-indicator" class="progress-indicator"></div>
+
+    <!-- Keyboard Shortcuts Panel -->
+    <div class="shortcuts-panel">
+        <div class="shortcuts-title">⌨️ Keyboard Shortcuts</div>
+        <div class="shortcut-item">
+            <span>Home</span>
+            <span class="shortcut-key">ESC / H</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Architecture</span>
+            <span class="shortcut-key">1</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Market Analysis</span>
+            <span class="shortcut-key">2</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Regulations</span>
+            <span class="shortcut-key">3</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Back</span>
+            <span class="shortcut-key">←</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Toggle Intro</span>
+            <span class="shortcut-key">I</span>
+        </div>
+    </div>
+
+    <script>
+        let currentSection = null;
+        let isTransitioning = false;
+
+        // Enhanced smooth section navigation with auto-hide header
+        function showSection(sectionName, fullscreen = false) {
+            if (isTransitioning) return; // Prevent multiple clicks during transition
+            isTransitioning = true;
+
+            // Add loading indicator
+            showLoadingIndicator();
+            
+            // Auto-hide header for fullscreen experience
+            if (fullscreen) {
+                hideHeaderForFullscreen();
+            }
+            
+            // Smooth fade out main navigation
+            const mainNav = document.getElementById('main-navigation');
+            mainNav.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+            mainNav.style.opacity = '0';
+            mainNav.style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                mainNav.style.display = 'none';
+                
+                // Hide all sections with fade effect
+                const sections = document.querySelectorAll('.content-section');
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(20px)';
+                });
+                
+                // Show selected section with smooth animation
+                const targetSection = document.getElementById(sectionName + '-section');
+                targetSection.classList.add('active');
+                targetSection.style.transition = 'opacity 0.5s ease-in, transform 0.5s ease-in';
+                
+                // Add fullscreen class if needed
+                if (fullscreen) {
+                    targetSection.classList.add('fullscreen-mode');
+                    document.body.classList.add('fullscreen-active');
+                }
+                
+                setTimeout(() => {
+                    targetSection.style.opacity = '1';
+                    targetSection.style.transform = 'translateY(0)';
+                    currentSection = sectionName;
+                    
+                    // Smooth scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    // Hide loading indicator
+                    setTimeout(() => {
+                        hideLoadingIndicator();
+                        isTransitioning = false;
+                    }, 300);
+                }, 100);
+            }, 300);
+
+            // Update browser history for back button support
+            history.pushState({ section: sectionName, fullscreen: fullscreen }, '', `#${sectionName}${fullscreen ? '-fullscreen' : ''}`);
+        }
+
+        // Fullscreen mode function
+        function openFullscreen(sectionName) {
+            showSection(sectionName, true);
+        }
+
+        // Auto-hide header functionality
+        function hideHeaderForFullscreen() {
+            const header = document.querySelector('.header');
+            const container = document.querySelector('.container');
+            
+            if (header && container) {
+                header.classList.add('hidden');
+                container.classList.add('fullscreen');
+                
+                // Add floating mini controls
+                addFloatingControls();
+            }
+        }
+
+        function showHeaderFromFullscreen() {
+            const header = document.querySelector('.header');
+            const container = document.querySelector('.container');
+            
+            if (header && container) {
+                header.classList.remove('hidden');
+                container.classList.remove('fullscreen');
+                
+                // Remove floating controls
+                removeFloatingControls();
+            }
+        }
+
+        // Enhanced smooth return to main navigation
+        function showMain() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            // Add loading indicator
+            showLoadingIndicator();
+            
+            // Show header if in fullscreen mode
+            showHeaderFromFullscreen();
+            
+            // Remove fullscreen classes
+            document.body.classList.remove('fullscreen-active');
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('fullscreen-mode');
+            });
+            
+            // Remove floating controls
+            removeFloatingControls();
+            
+            // Smooth fade out current section
+            sections.forEach(section => {
+                section.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(-20px)';
+                setTimeout(() => section.classList.remove('active'), 300);
+            });
+            
+            setTimeout(() => {
+                // Show main navigation with smooth animation
+                const mainNav = document.getElementById('main-navigation');
+                mainNav.style.display = 'block';
+                mainNav.style.transition = 'opacity 0.5s ease-in, transform 0.5s ease-in';
+                mainNav.style.opacity = '0';
+                mainNav.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    mainNav.style.opacity = '1';
+                    mainNav.style.transform = 'translateY(0)';
+                    currentSection = null;
+                    
+                    // Smooth scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    setTimeout(() => {
+                        hideLoadingIndicator();
+                        isTransitioning = false;
+                    }, 300);
+                }, 100);
+            }, 300);
+
+            // Update browser history
+            history.pushState({ section: 'main' }, '', '#');
+        }
+
+        // Enhanced floating controls functionality for mobile
+        function addFloatingControls() {
+            // Remove existing floating controls if any
+            removeFloatingControls();
+            
+            const isMobile = document.body.classList.contains('mobile-device');
+            
+            const floatingControls = document.createElement('div');
+            floatingControls.className = 'floating-controls';
+            
+            if (isMobile) {
+                // Mobile-optimized floating controls
+                floatingControls.innerHTML = `
+                    <div class="floating-control mobile-control" onclick="backToMain()" title="Back to Main">
+                         <i class="fas fa-home"></i>
+                         <span class="control-label">Home</span>
+                     </div>
+                    <div class="floating-control mobile-control" onclick="toggleMiniMap()" title="Mini Map">
+                        <i class="fas fa-map"></i>
+                        <span class="control-label">Map</span>
+                    </div>
+                    <div class="floating-control mobile-control" onclick="toggleFullscreen()" title="Exit Fullscreen">
+                        <i class="fas fa-compress"></i>
+                        <span class="control-label">Exit</span>
+                    </div>
+                    <div class="floating-control mobile-control mobile-menu-trigger" onclick="toggleMobileFullscreenMenu()" title="More Options">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <span class="control-label">More</span>
+                    </div>
+                `;
+            } else {
+                // Desktop floating controls
+                floatingControls.innerHTML = `
+                    <div class="floating-control" onclick="backToMain()" title="Back to Main">
+                         <i class="fas fa-home"></i>
+                     </div>
+                    <div class="floating-control" onclick="toggleMiniMap()" title="Mini Map">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div class="floating-control" onclick="toggleFullscreen()" title="Exit Fullscreen">
+                        <i class="fas fa-compress"></i>
+                    </div>
+                    <div class="floating-control" onclick="toggleShortcuts()" title="Shortcuts">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                `;
+            }
+            
+            document.body.appendChild(floatingControls);
+            
+            // Add mobile-specific touch feedback
+            if (isMobile) {
+                const controls = floatingControls.querySelectorAll('.floating-control');
+                controls.forEach(control => {
+                    addTouchFeedback(control);
+                });
+            }
+        }
+
+        function toggleMobileFullscreenMenu() {
+            const existingMenu = document.querySelector('.mobile-fullscreen-menu');
+            
+            if (existingMenu) {
+                existingMenu.remove();
+                return;
+            }
+
+            const mobileMenu = document.createElement('div');
+            mobileMenu.className = 'mobile-fullscreen-menu';
+            mobileMenu.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                right: 20px;
+                background: rgba(31, 41, 55, 0.95);
+                backdrop-filter: blur(10px);
+                border-radius: 16px;
+                padding: 1rem;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                z-index: 999;
+                min-width: 180px;
+                animation: slideUp 0.3s ease;
+            `;
+
+            const menuItems = [
+                { icon: 'fas fa-search', text: 'Search', action: () => focusSearch() },
+                { icon: 'fas fa-bookmark', text: 'Bookmark', action: () => bookmarkSection() },
+                { icon: 'fas fa-share', text: 'Share', action: () => shareSection() },
+                { icon: 'fas fa-print', text: 'Print', action: () => window.print() }
+            ];
+
+            menuItems.forEach(item => {
+                const menuItem = document.createElement('div');
+                menuItem.style.cssText = `
+                    display: flex;
+                    align-items: center;
+                    padding: 12px;
+                    margin: 4px 0;
+                    border-radius: 8px;
+                    color: white;
+                    cursor: pointer;
+                    transition: background 0.2s ease;
+                    -webkit-tap-highlight-color: transparent;
+                `;
+                
+                menuItem.innerHTML = `
+                    <i class="${item.icon}" style="margin-right: 12px; width: 20px;"></i>
+                    <span>${item.text}</span>
+                `;
+
+                menuItem.addEventListener('click', () => {
+                    item.action();
+                    mobileMenu.remove();
+                    showMobileFeedback(`${item.icon.includes('search') ? '🔍' : item.icon.includes('bookmark') ? '🔖' : item.icon.includes('share') ? '📤' : '🖨️'} ${item.text}`);
+                });
+
+                addTouchFeedback(menuItem);
+                mobileMenu.appendChild(menuItem);
+            });
+
+            document.body.appendChild(mobileMenu);
+
+            // Close menu when clicking outside
+            setTimeout(() => {
+                document.addEventListener('click', function closeMenu(e) {
+                    if (!mobileMenu.contains(e.target) && !e.target.closest('.mobile-menu-trigger')) {
+                        mobileMenu.remove();
+                        document.removeEventListener('click', closeMenu);
+                    }
+                });
+            }, 100);
+        }
+
+        // Mobile-specific fullscreen functions
+        function focusSearch() {
+            const searchInput = document.querySelector('input[type="search"], input[placeholder*="search"], input[placeholder*="Search"]');
+            if (searchInput) {
+                searchInput.focus();
+                searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function bookmarkSection() {
+            if (currentSection) {
+                const url = `${window.location.origin}${window.location.pathname}#${currentSection}`;
+                if (navigator.share) {
+                    navigator.share({
+                        title: `Shahin GTM - ${currentSection}`,
+                        url: url
+                    });
+                } else {
+                    // Fallback for browsers without Web Share API
+                    navigator.clipboard.writeText(url).then(() => {
+                        showMobileFeedback('🔖 Link copied to clipboard');
+                    });
+                }
+            }
+        }
+
+        function shareSection() {
+            if (currentSection && navigator.share) {
+                const sectionTitles = {
+                    'architecture': 'System Architecture',
+                    'market-analysis': 'Market Analysis',
+                    'gtm-strategy': 'GTM Strategy'
+                };
+                
+                navigator.share({
+                    title: `Shahin GTM - ${sectionTitles[currentSection] || currentSection}`,
+                    text: 'Check out this comprehensive business analysis',
+                    url: `${window.location.origin}${window.location.pathname}#${currentSection}`
+                });
+            } else {
+                // Fallback for browsers without Web Share API
+                const url = `${window.location.origin}${window.location.pathname}#${currentSection}`;
+                navigator.clipboard.writeText(url).then(() => {
+                    showMobileFeedback('📤 Link copied for sharing');
+                });
+            }
+        }
+
+        function removeFloatingControls() {
+            const existingControls = document.querySelector('.floating-controls');
+            if (existingControls) {
+                existingControls.remove();
+            }
+        }
+
+        // Toggle fullscreen mode
+         function toggleFullscreen() {
+             if (document.body.classList.contains('fullscreen-active')) {
+                 backToMain();
+             } else if (currentSection) {
+                 openFullscreen(currentSection);
+             }
+         }
+
+        // Mini map functionality
+        function toggleMiniMap() {
+            const miniMap = document.querySelector('.mini-map');
+            if (miniMap) {
+                miniMap.classList.toggle('active');
+            } else {
+                createMiniMap();
+            }
+        }
+
+        function createMiniMap() {
+            const miniMap = document.createElement('div');
+            miniMap.className = 'mini-map active';
+            miniMap.innerHTML = `
+                <div class="mini-map-header">Navigation Map</div>
+                <div class="mini-map-item" onclick="backToMain()">🏠 Main Dashboard</div>
+                <div class="mini-map-item" onclick="showSection('architecture')">🏗️ System Architecture</div>
+                <div class="mini-map-item" onclick="showSection('market-analysis')">📊 Market Analysis</div>
+                <div class="mini-map-item" onclick="showSection('gtm-strategy')">📋 Regulations</div>
+                <div class="mini-map-close" onclick="toggleMiniMap()">×</div>
+            `;
+            
+            document.body.appendChild(miniMap);
+        }
+
+        // Progress indicator functions
+        function updateProgressIndicator(progress) {
+            const indicator = document.getElementById('progress-indicator');
+            if (indicator) {
+                indicator.style.transform = `scaleX(${progress / 100})`;
+                indicator.style.background = `linear-gradient(90deg, #10b981 0%, #059669 ${progress}%, rgba(16, 185, 129, 0.3) 100%)`;
+            }
+        }
+
+        // Loading indicator functions
+        function showLoadingIndicator() {
+            updateProgressIndicator(20);
+            
+            let loader = document.getElementById('smart-loader');
+            if (!loader) {
+                loader = document.createElement('div');
+                loader.id = 'smart-loader';
+                loader.innerHTML = '<div class="loader-spinner"></div><p>Loading...</p>';
+                loader.style.cssText = `
+                    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                    background: rgba(0,0,0,0.8); color: white; padding: 2rem;
+                    border-radius: 12px; z-index: 9999; text-align: center;
+                    backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+                `;
+                document.body.appendChild(loader);
+                
+                // Add spinner CSS
+                const style = document.createElement('style');
+                style.textContent = `
+                    .loader-spinner {
+                        width: 40px; height: 40px; margin: 0 auto 1rem;
+                        border: 3px solid rgba(255,255,255,0.3);
+                        border-top: 3px solid #10b981;
+                        border-radius: 50%; animation: spin 1s linear infinite;
+                    }
+                    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+                `;
+                document.head.appendChild(style);
+            }
+            loader.style.display = 'block';
+            loader.style.opacity = '1';
+            updateProgressIndicator(50);
+        }
+
+        function hideLoadingIndicator() {
+            updateProgressIndicator(100);
+            
+            const loader = document.getElementById('smart-loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 200);
+            }
+            
+            // Reset progress indicator after a delay
+            setTimeout(() => updateProgressIndicator(0), 1000);
+        }
+
+        // Enhanced keyboard shortcuts with visual feedback and smart features
+        document.addEventListener('keydown', function(e) {
+            if (isTransitioning) return;
+            
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case 'h':
+                         e.preventDefault();
+                         backToMain();
+                         showKeyboardFeedback('🏠 Home');
+                         break;
+                    case '1':
+                        e.preventDefault();
+                        showSection('architecture');
+                        showKeyboardFeedback('🏗️ Architecture');
+                        break;
+                    case '2':
+                        e.preventDefault();
+                        showSection('market-analysis');
+                        showKeyboardFeedback('📊 Market Analysis');
+                        break;
+                    case '3':
+                        e.preventDefault();
+                        showSection('gtm-strategy');
+                        showKeyboardFeedback('📋 Regulations');
+                        break;
+                    case 'f':
+                        e.preventDefault();
+                        if (currentSection) {
+                            openFullscreen(currentSection);
+                            showKeyboardFeedback('🔍 Fullscreen Mode');
+                        }
+                        break;
+                    case 'm':
+                        e.preventDefault();
+                        toggleMiniMap();
+                        showKeyboardFeedback('🗺️ Mini Map');
+                        break;
+                    case 'k':
+                        e.preventDefault();
+                        toggleShortcuts();
+                        showKeyboardFeedback('⌨️ Shortcuts');
+                        break;
+                    case 'i':
+                        e.preventDefault();
+                        toggleIntro();
+                        break;
+                    case 'Escape':
+                        e.preventDefault();
+                        if (document.body.classList.contains('fullscreen-active')) {
+                             backToMain();
+                             showKeyboardFeedback('🔙 Exit Fullscreen');
+                         } else {
+                             backToMain();
+                             showKeyboardFeedback('🔙 Back');
+                         }
+                        break;
+                }
+            }
+            
+            // Arrow key navigation
+            if (!e.ctrlKey && !e.metaKey) {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        navigateToPrevious();
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        navigateToNext();
+                        break;
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        smartScrollUp();
+                        break;
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        smartScrollDown();
+                        break;
+                    case 'Escape':
+                         e.preventDefault();
+                         backToMain();
+                         showKeyboardFeedback('🔙 Back');
+                         break;
+                     case '1':
+                         e.preventDefault();
+                         showSection('architecture');
+                         showKeyboardFeedback('🏗️ Architecture');
+                         break;
+                     case '2':
+                         e.preventDefault();
+                         showSection('market-analysis');
+                         showKeyboardFeedback('📊 Market Analysis');
+                         break;
+                     case '3':
+                         e.preventDefault();
+                         showSection('gtm-strategy');
+                         showKeyboardFeedback('📋 Regulations');
+                         break;
+                     case 'h':
+                         e.preventDefault();
+                         backToMain();
+                         showKeyboardFeedback('🏠 Home');
+                        break;
+                }
+            }
+        });
+
+        // Smart navigation functions
+        function navigateToPrevious() {
+            const sections = ['architecture', 'market-analysis', 'gtm-strategy'];
+            if (!currentSection) {
+                showSection(sections[sections.length - 1]);
+                showKeyboardFeedback('⬅️ Previous Section');
+            } else {
+                const currentIndex = sections.indexOf(currentSection);
+                if (currentIndex > 0) {
+                    showSection(sections[currentIndex - 1]);
+                    showKeyboardFeedback('⬅️ Previous Section');
+                } else {
+                     backToMain();
+                     showKeyboardFeedback('🏠 Back to Home');
+                 }
+            }
+        }
+
+        function navigateToNext() {
+            const sections = ['architecture', 'market-analysis', 'gtm-strategy'];
+            if (!currentSection) {
+                showSection(sections[0]);
+                showKeyboardFeedback('➡️ Next Section');
+            } else {
+                const currentIndex = sections.indexOf(currentSection);
+                if (currentIndex < sections.length - 1) {
+                    showSection(sections[currentIndex + 1]);
+                    showKeyboardFeedback('➡️ Next Section');
+                } else {
+                     backToMain();
+                     showKeyboardFeedback('🏠 Back to Home');
+                 }
+             }
+         }
+
+        function smartScrollUp() {
+            window.scrollBy({ top: -300, behavior: 'smooth' });
+            showKeyboardFeedback('⬆️ Scroll Up');
+        }
+
+        function smartScrollDown() {
+            window.scrollBy({ top: 300, behavior: 'smooth' });
+            showKeyboardFeedback('⬇️ Scroll Down');
+        }
+
+        function toggleShortcuts() {
+             const panel = document.querySelector('.shortcuts-panel');
+             if (panel) {
+                 panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+             }
+         }
+
+         // Auto-hide intro section functionality
+         let introAutoHideTimer;
+         let introCollapsed = false;
+
+         function initializeIntroAutoHide() {
+             // Start auto-hide timer after 8 seconds
+             introAutoHideTimer = setTimeout(() => {
+                 if (!introCollapsed) {
+                     collapseIntro();
+                 }
+             }, 8000);
+
+             // Add event listeners to pause auto-hide on interaction
+             const introSection = document.getElementById('intro-section');
+             if (introSection) {
+                 introSection.addEventListener('mouseenter', pauseAutoHide);
+                 introSection.addEventListener('mouseleave', resumeAutoHide);
+             }
+
+             // Pause auto-hide when user interacts with navigation
+             document.addEventListener('click', function(e) {
+                 if (e.target.closest('.navigation-card') || e.target.closest('.clickable-text')) {
+                     pauseAutoHide();
+                 }
+             });
+         }
+
+         function toggleIntro() {
+             const introSection = document.getElementById('intro-section');
+             const introIcon = document.getElementById('intro-toggle-icon');
+             
+             if (introCollapsed) {
+                 expandIntro();
+             } else {
+                 collapseIntro();
+             }
+         }
+
+         function collapseIntro() {
+             const introSection = document.getElementById('intro-section');
+             const introIcon = document.getElementById('intro-toggle-icon');
+             const introContent = document.getElementById('intro-content');
+             const introCollapsedDiv = document.getElementById('intro-collapsed');
+             
+             if (introSection && !introCollapsed) {
+                 introSection.classList.add('collapsed');
+                 introIcon.className = 'fas fa-chevron-down';
+                 introContent.style.display = 'none';
+                 introCollapsedDiv.style.display = 'block';
+                 introCollapsed = true;
+                 
+                 // Clear any existing timer
+                 clearTimeout(introAutoHideTimer);
+                 
+                 // Show feedback
+                 showKeyboardFeedback('📄 Introduction Collapsed');
+             }
+         }
+
+         function expandIntro() {
+             const introSection = document.getElementById('intro-section');
+             const introIcon = document.getElementById('intro-toggle-icon');
+             const introContent = document.getElementById('intro-content');
+             const introCollapsedDiv = document.getElementById('intro-collapsed');
+             
+             if (introSection && introCollapsed) {
+                 introSection.classList.remove('collapsed');
+                 introIcon.className = 'fas fa-chevron-up';
+                 introContent.style.display = 'block';
+                 introCollapsedDiv.style.display = 'none';
+                 introCollapsed = false;
+                 
+                 // Restart auto-hide timer
+                 resumeAutoHide();
+                 
+                 // Show feedback
+                 showKeyboardFeedback('📄 Introduction Expanded');
+             }
+         }
+
+         function pauseAutoHide() {
+             clearTimeout(introAutoHideTimer);
+         }
+
+         function resumeAutoHide() {
+             if (!introCollapsed) {
+                 clearTimeout(introAutoHideTimer);
+                 introAutoHideTimer = setTimeout(() => {
+                     if (!introCollapsed) {
+                         collapseIntro();
+                     }
+                 }, 5000); // Resume with 5 seconds
+             }
+         }
+
+         // Initialize auto-hide when page loads
+         document.addEventListener('DOMContentLoaded', function() {
+             initializeIntroAutoHide();
+             initializeMobileEnhancements();
+         });
+
+         // Mobile-specific enhancements for executive users
+         function initializeMobileEnhancements() {
+             // Detect mobile device
+             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+             
+             if (isMobile) {
+                 // Add mobile class to body
+                 document.body.classList.add('mobile-device');
+                 
+                 // Enhanced touch feedback for navigation cards
+                 const navigationCards = document.querySelectorAll('.navigation-card');
+                 navigationCards.forEach(card => {
+                     addTouchFeedback(card);
+                 });
+
+                 // Enhanced touch feedback for clickable elements
+                 const clickableElements = document.querySelectorAll('.clickable-text, .clickable-keyword, .clickable-feature, .quick-link');
+                 clickableElements.forEach(element => {
+                     addTouchFeedback(element);
+                 });
+
+                 // Add swipe gestures for intro section
+                 addSwipeGestures();
+
+                 // Optimize auto-hide timing for mobile
+                 optimizeMobileAutoHide();
+
+                 // Add mobile-specific keyboard alternative
+                 addMobileControls();
+             }
+         }
+
+         function addTouchFeedback(element) {
+             let touchStartTime;
+             
+             element.addEventListener('touchstart', function(e) {
+                 touchStartTime = Date.now();
+                 this.style.transform = 'scale(0.98)';
+                 this.style.transition = 'transform 0.1s ease';
+             }, { passive: true });
+
+             element.addEventListener('touchend', function(e) {
+                 const touchDuration = Date.now() - touchStartTime;
+                 
+                 setTimeout(() => {
+                     this.style.transform = '';
+                     this.style.transition = 'transform 0.3s ease';
+                 }, 100);
+
+                 // Prevent double-tap zoom on iOS
+                 if (touchDuration < 300) {
+                     e.preventDefault();
+                 }
+             }, { passive: false });
+
+             element.addEventListener('touchcancel', function() {
+                 this.style.transform = '';
+                 this.style.transition = 'transform 0.3s ease';
+             });
+         }
+
+         function addSwipeGestures() {
+             const introSection = document.getElementById('intro-section');
+             if (!introSection) return;
+
+             let startY = 0;
+             let startTime = 0;
+
+             introSection.addEventListener('touchstart', function(e) {
+                 startY = e.touches[0].clientY;
+                 startTime = Date.now();
+             }, { passive: true });
+
+             introSection.addEventListener('touchend', function(e) {
+                 const endY = e.changedTouches[0].clientY;
+                 const endTime = Date.now();
+                 const deltaY = startY - endY;
+                 const deltaTime = endTime - startTime;
+
+                 // Swipe up to collapse, swipe down to expand
+                 if (Math.abs(deltaY) > 50 && deltaTime < 300) {
+                     if (deltaY > 0 && !introCollapsed) {
+                         // Swipe up - collapse
+                         collapseIntro();
+                         showMobileFeedback('📄 Introduction Collapsed');
+                     } else if (deltaY < 0 && introCollapsed) {
+                         // Swipe down - expand
+                         expandIntro();
+                         showMobileFeedback('📄 Introduction Expanded');
+                     }
+                 }
+             }, { passive: true });
+         }
+
+         function optimizeMobileAutoHide() {
+             // Extend auto-hide timer for mobile users (executives need more time to read)
+             if (introAutoHideTimer) {
+                 clearTimeout(introAutoHideTimer);
+                 introAutoHideTimer = setTimeout(() => {
+                     if (!introCollapsed) {
+                         collapseIntro();
+                     }
+                 }, 12000); // 12 seconds for mobile
+             }
+         }
+
+         function addMobileControls() {
+             // Add floating mobile menu button
+             const mobileMenuButton = document.createElement('div');
+             mobileMenuButton.className = 'mobile-menu-button';
+             mobileMenuButton.innerHTML = '<i class="fas fa-bars"></i>';
+             mobileMenuButton.style.cssText = `
+                 position: fixed;
+                 bottom: 20px;
+                 right: 20px;
+                 width: 56px;
+                 height: 56px;
+                 background: linear-gradient(135deg, #10b981, #059669);
+                 border-radius: 50%;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 color: white;
+                 font-size: 1.2rem;
+                 box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+                 cursor: pointer;
+                 z-index: 1000;
+                 transition: all 0.3s ease;
+                 -webkit-tap-highlight-color: transparent;
+             `;
+
+             mobileMenuButton.addEventListener('click', function() {
+                 toggleMobileMenu();
+             });
+
+             document.body.appendChild(mobileMenuButton);
+         }
+
+         function toggleMobileMenu() {
+             const existingMenu = document.querySelector('.mobile-quick-menu');
+             
+             if (existingMenu) {
+                 existingMenu.remove();
+                 return;
+             }
+
+             const mobileMenu = document.createElement('div');
+             mobileMenu.className = 'mobile-quick-menu';
+             mobileMenu.style.cssText = `
+                 position: fixed;
+                 bottom: 90px;
+                 right: 20px;
+                 background: rgba(31, 41, 55, 0.95);
+                 backdrop-filter: blur(10px);
+                 border-radius: 16px;
+                 padding: 1rem;
+                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                 z-index: 999;
+                 min-width: 200px;
+                 animation: slideUp 0.3s ease;
+             `;
+
+             const menuItems = [
+                 { icon: 'fas fa-home', text: 'Home', action: () => backToMain() },
+                 { icon: 'fas fa-expand', text: 'Fullscreen', action: () => currentSection && openFullscreen(currentSection) },
+                 { icon: 'fas fa-map', text: 'Mini Map', action: () => toggleMiniMap() },
+                 { icon: 'fas fa-eye', text: 'Toggle Intro', action: () => toggleIntro() }
+             ];
+
+             menuItems.forEach(item => {
+                 const menuItem = document.createElement('div');
+                 menuItem.style.cssText = `
+                     display: flex;
+                     align-items: center;
+                     padding: 12px;
+                     margin: 4px 0;
+                     border-radius: 8px;
+                     color: white;
+                     cursor: pointer;
+                     transition: background 0.2s ease;
+                     -webkit-tap-highlight-color: transparent;
+                 `;
+                 
+                 menuItem.innerHTML = `
+                     <i class="${item.icon}" style="margin-right: 12px; width: 20px;"></i>
+                     <span>${item.text}</span>
+                 `;
+
+                 menuItem.addEventListener('click', () => {
+                     item.action();
+                     mobileMenu.remove();
+                     showMobileFeedback(`${item.icon.includes('home') ? '🏠' : item.icon.includes('expand') ? '🔍' : item.icon.includes('map') ? '🗺️' : '📄'} ${item.text}`);
+                 });
+
+                 menuItem.addEventListener('touchstart', function() {
+                     this.style.background = 'rgba(16, 185, 129, 0.2)';
+                 });
+
+                 menuItem.addEventListener('touchend', function() {
+                     setTimeout(() => {
+                         this.style.background = '';
+                     }, 150);
+                 });
+
+                 mobileMenu.appendChild(menuItem);
+             });
+
+             document.body.appendChild(mobileMenu);
+
+             // Close menu when clicking outside
+             setTimeout(() => {
+                 document.addEventListener('click', function closeMenu(e) {
+                     if (!mobileMenu.contains(e.target) && !e.target.closest('.mobile-menu-button')) {
+                         mobileMenu.remove();
+                         document.removeEventListener('click', closeMenu);
+                     }
+                 });
+             }, 100);
+         }
+
+         function showMobileFeedback(message) {
+             const feedback = document.createElement('div');
+             feedback.style.cssText = `
+                 position: fixed;
+                 top: 50%;
+                 left: 50%;
+                 transform: translate(-50%, -50%);
+                 background: rgba(16, 185, 129, 0.9);
+                 color: white;
+                 padding: 12px 24px;
+                 border-radius: 25px;
+                 font-size: 0.9rem;
+                 font-weight: 500;
+                 z-index: 10000;
+                 pointer-events: none;
+                 animation: fadeInOut 2s ease;
+             `;
+             feedback.textContent = message;
+             document.body.appendChild(feedback);
+
+             setTimeout(() => {
+                 feedback.remove();
+             }, 2000);
+         }
+
+         // Add CSS animations for mobile
+         const mobileStyles = document.createElement('style');
+         mobileStyles.textContent = `
+             @keyframes slideUp {
+                 from {
+                     opacity: 0;
+                     transform: translateY(20px);
+                 }
+                 to {
+                     opacity: 1;
+                     transform: translateY(0);
+                 }
+             }
+
+             @keyframes fadeInOut {
+                 0%, 100% { opacity: 0; }
+                 20%, 80% { opacity: 1; }
+             }
+
+             .mobile-device .navigation-card:hover {
+                 transform: none;
+             }
+
+             .mobile-device .navigation-card:active {
+                 transform: scale(0.98);
+             }
+
+             @media (max-width: 768px) {
+                 .mobile-menu-button {
+                     display: flex !important;
+                 }
+             }
+
+             @media (min-width: 769px) {
+                  .mobile-menu-button {
+                      display: none !important;
+                  }
+              }
+
+              /* Mobile floating controls enhancements */
+              @media (max-width: 768px) {
+                  .floating-controls {
+                      bottom: 20px !important;
+                      right: 20px !important;
+                      flex-direction: column !important;
+                      gap: 12px !important;
+                  }
+
+                  .floating-control.mobile-control {
+                      width: 60px !important;
+                      height: 60px !important;
+                      flex-direction: column !important;
+                      padding: 8px !important;
+                      border-radius: 16px !important;
+                      background: linear-gradient(135deg, #10b981, #059669) !important;
+                      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4) !important;
+                  }
+
+                  .floating-control.mobile-control i {
+                      font-size: 1.1rem !important;
+                      margin-bottom: 2px !important;
+                  }
+
+                  .control-label {
+                      font-size: 0.65rem !important;
+                      font-weight: 500 !important;
+                      color: white !important;
+                      text-align: center !important;
+                      line-height: 1 !important;
+                      opacity: 0.9 !important;
+                  }
+
+                  .floating-control.mobile-control:active {
+                      transform: scale(0.95) !important;
+                      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.6) !important;
+                  }
+
+                  /* Hide desktop floating controls on mobile */
+                  .floating-control:not(.mobile-control) {
+                      display: none !important;
+                  }
+              }
+
+              /* Desktop floating controls - hide mobile elements */
+              @media (min-width: 769px) {
+                  .mobile-control {
+                      display: none !important;
+                  }
+                  
+                  .control-label {
+                      display: none !important;
+                  }
+              }
+
+              /* Mobile fullscreen optimizations */
+              @media (max-width: 768px) {
+                  .container.fullscreen {
+                      padding: 1rem !important;
+                      margin: 0 !important;
+                  }
+
+                  .content-section.fullscreen-mode {
+                      padding: 1rem !important;
+                      margin: 0 !important;
+                      border-radius: 0 !important;
+                  }
+
+                  .mini-map {
+                      width: 90% !important;
+                      max-width: 300px !important;
+                      right: 5% !important;
+                      top: 20% !important;
+                  }
+
+                  .mini-map-item {
+                      padding: 12px !important;
+                      font-size: 0.9rem !important;
+                      border-radius: 8px !important;
+                      margin: 8px 0 !important;
+                  }
+
+                  .mini-map-close {
+                      width: 40px !important;
+                      height: 40px !important;
+                      font-size: 1.2rem !important;
+                  }
+              }
+
+              /* Mobile touch feedback improvements */
+              .mobile-device .floating-control:hover {
+                  transform: none !important;
+              }
+
+              .mobile-device .mini-map-item:hover {
+                  transform: none !important;
+              }
+
+              /* Executive-friendly mobile typography in fullscreen */
+              @media (max-width: 768px) {
+                  .content-section.fullscreen-mode h1 {
+                      font-size: 1.8rem !important;
+                      line-height: 1.3 !important;
+                      margin-bottom: 1rem !important;
+                  }
+
+                  .content-section.fullscreen-mode h2 {
+                      font-size: 1.4rem !important;
+                      line-height: 1.4 !important;
+                      margin: 1.5rem 0 0.8rem 0 !important;
+                  }
+
+                  .content-section.fullscreen-mode p {
+                      font-size: 1rem !important;
+                      line-height: 1.6 !important;
+                      margin-bottom: 1rem !important;
+                  }
+
+                  .content-section.fullscreen-mode ul, 
+                  .content-section.fullscreen-mode ol {
+                      padding-left: 1.5rem !important;
+                      margin-bottom: 1rem !important;
+                  }
+
+                  .content-section.fullscreen-mode li {
+                      margin-bottom: 0.5rem !important;
+                      line-height: 1.5 !important;
+                  }
+              }
+          `;
+          document.head.appendChild(mobileStyles);
+
+        // Visual feedback for keyboard shortcuts
+        function showKeyboardFeedback(key) {
+            const feedback = document.createElement('div');
+            feedback.textContent = `Key: ${key}`;
+            feedback.style.cssText = `
+                position: fixed; top: 20px; right: 20px; background: #00d4aa;
+                color: white; padding: 0.5rem 1rem; border-radius: 8px;
+                z-index: 10000; font-weight: 600; animation: fadeInOut 1.5s ease-in-out;
+            `;
+            document.body.appendChild(feedback);
+            setTimeout(() => feedback.remove(), 1500);
+        }
+
+        // Browser back/forward button support
+        window.addEventListener('popstate', function(e) {
+            if (e.state && e.state.section) {
+                if (e.state.section === 'main') {
+                    showMain();
+                } else {
+                    showSection(e.state.section);
+                }
+            }
+        });
+
+        // Enhanced iframe loading with progress indication
+        document.querySelectorAll('iframe').forEach((iframe, index) => {
+            iframe.style.opacity = '0';
+            iframe.style.transition = 'opacity 0.5s ease-in';
+            
+            iframe.addEventListener('load', function() {
+                this.style.opacity = '1';
+                console.log(`Document ${index + 1} loaded successfully`);
+            });
+            
+            iframe.addEventListener('error', function() {
+                console.error(`Failed to load document ${index + 1}`);
+                this.style.background = 'linear-gradient(45deg, #f0f0f0, #e0e0e0)';
+                this.style.display = 'flex';
+                this.style.alignItems = 'center';
+                this.style.justifyContent = 'center';
+            });
+        });
+
+        // Smart preloading for better performance
+        function preloadSections() {
+            const sections = ['architecture', 'market-analysis', 'gtm-strategy'];
+            sections.forEach(section => {
+                const iframe = document.querySelector(`#${section}-section iframe`);
+                if (iframe && !iframe.src.includes('blob:')) {
+                    // Preload iframe content
+                    iframe.loading = 'lazy';
+                }
+            });
+        }
+
+        // Initialize smart navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            preloadSections();
+            
+            // Add CSS animations
+            const animationCSS = document.createElement('style');
+            animationCSS.textContent = `
+                @keyframes fadeInOut {
+                    0%, 100% { opacity: 0; transform: translateX(20px); }
+                    20%, 80% { opacity: 1; transform: translateX(0); }
+                }
+                .content-section { transition: all 0.5s ease-in-out; }
+                #main-navigation { transition: all 0.5s ease-in-out; }
+            `;
+            document.head.appendChild(animationCSS);
+            
+            console.log('Smart navigation system initialized');
+        });
+    </script>
+</body>
+</html>
