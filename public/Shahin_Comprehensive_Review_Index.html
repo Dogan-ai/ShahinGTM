@@ -1168,214 +1168,7 @@
             }
         }
 
-        /* Mobile Virtual Keyboard Panel */
-        .mobile-keyboard-panel {
-            position: fixed;
-            bottom: -100%;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.9));
-            backdrop-filter: blur(20px);
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            padding: 20px;
-            z-index: 9000;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
-            border-top: 2px solid rgba(0, 212, 170, 0.3);
-            max-height: 60vh;
-            overflow-y: auto;
-        }
 
-        .mobile-keyboard-panel.active {
-            bottom: 0;
-        }
-
-        .mobile-keyboard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(0, 212, 170, 0.2);
-        }
-
-        .mobile-keyboard-header span {
-            color: #00d4aa;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .mobile-keyboard-close {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #ffffff;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-keyboard-close:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
-        }
-
-        .mobile-keyboard-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .mobile-key {
-            background: linear-gradient(135deg, rgba(0, 212, 170, 0.2), rgba(16, 185, 129, 0.2));
-            border: 1px solid rgba(0, 212, 170, 0.3);
-            border-radius: 12px;
-            padding: 15px 10px;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 70px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mobile-key:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(16, 185, 129, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .mobile-key:hover:before,
-        .mobile-key:active:before {
-            opacity: 1;
-        }
-
-        .mobile-key:active {
-            transform: scale(0.95);
-            box-shadow: 0 2px 10px rgba(0, 212, 170, 0.4);
-        }
-
-        .key-label {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #00d4aa;
-            margin-bottom: 4px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .key-desc {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-            line-height: 1.2;
-            position: relative;
-            z-index: 1;
-        }
-
-        .mobile-keyboard-footer {
-            border-top: 1px solid rgba(0, 212, 170, 0.2);
-            padding-top: 15px;
-        }
-
-        .mobile-key-wide {
-            background: linear-gradient(135deg, rgba(0, 212, 170, 0.3), rgba(16, 185, 129, 0.3));
-            border: 1px solid rgba(0, 212, 170, 0.4);
-            border-radius: 12px;
-            padding: 15px;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .mobile-key-wide:hover {
-            background: linear-gradient(135deg, rgba(0, 212, 170, 0.4), rgba(16, 185, 129, 0.4));
-            transform: translateY(-2px);
-        }
-
-        .mobile-key-wide:active {
-            transform: scale(0.98);
-        }
-
-        /* Mobile Keyboard Trigger Button */
-        .mobile-keyboard-trigger {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .mobile-keyboard-trigger:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
-        }
-
-        .mobile-keyboard-trigger:active {
-            transform: scale(0.95);
-        }
-
-        @media (max-width: 768px) {
-            .mobile-keyboard-trigger {
-                width: 70px;
-                height: 70px;
-                font-size: 1.7rem;
-                bottom: 30px;
-                left: 30px;
-            }
-
-            .mobile-keyboard-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .mobile-keyboard-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Hide mobile keyboard trigger on desktop */
-        @media (min-width: 1024px) {
-            .mobile-keyboard-trigger {
-                display: none;
-            }
-        }
     </style>
 </head>
 <body>
@@ -2945,60 +2738,7 @@
         <i class="fas fa-keyboard"></i>
     </button>
 
-    <!-- Mobile Virtual Keyboard Shortcuts Panel -->
-    <div id="mobile-keyboard-panel" class="mobile-keyboard-panel">
-        <div class="mobile-keyboard-header">
-            <span>Quick Shortcuts</span>
-            <button class="mobile-keyboard-close" onclick="toggleMobileKeyboard()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="mobile-keyboard-grid">
-            <button class="mobile-key" onclick="executeShortcut('home')" title="Home">
-                <span class="key-label">H</span>
-                <span class="key-desc">Home</span>
-            </button>
-            <button class="mobile-key" onclick="executeShortcut('architecture')" title="Architecture">
-                <span class="key-label">1</span>
-                <span class="key-desc">Architecture</span>
-            </button>
-            <button class="mobile-key" onclick="executeShortcut('market')" title="Market Analysis">
-                <span class="key-label">2</span>
-                <span class="key-desc">Market</span>
-            </button>
-            <button class="mobile-key" onclick="executeShortcut('regulations')" title="Regulations">
-                <span class="key-label">3</span>
-                <span class="key-desc">Regulations</span>
-            </button>
-            <button class="mobile-key" onclick="executeShortcut('fullscreen')" title="Fullscreen">
-                <span class="key-label">F</span>
-                <span class="key-desc">Fullscreen</span>
-            </button>
-            <button class="mobile-key" onclick="executeShortcut('minimap')" title="Mini Map">
-                <span class="key-label">M</span>
-                <span class="key-desc">Mini Map</span>
-            </button>
-            <button class="mobile-key" onclick="executeShortcut('search')" title="Search">
-                <span class="key-label">S</span>
-                <span class="key-desc">Search</span>
-            </button>
-            <button class="mobile-key" onclick="executeShortcut('refresh')" title="Refresh">
-                <span class="key-label">R</span>
-                <span class="key-desc">Refresh</span>
-            </button>
-        </div>
-        <div class="mobile-keyboard-footer">
-            <button class="mobile-key-wide" onclick="toggleShortcutsOverlay()" title="Show All Shortcuts">
-                <i class="fas fa-list"></i>
-                <span>All Shortcuts</span>
-            </button>
-        </div>
-    </div>
 
-    <!-- Mobile Keyboard Trigger Button -->
-    <button id="mobile-keyboard-trigger" class="mobile-keyboard-trigger" onclick="toggleMobileKeyboard()" title="Mobile Shortcuts">
-        <i class="fas fa-mobile-alt"></i>
-    </button>
 
     <script>
         // Overlay Management System
@@ -3012,12 +2752,7 @@
                 activeOverlays.delete('shortcuts');
             }
             
-            // Close mobile keyboard panel
-            const mobileKeyboard = document.getElementById('mobile-keyboard-panel');
-            if (mobileKeyboard && mobileKeyboard.classList.contains('active')) {
-                mobileKeyboard.classList.remove('active');
-                activeOverlays.delete('mobile-keyboard');
-            }
+
             
             // Close mini-map
             const miniMap = document.querySelector('.mini-map');
@@ -3056,22 +2791,7 @@
             }
         }
 
-        // Mobile Virtual Keyboard Functions
-        function toggleMobileKeyboard() {
-            const panel = document.getElementById('mobile-keyboard-panel');
-            
-            // If opening, close all other overlays first
-            if (!panel.classList.contains('active')) {
-                closeAllOverlays();
-                panel.classList.add('active');
-                activeOverlays.add('mobile-keyboard');
-                showMobileFeedback('Mobile Shortcuts Opened');
-            } else {
-                panel.classList.remove('active');
-                activeOverlays.delete('mobile-keyboard');
-                showMobileFeedback('Mobile Shortcuts Closed');
-            }
-        }
+
 
         function executeShortcut(action) {
             const overlay = document.getElementById('shortcuts-overlay');
