@@ -257,6 +257,319 @@
             color: #6b7280;
             font-size: 0.9rem;
         }
+        
+        /* Enhanced Mobile-First Responsive Design */
+        
+        /* Tablet and Small Desktop */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .header {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 2rem;
+            }
+            
+            .market-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .regulators-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        
+        /* Mobile Landscape and Tablet Portrait */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-bottom: 0.8rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+            
+            .section {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .section h2 {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+            }
+            
+            .section h3 {
+                font-size: 1.3rem;
+                margin: 1.5rem 0 0.8rem 0;
+            }
+            
+            .market-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .stat-card {
+                padding: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .regulators-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .regulator-card {
+                padding: 1.5rem;
+            }
+            
+            .regulator-name {
+                font-size: 1.1rem;
+            }
+            
+            .excel-structure {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+            
+            .worksheet-card {
+                padding: 20px !important;
+            }
+            
+            .assessment-methodology > div {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+        }
+
+        /* Mobile Portrait */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.8rem;
+            }
+            
+            .header {
+                padding: 1.5rem 0.8rem;
+                margin-bottom: 1.5rem;
+                border-radius: 0.8rem;
+            }
+            
+            .header h1 {
+                font-size: 1.6rem;
+                line-height: 1.1;
+                margin-bottom: 0.6rem;
+            }
+            
+            .header p {
+                font-size: 0.9rem;
+                line-height: 1.3;
+            }
+            
+            .section {
+                padding: 1.2rem;
+                margin-bottom: 1.2rem;
+                border-radius: 0.8rem;
+            }
+            
+            .section h2 {
+                font-size: 1.4rem;
+                margin-bottom: 0.8rem;
+                text-align: center;
+            }
+            
+            .section h3 {
+                font-size: 1.2rem;
+                margin: 1.2rem 0 0.6rem 0;
+                text-align: center;
+            }
+            
+            .stat-card {
+                padding: 1.2rem;
+                text-align: center;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            .stat-label {
+                font-size: 0.9rem;
+            }
+            
+            .regulator-card {
+                padding: 1.2rem;
+            }
+            
+            .regulator-name {
+                font-size: 1rem;
+                margin-bottom: 0.6rem;
+            }
+            
+            .regulator-details {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+            
+            .worksheet-card {
+                padding: 15px !important;
+                margin-bottom: 15px;
+            }
+            
+            .worksheet-card h4 {
+                font-size: 1rem !important;
+                margin-bottom: 10px !important;
+            }
+            
+            .worksheet-card ul li {
+                font-size: 0.85rem !important;
+                margin-bottom: 6px !important;
+            }
+            
+            .assessment-methodology {
+                padding: 20px !important;
+            }
+            
+            .assessment-methodology h3 {
+                font-size: 1.1rem !important;
+                margin-bottom: 15px !important;
+            }
+            
+            .assessment-methodology h4 {
+                font-size: 0.95rem !important;
+                margin-bottom: 8px !important;
+            }
+            
+            .assessment-methodology p {
+                font-size: 0.8rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            /* Timeline adjustments */
+            .section ul li {
+                margin: 0.8rem 0 !important;
+                padding: 0.8rem !important;
+                font-size: 0.9rem;
+            }
+            
+            .section ul li strong {
+                display: block;
+                margin-bottom: 0.3rem;
+            }
+        }
+        
+        /* Extra Small Mobile */
+        @media (max-width: 360px) {
+            .container {
+                padding: 0.6rem;
+            }
+            
+            .header {
+                padding: 1.2rem 0.6rem;
+            }
+            
+            .header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .header p {
+                font-size: 0.8rem;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+            
+            .section h2 {
+                font-size: 1.2rem;
+            }
+            
+            .section h3 {
+                font-size: 1.1rem;
+            }
+            
+            .stat-number {
+                font-size: 1.6rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
+            }
+            
+            .regulator-name {
+                font-size: 0.95rem;
+            }
+            
+            .regulator-details {
+                font-size: 0.75rem;
+            }
+            
+            .worksheet-card {
+                padding: 12px !important;
+            }
+            
+            .worksheet-card h4 {
+                font-size: 0.9rem !important;
+            }
+            
+            .worksheet-card ul li {
+                font-size: 0.8rem !important;
+            }
+        }
+        
+        /* Touch-friendly enhancements */
+        @media (hover: none) and (pointer: coarse) {
+            .stat-card {
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .regulator-card {
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .worksheet-card {
+                padding: 20px !important;
+                margin-bottom: 15px !important;
+            }
+            
+            /* Improve touch targets */
+            button, .clickable {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Better spacing for touch */
+            .section {
+                margin-bottom: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -921,8 +1234,8 @@
         </div>
 
         <!-- Footer -->
-        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: #f9fafb; border-radius: 1rem;">
-            <p style="color: #6b7280; font-size: 0.9rem;">
+        <div style="text-align: center; margin-top: 1.5rem; padding: 1rem; background: #f9fafb; border-radius: 0.5rem;">
+            <p style="color: #6b7280; font-size: 0.85rem; margin: 0; line-height: 1.4;">
                 📊 Data compiled from 15 comprehensive project files | Last updated: 2025 Q3<br>
                 🇸🇦 Saudi Arabia GRC Market Analysis | Vision 2030 Compliance Landscape
             </p>
