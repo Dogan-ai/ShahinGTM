@@ -1,18 +1,5 @@
 {
-  "version": 2,
   "rewrites": [
-    {
-      "source": "/",
-      "destination": "/Shahin_Comprehensive_Review_Index.html"
-    },
-    {
-      "source": "/index",
-      "destination": "/Shahin_Comprehensive_Review_Index.html"
-    },
-    {
-      "source": "/main",
-      "destination": "/Shahin_Comprehensive_Review_Index.html"
-    },
     {
       "source": "/analysis",
       "destination": "/Shahin_Comprehensive_Review_Index.html"
@@ -45,15 +32,6 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)\\.html",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
         }
       ]
     }
