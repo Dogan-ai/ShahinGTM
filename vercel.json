@@ -1,40 +1,33 @@
 {
   "version": 2,
-  "name": "shahin-ai-business-analysis",
-  "builds": [
+  "rewrites": [
     {
-      "src": "*.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/Shahin_Comprehensive_Review_Index.html"
+      "source": "/",
+      "destination": "/Shahin_Comprehensive_Review_Index.html"
     },
     {
-      "src": "/index",
-      "dest": "/Shahin_Comprehensive_Review_Index.html"
+      "source": "/index",
+      "destination": "/Shahin_Comprehensive_Review_Index.html"
     },
     {
-      "src": "/main",
-      "dest": "/Shahin_Comprehensive_Review_Index.html"
+      "source": "/main",
+      "destination": "/Shahin_Comprehensive_Review_Index.html"
     },
     {
-      "src": "/analysis",
-      "dest": "/Shahin_Comprehensive_Review_Index.html"
+      "source": "/analysis",
+      "destination": "/Shahin_Comprehensive_Review_Index.html"
     },
     {
-      "src": "/architecture",
-      "dest": "/Shahin_Architecture_Platform_Comprehensive.html"
+      "source": "/architecture",
+      "destination": "/Shahin_Architecture_Platform_Comprehensive.html"
     },
     {
-      "src": "/market",
-      "dest": "/Saudi_Market_Regulations_Requirements_Comprehensive.html"
+      "source": "/market",
+      "destination": "/Saudi_Market_Regulations_Requirements_Comprehensive.html"
     },
     {
-      "src": "/grc",
-      "dest": "/GRC_Problems_Gaps_Solutions_KSA_Comprehensive.html"
+      "source": "/grc",
+      "destination": "/GRC_Problems_Gaps_Solutions_KSA_Comprehensive.html"
     }
   ],
   "headers": [
@@ -68,10 +61,5 @@
         }
       ]
     }
-  ],
-  "functions": {
-    "*.html": {
-      "maxDuration": 10
-    }
-  }
+  ]
 }
