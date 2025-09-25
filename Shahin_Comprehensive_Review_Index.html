@@ -486,7 +486,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            z-index: 10000;
+            z-index: 1000;
             opacity: 0.8;
             transition: opacity 0.3s ease;
         }
@@ -527,7 +527,7 @@
             padding: 1.5rem;
             border-radius: 12px;
             min-width: 200px;
-            z-index: 10000;
+            z-index: 2000;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             opacity: 0;
@@ -908,7 +908,7 @@
             height: 100vh;
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(20px);
-            z-index: 99999;
+            z-index: 10000;
             display: none;
             align-items: center;
             justify-content: center;
@@ -956,23 +956,39 @@
             position: absolute;
             top: 15px;
             right: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
+            background: rgba(255, 59, 48, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             color: white;
-            font-size: 1.5rem;
-            width: 40px;
-            height: 40px;
+            font-size: 1.8rem;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            font-weight: bold;
+            z-index: 10001;
         }
 
-        .shortcuts-close:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .shortcuts-close:hover,
+        .shortcuts-close:active {
+            background: rgba(255, 59, 48, 1);
             transform: scale(1.1);
+            box-shadow: 0 4px 20px rgba(255, 59, 48, 0.4);
+        }
+
+        /* Mobile-specific improvements for close button */
+        @media (max-width: 768px) {
+            .shortcuts-close {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+                top: 10px;
+                right: 15px;
+                background: rgba(255, 59, 48, 0.9);
+            }
         }
 
         .shortcuts-grid {
@@ -1754,6 +1770,11 @@
         function showLoadingIndicator() {
             updateProgressIndicator(20);
             
+            // Close other overlays first
+            if (typeof closeAllOverlays === 'function') {
+                closeAllOverlays();
+            }
+            
             let loader = document.getElementById('smart-loader');
             if (!loader) {
                 loader = document.createElement('div');
@@ -1762,10 +1783,14 @@
                 loader.style.cssText = `
                     position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
                     background: rgba(0,0,0,0.8); color: white; padding: 2rem;
-                    border-radius: 12px; z-index: 9999; text-align: center;
+                    border-radius: 12px; z-index: 5000; text-align: center;
                     backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0,0,0,0.3);
                 `;
                 document.body.appendChild(loader);
+                
+                if (typeof activeOverlays !== 'undefined') {
+                    activeOverlays.add('loader');
+                }
                 
                 // Add spinner CSS
                 const style = document.createElement('style');
@@ -2712,15 +2737,49 @@
     </button>
 
     <script>
+        // Overlay Management System
+        let activeOverlays = new Set();
+        
+        function closeAllOverlays() {
+            // Close keyboard shortcuts overlay
+            const shortcutsOverlay = document.getElementById('shortcuts-overlay');
+            if (shortcutsOverlay && shortcutsOverlay.classList.contains('active')) {
+                shortcutsOverlay.classList.remove('active');
+                activeOverlays.delete('shortcuts');
+            }
+            
+            // Close mini-map
+            const miniMap = document.querySelector('.mini-map');
+            if (miniMap && miniMap.classList.contains('active')) {
+                miniMap.classList.remove('active');
+                activeOverlays.delete('minimap');
+            }
+            
+            // Close any loading indicators
+            const loader = document.getElementById('smart-loader');
+            if (loader) {
+                loader.remove();
+                activeOverlays.delete('loader');
+            }
+            
+            // Reset body overflow
+            document.body.style.overflow = '';
+        }
+        
         // Keyboard Shortcuts Overlay Functions
         function toggleShortcutsOverlay() {
             const overlay = document.getElementById('shortcuts-overlay');
-            overlay.classList.toggle('active');
             
-            if (overlay.classList.contains('active')) {
+            // If opening, close all other overlays first
+            if (!overlay.classList.contains('active')) {
+                closeAllOverlays();
+                overlay.classList.add('active');
+                activeOverlays.add('shortcuts');
                 document.body.style.overflow = 'hidden';
                 showMobileFeedback('Shortcuts Panel Opened');
             } else {
+                overlay.classList.remove('active');
+                activeOverlays.delete('shortcuts');
                 document.body.style.overflow = '';
                 showMobileFeedback('Shortcuts Panel Closed');
             }
@@ -2809,17 +2868,18 @@
 
         // Enhanced keyboard event listener
         document.addEventListener('keydown', function(e) {
-            // Close shortcuts overlay with ESC
+            // Close all overlays with ESC (improved mobile support)
             if (e.key === 'Escape') {
-                const overlay = document.getElementById('shortcuts-overlay');
-                if (overlay.classList.contains('active')) {
-                    toggleShortcutsOverlay();
-                    return;
+                e.preventDefault();
+                if (activeOverlays.size > 0) {
+                    closeAllOverlays();
+                    showMobileFeedback('All panels closed');
                 }
+                return;
             }
             
-            // Open shortcuts overlay with ?
-            if (e.key === '?' && !e.ctrlKey && !e.altKey) {
+            // Open shortcuts overlay with ? (only if no other overlays are open)
+            if (e.key === '?' && !e.ctrlKey && !e.altKey && activeOverlays.size === 0) {
                 e.preventDefault();
                 toggleShortcutsOverlay();
                 return;
@@ -2872,40 +2932,57 @@
             }
         });
 
-        // Close overlay when clicking outside
+        // Close overlay when clicking outside (improved for mobile)
         document.addEventListener('click', function(e) {
             const overlay = document.getElementById('shortcuts-overlay');
             const container = document.querySelector('.shortcuts-container');
             const trigger = document.getElementById('shortcuts-trigger');
             
-            if (overlay.classList.contains('active') && 
-                !container.contains(e.target) && 
-                !trigger.contains(e.target)) {
-                toggleShortcutsOverlay();
+            // Only handle if shortcuts overlay is active
+            if (overlay && overlay.classList.contains('active')) {
+                // Check if click is outside the container and trigger
+                if (container && !container.contains(e.target) && 
+                    trigger && !trigger.contains(e.target)) {
+                    e.preventDefault();
+                    closeAllOverlays();
+                    showMobileFeedback('Panel closed');
+                }
             }
         });
 
-        // Touch gestures for mobile
+        // Touch gestures for mobile (improved)
         let touchStartY = 0;
         let touchStartX = 0;
+        let touchStartTime = 0;
 
         document.addEventListener('touchstart', function(e) {
             touchStartY = e.touches[0].clientY;
             touchStartX = e.touches[0].clientX;
+            touchStartTime = Date.now();
         });
 
         document.addEventListener('touchend', function(e) {
             const touchEndY = e.changedTouches[0].clientY;
             const touchEndX = e.changedTouches[0].clientX;
+            const touchEndTime = Date.now();
             const deltaY = touchStartY - touchEndY;
             const deltaX = touchStartX - touchEndX;
+            const duration = touchEndTime - touchStartTime;
             
-            // Swipe up gesture to open shortcuts
-            if (deltaY > 100 && Math.abs(deltaX) < 50) {
-                const overlay = document.getElementById('shortcuts-overlay');
-                if (!overlay.classList.contains('active')) {
-                    toggleShortcutsOverlay();
-                }
+            // Only process quick gestures (less than 500ms)
+            if (duration > 500) return;
+            
+            // Swipe up gesture to open shortcuts (only if no overlays are open)
+            if (deltaY > 100 && Math.abs(deltaX) < 50 && activeOverlays.size === 0) {
+                e.preventDefault();
+                toggleShortcutsOverlay();
+            }
+            
+            // Swipe down gesture to close all overlays
+            if (deltaY < -100 && Math.abs(deltaX) < 50 && activeOverlays.size > 0) {
+                e.preventDefault();
+                closeAllOverlays();
+                showMobileFeedback('All panels closed');
             }
         });
     </script>
