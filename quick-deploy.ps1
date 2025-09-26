@@ -164,10 +164,10 @@ function Test-Deployment {
         foreach ($page in $testPages) {
             try {
                 $pageResponse = Invoke-WebRequest -Uri "$Url$page" -Method Head -TimeoutSec 15
-                Write-Log "Page $page: PASSED (HTTP $($pageResponse.StatusCode))" "SUCCESS"
+                Write-Log "Page $page`: PASSED (HTTP $($pageResponse.StatusCode))" "SUCCESS"
             }
             catch {
-                Write-Log "Page $page: FAILED ($($_.Exception.Message))" "WARNING"
+                Write-Log "Page $page`: FAILED ($($_.Exception.Message))" "WARNING"
             }
         }
         
