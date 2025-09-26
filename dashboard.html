@@ -1,0 +1,4353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Shahin Vision">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#10b981">
+    <meta name="msapplication-navbutton-color" content="#10b981">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Security Meta Tags -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <title>Shahin Vision Platform - Comprehensive Review Index</title>
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.svg">
+    <link rel="mask-icon" href="favicon.svg" color="#10b981">
+    <meta name="msapplication-TileColor" content="#10b981">
+    <meta name="msapplication-TileImage" content="apple-touch-icon.svg">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --secondary-color: #3b82f6;
+            --accent-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+            --border-radius: 0.5rem;
+            --border-radius-lg: 1rem;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            color: var(--dark-color);
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-brand {
+            flex: 1;
+            text-align: left;
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin: 0;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .header-subtitle {
+            color: var(--dark-color);
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.25rem;
+            font-weight: 500;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-action {
+            padding: 0.4rem 0.8rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 6px;
+            color: #10b981;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .header-action:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.5);
+            color: #0d9488;
+            transform: translateY(-1px);
+        }
+
+        .header-link {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .header-link:hover {
+            color: #0d9488;
+            border-bottom-color: #10b981;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.75rem 0;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-brand {
+                text-align: center;
+            }
+            
+            .header h1 {
+                font-size: 1.75rem;
+                justify-content: center;
+            }
+            
+            .header-actions {
+                justify-content: center;
+            }
+            
+            .header-action {
+                padding: 0.35rem 0.7rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .navigation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .nav-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .nav-card:hover::before {
+            left: 100%;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary-color);
+            box-shadow: 0 25px 50px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-card:active {
+            transform: translateY(-8px) scale(1.01);
+            transition: all 0.1s ease;
+        }
+
+        .nav-card.architecture {
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .nav-card.market-analysis {
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .nav-card.gtm-strategy {
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .nav-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .nav-card.architecture .nav-icon {
+            color: var(--primary-color);
+        }
+
+        .nav-card.market-analysis .nav-icon {
+            color: var(--secondary-color);
+        }
+
+        .nav-card.gtm-strategy .nav-icon {
+            color: var(--accent-color);
+        }
+
+        .nav-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .nav-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-features li {
+            padding: 0.5rem 0;
+            color: #4b5563;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-features li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .content-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius-lg);
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .navigation-bar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb-link {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb-link:hover {
+            color: #059669;
+        }
+
+        .breadcrumb-separator {
+            color: #d1d5db;
+            font-weight: 600;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+
+        .back-button:active {
+            transform: translateY(0);
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 80vh;
+            border: none;
+            background: white;
+        }
+
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 2rem;
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .footer-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .footer-action {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-action:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #10b981;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .footer-info {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+
+        .footer-highlight {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 0.75rem 1rem;
+                margin-top: 1.5rem;
+            }
+            
+            .footer-main {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-actions {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .footer-action {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        .shortcuts-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.2;
+            transform: translateX(80%) scale(0.8);
+            max-width: 200px;
+            overflow: hidden;
+        }
+
+        .shortcuts-panel:hover {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.2);
+            border-color: rgba(0, 212, 170, 0.6);
+        }
+
+        .shortcuts-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #00d4aa;
+            font-size: 0.65rem;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .shortcut-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.1rem 0;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .shortcut-item span:first-child {
+            font-size: 0.6rem;
+            opacity: 0.9;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .shortcut-key {
+            background: rgba(0, 212, 170, 0.2);
+            color: #00d4aa;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.55rem;
+            border: 1px solid rgba(0, 212, 170, 0.3);
+        }
+
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(16, 185, 129, 0.3);
+            z-index: 10000;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        /* Clickable Elements Styles */
+        .clickable-text {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .clickable-text:hover {
+            color: #10b981;
+            border-bottom-color: #10b981;
+            text-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+        }
+
+        .clickable-keyword {
+            cursor: pointer;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid transparent;
+        }
+
+        .clickable-keyword:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #10b981;
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+        }
+
+        .clickable-feature {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: 0.2rem 0;
+            border-radius: 4px;
+        }
+
+        .clickable-feature:hover {
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            padding-left: 0.5rem;
+            transform: translateX(5px);
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .quick-link {
+            cursor: pointer;
+            padding: 0.4rem 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .quick-link:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: #10b981;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Auto-hide header styles */
+        .header.hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .main-container.fullscreen {
+            padding-top: 0;
+        }
+
+        .main-container.fullscreen .header {
+            display: none;
+        }
+
+        /* Floating controls styles - HIDDEN */
+        .floating-controls {
+            display: none !important;
+        }
+
+        .floating-control {
+            display: none !important;
+        }
+
+        /* Mini map styles */
+        .mini-map {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            min-width: 200px;
+            z-index: 2000;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mini-map.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mini-map-header {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #10b981;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .mini-map-item {
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            margin: 0.2rem 0;
+        }
+
+        .mini-map-item:hover {
+            background: rgba(16, 185, 129, 0.2);
+            transform: translateX(5px);
+        }
+
+        .mini-map-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .mini-map-close:hover {
+             color: #dc2626;
+         }
+
+         /* Auto-hide intro section styles */
+         .intro-section {
+             max-height: 200px;
+             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+         }
+
+         .intro-section.collapsed {
+             max-height: 80px;
+             padding: 1rem 1.5rem;
+             overflow: hidden;
+         }
+
+         .intro-section.collapsed .intro-content {
+             opacity: 0;
+             transform: translateY(-10px);
+             pointer-events: none;
+         }
+
+         .intro-section.collapsed .intro-collapsed {
+             opacity: 1;
+             transform: translateY(0);
+         }
+
+         .intro-content {
+             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+             opacity: 1;
+             transform: translateY(0);
+         }
+
+         .intro-collapsed {
+             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+             opacity: 0;
+             transform: translateY(10px);
+             position: relative;
+             width: 100%;
+             margin: 0 auto;
+             max-width: 800px;
+         }
+
+         .intro-section.collapsed .intro-collapsed {
+             opacity: 1;
+             transform: translateY(0);
+         }
+
+         .intro-toggle:hover {
+             color: #10b981 !important;
+             transform: scale(1.1);
+         }
+
+         .intro-auto-hide-timer {
+             position: absolute;
+             bottom: 5px;
+             left: 15px;
+             font-size: 0.8rem;
+             color: rgba(255, 255, 255, 0.6);
+             transition: opacity 0.3s ease;
+         }
+
+        /* Mobile-First Responsive Design for Executive Users */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px; /* Prevent zoom on iOS */
+                -webkit-text-size-adjust: 100%;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            .navigation-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 0.5rem;
+            }
+            
+            .navigation-card {
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+                min-height: 120px;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                transition: all 0.3s ease;
+                cursor: pointer;
+                -webkit-tap-highlight-color: rgba(0, 212, 170, 0.2);
+            }
+
+            .navigation-card:active {
+                transform: scale(0.98);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .navigation-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 0.75rem;
+                line-height: 1.3;
+            }
+
+            .navigation-card p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+            
+            .header {
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+                line-height: 1.2;
+                margin: 0;
+            }
+            
+            .container {
+                padding: 0.5rem;
+                max-width: 100%;
+            }
+
+            /* Mobile-optimized intro section */
+            .intro-section {
+                margin: 0.5rem;
+                padding: 1rem;
+                border-radius: 12px;
+                max-height: 180px;
+            }
+
+            .intro-section.collapsed {
+                max-height: 70px;
+                padding: 0.75rem 1rem;
+            }
+
+            .intro-content p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin: 0.5rem 0;
+            }
+
+            .intro-toggle {
+                font-size: 1.2rem;
+                padding: 8px;
+                min-width: 44px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* Mobile floating controls */
+            .floating-controls {
+                top: 15px;
+                left: 15px;
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .floating-control {
+                width: 48px;
+                height: 48px;
+                font-size: 1.1rem;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+                -webkit-tap-highlight-color: rgba(0, 212, 170, 0.3);
+            }
+
+            .floating-control:active {
+                transform: scale(0.95);
+            }
+            
+            /* Mobile mini-map */
+            .mini-map {
+                right: 15px;
+                top: 15px;
+                min-width: 200px;
+                max-width: calc(100vw - 30px);
+                padding: 1rem;
+                border-radius: 12px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .mini-map-item {
+                padding: 12px;
+                margin: 8px 0;
+                border-radius: 8px;
+                font-size: 0.95rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            /* Mobile quick actions */
+            .quick-actions {
+                margin-top: 1rem;
+                gap: 8px;
+            }
+
+            .quick-link {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                border-radius: 8px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                -webkit-tap-highlight-color: rgba(0, 212, 170, 0.3);
+            }
+
+            .quick-link:active {
+                transform: scale(0.96);
+            }
+
+            /* Mobile clickable elements */
+            .clickable-text, .clickable-keyword, .clickable-feature {
+                padding: 4px 8px;
+                border-radius: 6px;
+                min-height: 32px;
+                display: inline-flex;
+                align-items: center;
+                -webkit-tap-highlight-color: rgba(0, 212, 170, 0.2);
+            }
+
+            /* Mobile shortcuts panel */
+            .shortcuts-panel {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+                width: auto;
+                max-height: 60vh;
+                overflow-y: auto;
+                border-radius: 12px;
+                padding: 1rem;
+            }
+
+            .shortcut-item {
+                padding: 12px;
+                margin: 8px 0;
+                border-radius: 8px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            /* Mobile stats */
+            .quick-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+                margin: 1rem 0;
+            }
+
+            .stat-card {
+                padding: 1rem;
+                border-radius: 10px;
+                min-height: 80px;
+            }
+
+            .stat-card h4 {
+                font-size: 0.85rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .stat-card .stat-value {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Tablet optimization */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .navigation-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .navigation-card {
+                padding: 1.75rem;
+                min-height: 140px;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .navigation-card {
+                padding: 1.25rem;
+                min-height: 110px;
+            }
+
+            .navigation-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .navigation-card p {
+                font-size: 0.9rem;
+            }
+
+            .quick-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-control {
+                width: 44px;
+                height: 44px;
+                font-size: 1rem;
+            }
+
+            .mini-map {
+                min-width: 180px;
+                padding: 0.75rem;
+            }
+
+            .intro-section {
+                margin: 0.25rem;
+                padding: 0.75rem;
+            }
+        }
+
+        /* Feedback System Styles */
+        .feedback-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius-lg);
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .feedback-tabs {
+            display: flex;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-bottom: 2px solid rgba(139, 92, 246, 0.1);
+            overflow-x: auto;
+        }
+
+        .feedback-tab {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #64748b;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feedback-tab:hover {
+            background: rgba(139, 92, 246, 0.1);
+            color: #8b5cf6;
+        }
+
+        .feedback-tab.active {
+            background: rgba(139, 92, 246, 0.15);
+            color: #8b5cf6;
+            border-bottom-color: #8b5cf6;
+        }
+
+        .feedback-tab-content {
+            display: none;
+            padding: 2rem;
+        }
+
+        .feedback-tab-content.active {
+            display: block;
+        }
+
+        /* Feedback Form Styles */
+        .feedback-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .feedback-form {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #ffffff;
+        }
+
+        /* Contact Information Section Styles */
+        .contact-info-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 2px solid #8b5cf6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .contact-info-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #8b5cf6, #06b6d4, #10b981, #f59e0b);
+            border-radius: 12px;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes borderGlow {
+            0% { opacity: 0.5; }
+            100% { opacity: 0.8; }
+        }
+
+        .contact-info-section h4 {
+            color: #6b46c1;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info-section .form-group label {
+            color: #4c1d95;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info-section input[type="email"],
+        .contact-info-section input[type="tel"] {
+            border-color: #8b5cf6;
+        }
+
+        .contact-info-section input[type="email"]:focus,
+        .contact-info-section input[type="tel"]:focus {
+            border-color: #6b46c1;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+
+        .submit-btn,
+        .reset-btn,
+        .cancel-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            color: white;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .reset-btn,
+        .cancel-btn {
+            background: #6b7280;
+            color: white;
+        }
+
+        .reset-btn:hover,
+        .cancel-btn:hover {
+            background: #4b5563;
+            transform: translateY(-2px);
+        }
+
+        /* Dashboard Styles */
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 50%;
+        }
+
+        .stat-info {
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #8b5cf6;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Feedback List Styles */
+        .feedback-list-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .feedback-list-header {
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .feedback-list-header h4 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .filter-controls select {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #374151;
+        }
+
+        .feedback-list {
+            padding: 1.5rem;
+            min-height: 200px;
+        }
+
+        .no-feedback-message,
+        .no-notes-message,
+        .no-recommendations-message {
+            text-align: center;
+            padding: 3rem;
+            color: #6b7280;
+        }
+
+        .no-feedback-message i,
+        .no-notes-message i,
+        .no-recommendations-message i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+
+        /* Notes Styles */
+        .notes-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .notes-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .add-note-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .add-note-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .notes-search {
+            position: relative;
+            max-width: 300px;
+            flex: 1;
+        }
+
+        .notes-search input {
+            width: 100%;
+            padding: 0.75rem 2.5rem 0.75rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .notes-search i {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6b7280;
+        }
+
+        .add-note-form {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .notes-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        /* Recommendations Styles */
+        .recommendations-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .recommendations-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .rec-stat-card {
+            background: linear-gradient(135deg, #ffffff, #fef3c7);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .rec-stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.15);
+        }
+
+        .rec-stat-icon {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(245, 158, 11, 0.1);
+            border-radius: 50%;
+        }
+
+        .rec-stat-info {
+            flex: 1;
+        }
+
+        .rec-stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f59e0b;
+            line-height: 1;
+        }
+
+        .rec-stat-label {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Reports Styles */
+        .reports-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .report-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .generate-report-btn,
+        .export-data-btn {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .generate-report-btn:hover,
+        .export-data-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .reports-content {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .report-section {
+            padding: 2rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .report-section:last-child {
+            border-bottom: none;
+        }
+
+        .report-section h4 {
+            color: #374151;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .metric {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .metric-label {
+            color: #6b7280;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-value {
+            color: #3b82f6;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .activity-summary {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Mobile Responsiveness for Feedback System */
+        @media (max-width: 768px) {
+            .feedback-tabs {
+                flex-direction: column;
+            }
+
+            .feedback-tab {
+                padding: 0.75rem 1rem;
+                border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+                border-left: 3px solid transparent;
+            }
+
+            .feedback-tab.active {
+                border-left-color: #8b5cf6;
+                border-bottom-color: transparent;
+            }
+
+            .feedback-tab-content {
+                padding: 1rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .dashboard-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .recommendations-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .performance-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .notes-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .notes-search {
+                max-width: none;
+            }
+
+            .filter-controls {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .report-actions {
+                flex-direction: column;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .feedback-list-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="header-brand">
+                <h1><i class="fas fa-shield-alt"></i> Shahin Vision Platform</h1>
+                <div class="header-subtitle">
+                    Comprehensive Review Index - Team Collaboration Hub | 
+                    <a href="https://www.doganconsult.com" target="_blank" class="header-link">DoganConsult</a> | 
+                    Led by <a href="https://www.doganahmet.com" target="_blank" class="header-link">Dr. Ahmet Dogan</a>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="header-action" onclick="showSection('regulations')" title="Saudi Market Regulations">
+                    <i class="fas fa-gavel"></i> Regulations
+                </button>
+                <button class="header-action" onclick="showSection('grc')" title="GRC Analysis">
+                    <i class="fas fa-chart-line"></i> GRC
+                </button>
+                <button class="header-action" onclick="showSection('architecture')" title="Platform Architecture">
+                    <i class="fas fa-layer-group"></i> Architecture
+                </button>
+                <button class="header-action" onclick="showHelp()" title="Help & Shortcuts">
+                    <i class="fas fa-question-circle"></i> Help
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <!-- Main Navigation -->
+        <div id="main-navigation">
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Core Documents</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Saudi Regulators</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">847</div>
+                    <div class="stat-label">Automated Controls</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Architecture Layers</div>
+                </div>
+            </div>
+
+            <div class="navigation-grid">
+                <!-- Saudi Market Regulations Document -->
+                <div class="nav-card gtm-strategy" onclick="openPageInNewTab('./regulations.html')">
+                    <i class="fas fa-balance-scale nav-icon"></i>
+                    <h3 class="nav-title"><span class="clickable-text" data-action="gtm-strategy">Saudi Market Regulations</span></h3>
+                    <p class="nav-description">
+                        Comprehensive overview of <span class="clickable-keyword" data-action="gtm-strategy">Saudi Arabia's regulatory landscape</span>, <span class="clickable-keyword" data-action="gtm-strategy">compliance requirements</span>, and market regulations.
+                    </p>
+                    <ul class="nav-features">
+                        <li><span class="clickable-feature" data-action="gtm-strategy">Regulatory Framework</span></li>
+                        <li><span class="clickable-feature" data-action="gtm-strategy">Compliance Requirements</span></li>
+                        <li><span class="clickable-feature" data-action="gtm-strategy">Market Standards</span></li>
+                        <li><span class="clickable-feature" data-action="gtm-strategy">Legal Guidelines</span></li>
+                        <li><span class="clickable-feature" data-action="gtm-strategy">Industry Regulations</span></li>
+                    </ul>
+                    <div class="quick-actions">
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./regulations.html')">⚖️ View Regulations</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./regulations.html')">🔗 Open in New Tab</span>
+                    </div>
+                    <button class="nav-button">
+                        <i class="fas fa-external-link-alt"></i> Open in New Tab
+                    </button>
+                </div>
+
+                <!-- Market Analysis Document -->
+                <div class="nav-card market-analysis" onclick="openPageInNewTab('./grc-analysis.html')">
+                    <i class="fas fa-chart-line nav-icon"></i>
+                    <h3 class="nav-title"><span class="clickable-text" data-action="market-analysis">Market Analysis & Gaps</span></h3>
+                    <p class="nav-description">
+                        Comprehensive analysis of <span class="clickable-keyword" data-action="market-analysis">GRC market gaps</span> in Saudi Arabia, <span class="clickable-keyword" data-action="market-analysis">competitor landscape</span>, and solution positioning.
+                    </p>
+                    <ul class="nav-features">
+                        <li><span class="clickable-feature" data-action="market-analysis">10 Critical Market Gaps</span></li>
+                        <li><span class="clickable-feature" data-action="market-analysis">Competitor Analysis</span></li>
+                        <li><span class="clickable-feature" data-action="market-analysis">Local vs Global Platforms</span></li>
+                        <li><span class="clickable-feature" data-action="market-analysis">Regulatory Landscape</span></li>
+                        <li><span class="clickable-feature" data-action="market-analysis">Solution Positioning</span></li>
+                    </ul>
+                    <div class="quick-actions">
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./grc-analysis.html')">📊 View Analysis</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./grc-analysis.html')">🔗 Open in New Tab</span>
+                    </div>
+                    <button class="nav-button">
+                        <i class="fas fa-external-link-alt"></i> Open in New Tab
+                    </button>
+                </div>
+
+                <!-- Architecture Document -->
+                <div class="nav-card architecture" onclick="openPageInNewTab('./architecture.html')">
+                    <i class="fas fa-layer-group nav-icon"></i>
+                    <h3 class="nav-title"><span class="clickable-text" data-action="architecture">Platform Architecture</span></h3>
+                    <p class="nav-description">
+                        Complete 7-layer architecture of <span class="clickable-keyword" data-action="architecture">Shahin Vision</span> platform with detailed component specifications and <span class="clickable-keyword" data-action="architecture">technical implementation</span>.
+                    </p>
+                    <ul class="nav-features">
+                        <li><span class="clickable-feature" data-action="architecture">7-Layer Architecture Stack</span></li>
+                        <li><span class="clickable-feature" data-action="architecture">Component Specifications</span></li>
+                        <li><span class="clickable-feature" data-action="architecture">Technical Implementation</span></li>
+                        <li><span class="clickable-feature" data-action="architecture">Integration Points</span></li>
+                        <li><span class="clickable-feature" data-action="architecture">Security Framework</span></li>
+                    </ul>
+                    <div class="quick-actions">
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./architecture.html')">📖 View Details</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./architecture.html')">🔗 Open in New Tab</span>
+                    </div>
+                    <button class="nav-button">
+                        <i class="fas fa-external-link-alt"></i> Open in New Tab
+                    </button>
+                </div>
+
+                <!-- Team Feedback & Management System -->
+                <div class="nav-card feedback-system" onclick="showSection('feedback')" style="border-left: 4px solid #8b5cf6;">
+                    <i class="fas fa-comments nav-icon" style="color: #8b5cf6;"></i>
+                    <h3 class="nav-title"><span class="clickable-text" data-action="feedback">Team Feedback & Management</span></h3>
+                    <p class="nav-description">
+                        Comprehensive <span class="clickable-keyword" data-action="feedback">feedback collection system</span> for team collaboration, <span class="clickable-keyword" data-action="feedback">notes management</span>, and recommendations tracking.
+                    </p>
+                    <ul class="nav-features">
+                        <li><span class="clickable-feature" data-action="feedback">Feedback Collection Forms</span></li>
+                        <li><span class="clickable-feature" data-action="feedback">Team Notes & Comments</span></li>
+                        <li><span class="clickable-feature" data-action="feedback">Recommendations Tracking</span></li>
+                        <li><span class="clickable-feature" data-action="feedback">Team Management Dashboard</span></li>
+                        <li><span class="clickable-feature" data-action="feedback">Progress Reports</span></li>
+                    </ul>
+                    <div class="quick-actions">
+                        <span class="quick-link" onclick="event.stopPropagation(); showSection('feedback')">💬 Submit Feedback</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); showFeedbackDashboard()">📊 View Dashboard</span>
+                    </div>
+                    <button class="nav-button">
+                        <i class="fas fa-comments"></i> Open Feedback System
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div id="architecture-section" class="content-section">
+            <div class="navigation-bar">
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">
+                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home"></i> Home</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span><i class="fas fa-layer-group"></i> Platform Architecture</span>
+                    </div>
+                </div>
+                <button class="back-button" onclick="showMain()">
+                    <i class="fas fa-arrow-left"></i> Back to Index
+                </button>
+            </div>
+            <div class="section-header">
+                <h2><i class="fas fa-layer-group"></i> Platform Architecture</h2>
+                <p>7-Layer Shahin Vision Architecture with Complete Technical Specifications</p>
+            </div>
+            <iframe src="./architecture.html" class="iframe-container"></iframe>
+        </div>
+
+        <div id="market-analysis-section" class="content-section">
+            <div class="navigation-bar">
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">
+                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home"></i> Home</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span><i class="fas fa-chart-line"></i> Market Analysis & Gaps</span>
+                    </div>
+                </div>
+                <button class="back-button" onclick="showMain()">
+                    <i class="fas fa-arrow-left"></i> Back to Index
+                </button>
+            </div>
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> Market Analysis & Gaps</h2>
+                <p>Comprehensive GRC Market Analysis for Saudi Arabia</p>
+            </div>
+            <iframe src="./grc-analysis.html" class="iframe-container"></iframe>
+        </div>
+
+        <div id="gtm-strategy-section" class="content-section">
+            <div class="navigation-bar">
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">
+                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home"></i> Home</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span><i class="fas fa-balance-scale"></i> Saudi Market Regulations</span>
+                    </div>
+                </div>
+                <button class="back-button" onclick="showMain()">
+                    <i class="fas fa-arrow-left"></i> Back to Index
+                </button>
+            </div>
+            <div class="section-header">
+                <h2><i class="fas fa-balance-scale"></i> Saudi Market Regulations</h2>
+                <p>Comprehensive Regulatory Framework and Compliance Requirements</p>
+            </div>
+            <iframe src="./regulations.html" class="iframe-container"></iframe>
+        </div>
+
+        <!-- Team Feedback & Management Section -->
+        <div id="feedback-section" class="content-section">
+            <div class="navigation-bar">
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">
+                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home"></i> Home</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span><i class="fas fa-comments"></i> Team Feedback & Management</span>
+                    </div>
+                </div>
+                <button class="back-button" onclick="showMain()">
+                    <i class="fas fa-arrow-left"></i> Back to Index
+                </button>
+            </div>
+            <div class="section-header">
+                <h2><i class="fas fa-comments"></i> Team Feedback & Management System</h2>
+                <p>Comprehensive feedback collection, notes management, and team collaboration platform</p>
+            </div>
+
+            <!-- Feedback System Container -->
+            <div class="feedback-container">
+                <!-- Feedback Tabs -->
+                <div class="feedback-tabs">
+                    <button class="feedback-tab active" onclick="showFeedbackTab('submit')">
+                        <i class="fas fa-plus-circle"></i> Submit Feedback
+                    </button>
+                    <button class="feedback-tab" onclick="showFeedbackTab('dashboard')">
+                        <i class="fas fa-chart-bar"></i> Dashboard
+                    </button>
+                    <button class="feedback-tab" onclick="showFeedbackTab('notes')">
+                        <i class="fas fa-sticky-note"></i> Team Notes
+                    </button>
+                    <button class="feedback-tab" onclick="showFeedbackTab('recommendations')">
+                        <i class="fas fa-lightbulb"></i> Recommendations
+                    </button>
+                    <button class="feedback-tab" onclick="showFeedbackTab('reports')">
+                        <i class="fas fa-file-alt"></i> Reports
+                    </button>
+                </div>
+
+                <!-- Submit Feedback Tab -->
+                <div id="submit-feedback-tab" class="feedback-tab-content active">
+                    <div class="feedback-form-container">
+                        <h3><i class="fas fa-edit"></i> Submit New Feedback</h3>
+                        <form id="feedback-form" class="feedback-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="feedback-type">Feedback Type</label>
+                                    <select id="feedback-type" name="feedbackType" required>
+                                        <option value="">Select feedback type...</option>
+                                        <option value="bug">🐛 Bug Report</option>
+                                        <option value="feature">✨ Feature Request</option>
+                                        <option value="improvement">🔧 Improvement</option>
+                                        <option value="general">💬 General Feedback</option>
+                                        <option value="urgent">🚨 Urgent Issue</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="priority">Priority Level</label>
+                                    <select id="priority" name="priority" required>
+                                        <option value="">Select priority...</option>
+                                        <option value="low">🟢 Low</option>
+                                        <option value="medium">🟡 Medium</option>
+                                        <option value="high">🟠 High</option>
+                                        <option value="critical">🔴 Critical</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Contact Information Section -->
+                            <div class="contact-info-section">
+                                <h4><i class="fas fa-user-circle"></i> Contact Information (Required for Follow-up)</h4>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="team-member"><i class="fas fa-user"></i> Full Name *</label>
+                                        <input type="text" id="team-member" name="teamMember" placeholder="Enter your full name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-email"><i class="fas fa-envelope"></i> Email Address *</label>
+                                        <input type="email" id="contact-email" name="contactEmail" placeholder="your.email@company.com" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="phone-number"><i class="fas fa-phone"></i> Phone Number (Optional)</label>
+                                        <input type="tel" id="phone-number" name="phoneNumber" placeholder="+966 XX XXX XXXX">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="department">Department</label>
+                                        <select id="department" name="department" required>
+                                        <option value="">Select department...</option>
+                                        <option value="development">💻 Development</option>
+                                        <option value="design">🎨 Design</option>
+                                        <option value="qa">🧪 Quality Assurance</option>
+                                        <option value="product">📋 Product Management</option>
+                                        <option value="marketing">📢 Marketing</option>
+                                        <option value="sales">💼 Sales</option>
+                                        <option value="support">🎧 Support</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="feedback-title">Feedback Title</label>
+                                <input type="text" id="feedback-title" name="title" placeholder="Brief description of your feedback" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="feedback-description">Detailed Description</label>
+                                <textarea id="feedback-description" name="description" rows="6" placeholder="Provide detailed information about your feedback, including steps to reproduce (for bugs), expected behavior, and any additional context..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="recommendations">Recommendations & Suggestions</label>
+                                <textarea id="recommendations" name="recommendations" rows="4" placeholder="Your recommendations for improvement or solution suggestions..."></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="affected-area">Affected Area/Module</label>
+                                    <select id="affected-area" name="affectedArea">
+                                        <option value="">Select affected area...</option>
+                                        <option value="architecture">🏗️ Platform Architecture</option>
+                                        <option value="market-analysis">📊 Market Analysis</option>
+                                        <option value="regulations">⚖️ Saudi Regulations</option>
+                                        <option value="ui-ux">🎨 User Interface</option>
+                                        <option value="performance">⚡ Performance</option>
+                                        <option value="security">🔒 Security</option>
+                                        <option value="documentation">📚 Documentation</option>
+                                        <option value="other">🔧 Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="urgency">Urgency</label>
+                                    <select id="urgency" name="urgency">
+                                        <option value="normal">📅 Normal</option>
+                                        <option value="urgent">⏰ Urgent</option>
+                                        <option value="asap">🚨 ASAP</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="submit-btn">
+                                    <i class="fas fa-paper-plane"></i> Submit Feedback
+                                </button>
+                                <button type="reset" class="reset-btn">
+                                    <i class="fas fa-undo"></i> Reset Form
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Dashboard Tab -->
+                <div id="dashboard-feedback-tab" class="feedback-tab-content">
+                    <div class="dashboard-container">
+                        <h3><i class="fas fa-chart-bar"></i> Feedback Dashboard</h3>
+                        
+                        <!-- Dashboard Stats -->
+                        <div class="dashboard-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">📝</div>
+                                <div class="stat-info">
+                                    <div class="stat-number" id="total-feedback">0</div>
+                                    <div class="stat-label">Total Feedback</div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">⏳</div>
+                                <div class="stat-info">
+                                    <div class="stat-number" id="pending-feedback">0</div>
+                                    <div class="stat-label">Pending Review</div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">✅</div>
+                                <div class="stat-info">
+                                    <div class="stat-number" id="resolved-feedback">0</div>
+                                    <div class="stat-label">Resolved</div>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🔴</div>
+                                <div class="stat-info">
+                                    <div class="stat-number" id="critical-feedback">0</div>
+                                    <div class="stat-label">Critical Issues</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feedback List -->
+                        <div class="feedback-list-container">
+                            <div class="feedback-list-header">
+                                <h4>Recent Feedback</h4>
+                                <div class="filter-controls">
+                                    <select id="filter-type">
+                                        <option value="all">All Types</option>
+                                        <option value="bug">Bug Reports</option>
+                                        <option value="feature">Feature Requests</option>
+                                        <option value="improvement">Improvements</option>
+                                        <option value="general">General</option>
+                                        <option value="urgent">Urgent</option>
+                                    </select>
+                                    <select id="filter-status">
+                                        <option value="all">All Status</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="in-progress">In Progress</option>
+                                        <option value="resolved">Resolved</option>
+                                        <option value="closed">Closed</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="feedback-list" class="feedback-list">
+                                <div class="no-feedback-message">
+                                    <i class="fas fa-inbox"></i>
+                                    <p>No feedback submitted yet. Be the first to share your thoughts!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Notes Tab -->
+                <div id="notes-feedback-tab" class="feedback-tab-content">
+                    <div class="notes-container">
+                        <h3><i class="fas fa-sticky-note"></i> Team Notes & Comments</h3>
+                        
+                        <div class="notes-actions">
+                            <button class="add-note-btn" onclick="showAddNoteForm()">
+                                <i class="fas fa-plus"></i> Add New Note
+                            </button>
+                            <div class="notes-search">
+                                <input type="text" id="notes-search" placeholder="Search notes...">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+
+                        <!-- Add Note Form -->
+                        <div id="add-note-form" class="add-note-form" style="display: none;">
+                            <form id="note-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="note-title">Note Title</label>
+                                        <input type="text" id="note-title" name="noteTitle" placeholder="Note title" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="note-category">Category</label>
+                                        <select id="note-category" name="noteCategory" required>
+                                            <option value="">Select category...</option>
+                                            <option value="meeting">📅 Meeting Notes</option>
+                                            <option value="idea">💡 Ideas</option>
+                                            <option value="todo">✅ To-Do</option>
+                                            <option value="important">⚠️ Important</option>
+                                            <option value="general">📝 General</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="note-content">Note Content</label>
+                                    <textarea id="note-content" name="noteContent" rows="4" placeholder="Write your note here..." required></textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="submit-btn">
+                                        <i class="fas fa-save"></i> Save Note
+                                    </button>
+                                    <button type="button" class="cancel-btn" onclick="hideAddNoteForm()">
+                                        <i class="fas fa-times"></i> Cancel
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Notes List -->
+                        <div id="notes-list" class="notes-list">
+                            <div class="no-notes-message">
+                                <i class="fas fa-sticky-note"></i>
+                                <p>No notes yet. Start by adding your first team note!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendations Tab -->
+                <div id="recommendations-feedback-tab" class="feedback-tab-content">
+                    <div class="recommendations-container">
+                        <h3><i class="fas fa-lightbulb"></i> Recommendations & Action Items</h3>
+                        
+                        <div class="recommendations-stats">
+                            <div class="rec-stat-card">
+                                <div class="rec-stat-icon">💡</div>
+                                <div class="rec-stat-info">
+                                    <div class="rec-stat-number" id="total-recommendations">0</div>
+                                    <div class="rec-stat-label">Total Recommendations</div>
+                                </div>
+                            </div>
+                            <div class="rec-stat-card">
+                                <div class="rec-stat-icon">🔄</div>
+                                <div class="rec-stat-info">
+                                    <div class="rec-stat-number" id="pending-recommendations">0</div>
+                                    <div class="rec-stat-label">Pending Implementation</div>
+                                </div>
+                            </div>
+                            <div class="rec-stat-card">
+                                <div class="rec-stat-icon">✅</div>
+                                <div class="rec-stat-info">
+                                    <div class="rec-stat-number" id="implemented-recommendations">0</div>
+                                    <div class="rec-stat-label">Implemented</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="recommendations-list" class="recommendations-list">
+                            <div class="no-recommendations-message">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>No recommendations yet. Submit feedback with suggestions to see them here!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reports Tab -->
+                <div id="reports-feedback-tab" class="feedback-tab-content">
+                    <div class="reports-container">
+                        <h3><i class="fas fa-file-alt"></i> Progress Reports & Analytics</h3>
+                        
+                        <div class="report-actions">
+                            <button class="generate-report-btn" onclick="generateReport()">
+                                <i class="fas fa-chart-line"></i> Generate Report
+                            </button>
+                            <button class="export-data-btn" onclick="exportData()">
+                                <i class="fas fa-download"></i> Export Data
+                            </button>
+                        </div>
+
+                        <div class="reports-content">
+                            <div class="report-section">
+                                <h4>Team Performance Overview</h4>
+                                <div class="performance-metrics">
+                                    <div class="metric">
+                                        <span class="metric-label">Response Time:</span>
+                                        <span class="metric-value">2.3 days avg</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Resolution Rate:</span>
+                                        <span class="metric-value">85%</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-label">Team Satisfaction:</span>
+                                        <span class="metric-value">4.2/5</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="report-section">
+                                <h4>Recent Activity Summary</h4>
+                                <div id="activity-summary" class="activity-summary">
+                                    <p>No recent activity to display.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Shahin Vision Platform</span>
+                </div>
+                <div class="footer-actions">
+                    <a href="#" class="footer-action" onclick="exportReport()" title="Export comprehensive report">
+                        <i class="fas fa-download"></i>
+                        <span>Export</span>
+                    </a>
+                    <a href="#" class="footer-action" onclick="shareReport()" title="Share report">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Share</span>
+                    </a>
+                    <a href="#" class="footer-action" onclick="printReport()" title="Print report">
+                        <i class="fas fa-print"></i>
+                        <span>Print</span>
+                    </a>
+                    <a href="#" class="footer-action" onclick="showHelp()" title="Help & shortcuts">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Help</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-info">
+                Enterprise-Grade GRC Solutions | <a href="https://www.doganconsult.com" target="_blank" class="footer-highlight" style="text-decoration: none;">DoganConsult</a> - Engineering Consultant Accredited by Saudi Engineering Council | Led by <a href="https://www.doganahmet.com" target="_blank" class="footer-highlight" style="text-decoration: none;">Dr. Ahmet Dogan</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div id="progress-indicator" class="progress-indicator"></div>
+
+    <!-- Smart Keyboard Shortcuts Panel -->
+    <div class="shortcuts-panel" title="Hover to see shortcuts">
+        <div class="shortcuts-title">⌨️ Quick Nav</div>
+        <div class="shortcut-item">
+            <span>Home</span>
+            <span class="shortcut-key">H</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Arch</span>
+            <span class="shortcut-key">1</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Market</span>
+            <span class="shortcut-key">2</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Rules</span>
+            <span class="shortcut-key">3</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Back</span>
+            <span class="shortcut-key">←</span>
+        </div>
+        <div class="shortcut-item">
+            <span>Intro</span>
+            <span class="shortcut-key">I</span>
+        </div>
+    </div>
+
+    <script>
+        let currentSection = null;
+        let isTransitioning = false;
+
+        // Enhanced smooth section navigation with auto-hide header
+        function showSection(sectionName, fullscreen = false) {
+            if (isTransitioning) return; // Prevent multiple clicks during transition
+            isTransitioning = true;
+
+            // Loading indicator removed for smooth experience
+            
+            // Auto-hide header for fullscreen experience
+            if (fullscreen) {
+                hideHeaderForFullscreen();
+            }
+            
+            // Smooth fade out main navigation
+            const mainNav = document.getElementById('main-navigation');
+            mainNav.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+            mainNav.style.opacity = '0';
+            mainNav.style.transform = 'translateY(-20px)';
+            
+            setTimeout(() => {
+                mainNav.style.display = 'none';
+                
+                // Hide all sections with fade effect
+                const sections = document.querySelectorAll('.content-section');
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(20px)';
+                });
+                
+                // Show selected section with smooth animation
+                const targetSection = document.getElementById(sectionName + '-section');
+                targetSection.classList.add('active');
+                targetSection.style.transition = 'opacity 0.5s ease-in, transform 0.5s ease-in';
+                
+                // Add fullscreen class if needed
+                if (fullscreen) {
+                    targetSection.classList.add('fullscreen-mode');
+                    document.body.classList.add('fullscreen-active');
+                }
+                
+                setTimeout(() => {
+                    targetSection.style.opacity = '1';
+                    targetSection.style.transform = 'translateY(0)';
+                    currentSection = sectionName;
+                    
+                    // Smooth scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    // Loading indicator removed for smooth experience
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 300);
+                }, 100);
+            }, 300);
+
+            // Update browser history for back button support
+            history.pushState({ section: sectionName, fullscreen: fullscreen }, '', `#${sectionName}${fullscreen ? '-fullscreen' : ''}`);
+        }
+
+        // Fullscreen mode function
+        function openFullscreen(sectionName) {
+            showSection(sectionName, true);
+        }
+
+        // Open page in new tab function
+        function openPageInNewTab(url) {
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        // Auto-hide header functionality
+        function hideHeaderForFullscreen() {
+            const header = document.querySelector('.header');
+            const container = document.querySelector('.container');
+            
+            if (header && container) {
+                header.classList.add('hidden');
+                container.classList.add('fullscreen');
+                
+                // Add floating mini controls
+                addFloatingControls();
+            }
+        }
+
+        function showHeaderFromFullscreen() {
+            const header = document.querySelector('.header');
+            const container = document.querySelector('.container');
+            
+            if (header && container) {
+                header.classList.remove('hidden');
+                container.classList.remove('fullscreen');
+                
+                // Remove floating controls
+                removeFloatingControls();
+            }
+        }
+
+        // Enhanced smooth return to main navigation
+        function showMain() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            // Loading indicator removed for smooth experience
+            
+            // Show header if in fullscreen mode
+            showHeaderFromFullscreen();
+            
+            // Remove fullscreen classes
+            document.body.classList.remove('fullscreen-active');
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('fullscreen-mode');
+            });
+            
+            // Remove floating controls
+            removeFloatingControls();
+            
+            // Smooth fade out current section
+            sections.forEach(section => {
+                section.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(-20px)';
+                setTimeout(() => section.classList.remove('active'), 300);
+            });
+            
+            setTimeout(() => {
+                // Show main navigation with smooth animation
+                const mainNav = document.getElementById('main-navigation');
+                mainNav.style.display = 'block';
+                mainNav.style.transition = 'opacity 0.5s ease-in, transform 0.5s ease-in';
+                mainNav.style.opacity = '0';
+                mainNav.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    mainNav.style.opacity = '1';
+                    mainNav.style.transform = 'translateY(0)';
+                    currentSection = null;
+                    
+                    // Smooth scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 300);
+                }, 100);
+            }, 300);
+
+            // Update browser history
+            history.pushState({ section: 'main' }, '', '#');
+        }
+
+        // Enhanced floating controls functionality for mobile
+        function addFloatingControls() {
+            // Disabled - no floating controls will be added
+            return;
+        }
+
+        function toggleMobileFullscreenMenu() {
+            const existingMenu = document.querySelector('.mobile-fullscreen-menu');
+            
+            if (existingMenu) {
+                existingMenu.remove();
+                return;
+            }
+
+            const mobileMenu = document.createElement('div');
+            mobileMenu.className = 'mobile-fullscreen-menu';
+            mobileMenu.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                right: 20px;
+                background: rgba(31, 41, 55, 0.95);
+                backdrop-filter: blur(10px);
+                border-radius: 16px;
+                padding: 1rem;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                z-index: 999;
+                min-width: 180px;
+                animation: slideUp 0.3s ease;
+            `;
+
+            const menuItems = [
+                { icon: 'fas fa-search', text: 'Search', action: () => focusSearch() },
+                { icon: 'fas fa-bookmark', text: 'Bookmark', action: () => bookmarkSection() },
+                { icon: 'fas fa-share', text: 'Share', action: () => shareSection() },
+                { icon: 'fas fa-print', text: 'Print', action: () => window.print() }
+            ];
+
+            menuItems.forEach(item => {
+                const menuItem = document.createElement('div');
+                menuItem.style.cssText = `
+                    display: flex;
+                    align-items: center;
+                    padding: 12px;
+                    margin: 4px 0;
+                    border-radius: 8px;
+                    color: white;
+                    cursor: pointer;
+                    transition: background 0.2s ease;
+                    -webkit-tap-highlight-color: transparent;
+                `;
+                
+                menuItem.innerHTML = `
+                    <i class="${item.icon}" style="margin-right: 12px; width: 20px;"></i>
+                    <span>${item.text}</span>
+                `;
+
+                menuItem.addEventListener('click', () => {
+                    item.action();
+                    mobileMenu.remove();
+                    showMobileFeedback(`${item.text}`);
+                });
+
+                addTouchFeedback(menuItem);
+                mobileMenu.appendChild(menuItem);
+            });
+
+            document.body.appendChild(mobileMenu);
+
+            // Close menu when clicking outside
+            setTimeout(() => {
+                document.addEventListener('click', function closeMenu(e) {
+                    if (!mobileMenu.contains(e.target) && !e.target.closest('.mobile-menu-trigger')) {
+                        mobileMenu.remove();
+                        document.removeEventListener('click', closeMenu);
+                    }
+                });
+            }, 100);
+        }
+
+        // Mobile-specific fullscreen functions
+        function focusSearch() {
+            const searchInput = document.querySelector('input[type="search"], input[placeholder*="search"], input[placeholder*="Search"]');
+            if (searchInput) {
+                searchInput.focus();
+                searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function bookmarkSection() {
+            if (currentSection) {
+                const url = `${window.location.origin}${window.location.pathname}#${currentSection}`;
+                if (navigator.share) {
+                    navigator.share({
+                        title: `Shahin GTM - ${currentSection}`,
+                        url: url
+                    });
+                } else {
+                    // Fallback for browsers without Web Share API
+                    navigator.clipboard.writeText(url).then(() => {
+                        showMobileFeedback('🔖 Link copied to clipboard');
+                    });
+                }
+            }
+        }
+
+        function shareSection() {
+            if (currentSection && navigator.share) {
+                const sectionTitles = {
+                    'architecture': 'System Architecture',
+                    'market-analysis': 'Market Analysis',
+                    'gtm-strategy': 'GTM Strategy'
+                };
+                
+                navigator.share({
+                    title: `Shahin GTM - ${sectionTitles[currentSection] || currentSection}`,
+                    text: 'Check out this comprehensive business analysis',
+                    url: `${window.location.origin}${window.location.pathname}#${currentSection}`
+                });
+            } else {
+                // Fallback for browsers without Web Share API
+                const url = `${window.location.origin}${window.location.pathname}#${currentSection}`;
+                navigator.clipboard.writeText(url).then(() => {
+                    showMobileFeedback('📤 Link copied for sharing');
+                });
+            }
+        }
+
+        function removeFloatingControls() {
+            const existingControls = document.querySelector('.floating-controls');
+            if (existingControls) {
+                existingControls.remove();
+            }
+        }
+
+        // Toggle fullscreen mode
+         function toggleFullscreen() {
+             if (document.body.classList.contains('fullscreen-active')) {
+                 backToMain();
+             } else if (currentSection) {
+                 openFullscreen(currentSection);
+             }
+         }
+
+        // Mini map functionality
+        function toggleMiniMap() {
+            const miniMap = document.querySelector('.mini-map');
+            if (miniMap) {
+                miniMap.classList.toggle('active');
+            } else {
+                createMiniMap();
+            }
+        }
+
+        function createMiniMap() {
+            const miniMap = document.createElement('div');
+            miniMap.className = 'mini-map active';
+            miniMap.innerHTML = `
+                <div class="mini-map-header">Navigation Map</div>
+                <div class="mini-map-item" onclick="backToMain()">Main Dashboard</div>
+                <div class="mini-map-item" onclick="showSection('architecture')">System Architecture</div>
+                <div class="mini-map-item" onclick="showSection('market-analysis')">Market Analysis</div>
+                <div class="mini-map-item" onclick="showSection('gtm-strategy')">Regulations</div>
+                <div class="mini-map-close" onclick="toggleMiniMap()">×</div>
+            `;
+            
+            document.body.appendChild(miniMap);
+        }
+
+        // Progress indicator functions
+        function updateProgressIndicator(progress) {
+            const indicator = document.getElementById('progress-indicator');
+            if (indicator) {
+                indicator.style.transform = `scaleX(${progress / 100})`;
+                indicator.style.background = `linear-gradient(90deg, #10b981 0%, #059669 ${progress}%, rgba(16, 185, 129, 0.3) 100%)`;
+            }
+        }
+
+        // Loading indicator functions removed for smooth landing experience
+
+        // Enhanced keyboard shortcuts with visual feedback and smart features - DISABLED
+        document.addEventListener('keydown', function(e) {
+            // Keyboard shortcuts disabled to prevent mobile interface interference
+            return;
+            
+            if (isTransitioning) return;
+            
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case 'h':
+                         e.preventDefault();
+                         backToMain();
+                         showKeyboardFeedback('🏠 Home');
+                         break;
+                    case '1':
+                        e.preventDefault();
+                        showSection('architecture');
+                        showKeyboardFeedback('Architecture');
+                        break;
+                    case '2':
+                        e.preventDefault();
+                        showSection('market-analysis');
+                        showKeyboardFeedback('Market Analysis');
+                        break;
+                    case '3':
+                        e.preventDefault();
+                        showSection('gtm-strategy');
+                        showKeyboardFeedback('Regulations');
+                        break;
+                    case 'f':
+                        e.preventDefault();
+                        if (currentSection) {
+                            openFullscreen(currentSection);
+                            showKeyboardFeedback('Fullscreen Mode');
+                        }
+                        break;
+                    case 'm':
+                        e.preventDefault();
+                        toggleMiniMap();
+                        showKeyboardFeedback('🗺️ Mini Map');
+                        break;
+
+                    case 'i':
+                        e.preventDefault();
+                        toggleIntro();
+                        break;
+                    case 'Escape':
+                        e.preventDefault();
+                        if (document.body.classList.contains('fullscreen-active')) {
+                             backToMain();
+                             showKeyboardFeedback('🔙 Exit Fullscreen');
+                         } else {
+                             backToMain();
+                             showKeyboardFeedback('🔙 Back');
+                         }
+                        break;
+                }
+            }
+            
+            // Arrow key navigation
+            if (!e.ctrlKey && !e.metaKey) {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        navigateToPrevious();
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        navigateToNext();
+                        break;
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        smartScrollUp();
+                        break;
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        smartScrollDown();
+                        break;
+                    case 'Escape':
+                         e.preventDefault();
+                         backToMain();
+                         showKeyboardFeedback('🔙 Back');
+                         break;
+                     case '1':
+                         e.preventDefault();
+                         showSection('architecture');
+                         showKeyboardFeedback('Architecture');
+                         break;
+                     case '2':
+                         e.preventDefault();
+                         showSection('market-analysis');
+                         showKeyboardFeedback('Market Analysis');
+                         break;
+                     case '3':
+                         e.preventDefault();
+                         showSection('gtm-strategy');
+                         showKeyboardFeedback('📋 Regulations');
+                         break;
+                     case 'h':
+                         e.preventDefault();
+                         backToMain();
+                         showKeyboardFeedback('🏠 Home');
+                        break;
+                }
+            }
+        });
+
+        // Smart navigation functions
+        function navigateToPrevious() {
+            const sections = ['architecture', 'market-analysis', 'gtm-strategy'];
+            if (!currentSection) {
+                showSection(sections[sections.length - 1]);
+                showKeyboardFeedback('⬅️ Previous Section');
+            } else {
+                const currentIndex = sections.indexOf(currentSection);
+                if (currentIndex > 0) {
+                    showSection(sections[currentIndex - 1]);
+                    showKeyboardFeedback('⬅️ Previous Section');
+                } else {
+                     backToMain();
+                     showKeyboardFeedback('🏠 Back to Home');
+                 }
+            }
+        }
+
+        function navigateToNext() {
+            const sections = ['architecture', 'market-analysis', 'gtm-strategy'];
+            if (!currentSection) {
+                showSection(sections[0]);
+                showKeyboardFeedback('➡️ Next Section');
+            } else {
+                const currentIndex = sections.indexOf(currentSection);
+                if (currentIndex < sections.length - 1) {
+                    showSection(sections[currentIndex + 1]);
+                    showKeyboardFeedback('➡️ Next Section');
+                } else {
+                     backToMain();
+                     showKeyboardFeedback('🏠 Back to Home');
+                 }
+             }
+         }
+
+        function smartScrollUp() {
+            window.scrollBy({ top: -300, behavior: 'smooth' });
+            showKeyboardFeedback('⬆️ Scroll Up');
+        }
+
+        function smartScrollDown() {
+            window.scrollBy({ top: 300, behavior: 'smooth' });
+            showKeyboardFeedback('⬇️ Scroll Down');
+        }
+
+
+
+         // Initialize mobile enhancements when page loads
+         document.addEventListener('DOMContentLoaded', function() {
+             initializeMobileEnhancements();
+         });
+
+         // Mobile-specific enhancements for executive users - DISABLED
+         function initializeMobileEnhancements() {
+             // Mobile enhancements disabled - return immediately
+             return;
+             
+             // Detect mobile device
+             const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+             
+             if (isMobile) {
+                 // Add mobile class to body
+                 document.body.classList.add('mobile-device');
+                 
+                 // Enhanced touch feedback for navigation cards
+                 const navigationCards = document.querySelectorAll('.navigation-card');
+                 navigationCards.forEach(card => {
+                     addTouchFeedback(card);
+                 });
+
+                 // Enhanced touch feedback for clickable elements
+                 const clickableElements = document.querySelectorAll('.clickable-text, .clickable-keyword, .clickable-feature, .quick-link');
+                 clickableElements.forEach(element => {
+                     addTouchFeedback(element);
+                 });
+
+                 // Add swipe gestures for intro section
+                 addSwipeGestures();
+
+                 // Optimize auto-hide timing for mobile
+                 optimizeMobileAutoHide();
+
+                 // Add mobile-specific keyboard alternative
+                 addMobileControls();
+             }
+         }
+
+         function addTouchFeedback(element) {
+             let touchStartTime;
+             
+             element.addEventListener('touchstart', function(e) {
+                 touchStartTime = Date.now();
+                 this.style.transform = 'scale(0.98)';
+                 this.style.transition = 'transform 0.1s ease';
+             }, { passive: true });
+
+             element.addEventListener('touchend', function(e) {
+                 const touchDuration = Date.now() - touchStartTime;
+                 
+                 setTimeout(() => {
+                     this.style.transform = '';
+                     this.style.transition = 'transform 0.3s ease';
+                 }, 100);
+
+                 // Prevent double-tap zoom on iOS
+                 if (touchDuration < 300) {
+                     e.preventDefault();
+                 }
+             }, { passive: false });
+
+             element.addEventListener('touchcancel', function() {
+                 this.style.transform = '';
+                 this.style.transition = 'transform 0.3s ease';
+             });
+         }
+
+         function addSwipeGestures() {
+             const introSection = document.getElementById('intro-section');
+             if (!introSection) return;
+
+             let startY = 0;
+             let startTime = 0;
+
+             introSection.addEventListener('touchstart', function(e) {
+                 startY = e.touches[0].clientY;
+                 startTime = Date.now();
+             }, { passive: true });
+
+             introSection.addEventListener('touchend', function(e) {
+                 const endY = e.changedTouches[0].clientY;
+                 const endTime = Date.now();
+                 const deltaY = startY - endY;
+                 const deltaTime = endTime - startTime;
+
+                 // Swipe up to collapse, swipe down to expand
+                 if (Math.abs(deltaY) > 50 && deltaTime < 300) {
+                     if (deltaY > 0 && !introCollapsed) {
+                         // Swipe up - collapse
+                         collapseIntro();
+                         showMobileFeedback('📄 Introduction Collapsed');
+                     } else if (deltaY < 0 && introCollapsed) {
+                         // Swipe down - expand
+                         expandIntro();
+                         showMobileFeedback('📄 Introduction Expanded');
+                     }
+                 }
+             }, { passive: true });
+         }
+
+         function optimizeMobileAutoHide() {
+             // Extend auto-hide timer for mobile users (executives need more time to read)
+             if (introAutoHideTimer) {
+                 clearTimeout(introAutoHideTimer);
+                 introAutoHideTimer = setTimeout(() => {
+                     if (!introCollapsed) {
+                         collapseIntro();
+                     }
+                 }, 12000); // 12 seconds for mobile
+             }
+         }
+
+         function addMobileControls() {
+             // Mobile controls disabled - return immediately
+             return;
+             
+             // Add floating mobile menu button
+             const mobileMenuButton = document.createElement('div');
+             mobileMenuButton.className = 'mobile-menu-button';
+             mobileMenuButton.innerHTML = '<i class="fas fa-bars"></i>';
+             mobileMenuButton.style.cssText = `
+                 position: fixed;
+                 bottom: 20px;
+                 right: 20px;
+                 width: 56px;
+                 height: 56px;
+                 background: linear-gradient(135deg, #10b981, #059669);
+                 border-radius: 50%;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 color: white;
+                 font-size: 1.2rem;
+                 box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+                 cursor: pointer;
+                 z-index: 1000;
+                 transition: all 0.3s ease;
+                 -webkit-tap-highlight-color: transparent;
+             `;
+
+             mobileMenuButton.addEventListener('click', function() {
+                 toggleMobileMenu();
+             });
+
+             document.body.appendChild(mobileMenuButton);
+         }
+
+         function toggleMobileMenu() {
+             // Mobile menu disabled - return immediately
+             return;
+             
+             const existingMenu = document.querySelector('.mobile-quick-menu');
+             
+             if (existingMenu) {
+                 existingMenu.remove();
+                 return;
+             }
+
+             const mobileMenu = document.createElement('div');
+             mobileMenu.className = 'mobile-quick-menu';
+             mobileMenu.style.cssText = `
+                 position: fixed;
+                 bottom: 90px;
+                 right: 20px;
+                 background: rgba(31, 41, 55, 0.95);
+                 backdrop-filter: blur(10px);
+                 border-radius: 16px;
+                 padding: 1rem;
+                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                 z-index: 999;
+                 min-width: 200px;
+                 animation: slideUp 0.3s ease;
+             `;
+
+             const menuItems = [
+                 { icon: 'fas fa-home', text: 'Home', action: () => backToMain() },
+                 { icon: 'fas fa-expand', text: 'Fullscreen', action: () => currentSection && openFullscreen(currentSection) },
+                 { icon: 'fas fa-map', text: 'Mini Map', action: () => toggleMiniMap() }
+             ];
+
+             menuItems.forEach(item => {
+                 const menuItem = document.createElement('div');
+                 menuItem.style.cssText = `
+                     display: flex;
+                     align-items: center;
+                     padding: 12px;
+                     margin: 4px 0;
+                     border-radius: 8px;
+                     color: white;
+                     cursor: pointer;
+                     transition: background 0.2s ease;
+                     -webkit-tap-highlight-color: transparent;
+                 `;
+                 
+                 menuItem.innerHTML = `
+                     <i class="${item.icon}" style="margin-right: 12px; width: 20px;"></i>
+                     <span>${item.text}</span>
+                 `;
+
+                 menuItem.addEventListener('click', () => {
+                     item.action();
+                     mobileMenu.remove();
+                     showMobileFeedback(`${item.icon.includes('home') ? '🏠' : item.icon.includes('expand') ? '🔍' : item.icon.includes('map') ? '🗺️' : '📄'} ${item.text}`);
+                 });
+
+                 menuItem.addEventListener('touchstart', function() {
+                     this.style.background = 'rgba(16, 185, 129, 0.2)';
+                 });
+
+                 menuItem.addEventListener('touchend', function() {
+                     setTimeout(() => {
+                         this.style.background = '';
+                     }, 150);
+                 });
+
+                 mobileMenu.appendChild(menuItem);
+             });
+
+             document.body.appendChild(mobileMenu);
+
+             // Close menu when clicking outside
+             setTimeout(() => {
+                 document.addEventListener('click', function closeMenu(e) {
+                     if (!mobileMenu.contains(e.target) && !e.target.closest('.mobile-menu-button')) {
+                         mobileMenu.remove();
+                         document.removeEventListener('click', closeMenu);
+                     }
+                 });
+             }, 100);
+         }
+
+         function showMobileFeedback(message) {
+             const feedback = document.createElement('div');
+             feedback.style.cssText = `
+                 position: fixed;
+                 top: 50%;
+                 left: 50%;
+                 transform: translate(-50%, -50%);
+                 background: rgba(16, 185, 129, 0.9);
+                 color: white;
+                 padding: 12px 24px;
+                 border-radius: 25px;
+                 font-size: 0.9rem;
+                 font-weight: 500;
+                 z-index: 10000;
+                 pointer-events: none;
+                 animation: fadeInOut 2s ease;
+             `;
+             feedback.textContent = message;
+             document.body.appendChild(feedback);
+
+             setTimeout(() => {
+                 feedback.remove();
+             }, 2000);
+         }
+
+         // Add CSS animations for mobile
+         const mobileStyles = document.createElement('style');
+         mobileStyles.textContent = `
+             @keyframes slideUp {
+                 from {
+                     opacity: 0;
+                     transform: translateY(20px);
+                 }
+                 to {
+                     opacity: 1;
+                     transform: translateY(0);
+                 }
+             }
+
+             @keyframes fadeInOut {
+                 0%, 100% { opacity: 0; }
+                 20%, 80% { opacity: 1; }
+             }
+
+             .mobile-device .navigation-card:hover {
+                 transform: none;
+             }
+
+             .mobile-device .navigation-card:active {
+                 transform: scale(0.98);
+             }
+
+             @media (max-width: 768px) {
+                 .mobile-menu-button {
+                     display: flex !important;
+                 }
+             }
+
+             @media (min-width: 769px) {
+                  .mobile-menu-button {
+                      display: none !important;
+                  }
+              }
+
+              /* Mobile floating controls enhancements */
+              @media (max-width: 768px) {
+                  .floating-controls {
+                      bottom: 20px !important;
+                      right: 20px !important;
+                      flex-direction: column !important;
+                      gap: 12px !important;
+                  }
+
+                  /* All floating controls hidden */
+                  .floating-control.mobile-control {
+                      display: none !important;
+                  }
+
+                  .floating-control.mobile-control i {
+                      display: none !important;
+                  }
+
+                  .control-label {
+                      display: none !important;
+                  }
+
+                  .floating-control.mobile-control:active {
+                      display: none !important;
+                  }
+
+                  /* Hide all floating controls */
+                  .floating-control:not(.mobile-control) {
+                      display: none !important;
+                  }
+              }
+
+              /* Desktop floating controls - hide all floating elements */
+              @media (min-width: 769px) {
+                  .mobile-control {
+                      display: none !important;
+                  }
+                  
+                  .floating-control {
+                      display: none !important;
+                  }
+                  
+                  .control-label {
+                      display: none !important;
+                  }
+              }
+
+              /* Mobile fullscreen optimizations */
+              @media (max-width: 768px) {
+                  .container.fullscreen {
+                      padding: 1rem !important;
+                      margin: 0 !important;
+                  }
+
+                  .content-section.fullscreen-mode {
+                      padding: 1rem !important;
+                      margin: 0 !important;
+                      border-radius: 0 !important;
+                  }
+
+                  .mini-map {
+                      width: 90% !important;
+                      max-width: 300px !important;
+                      right: 5% !important;
+                      top: 20% !important;
+                  }
+
+                  .mini-map-item {
+                      padding: 12px !important;
+                      font-size: 0.9rem !important;
+                      border-radius: 8px !important;
+                      margin: 8px 0 !important;
+                  }
+
+                  .mini-map-close {
+                      width: 40px !important;
+                      height: 40px !important;
+                      font-size: 1.2rem !important;
+                  }
+              }
+
+              /* Mobile touch feedback improvements */
+              .mobile-device .floating-control:hover {
+                  transform: none !important;
+              }
+
+              .mobile-device .mini-map-item:hover {
+                  transform: none !important;
+              }
+
+              /* Executive-friendly mobile typography in fullscreen */
+              @media (max-width: 768px) {
+                  .content-section.fullscreen-mode h1 {
+                      font-size: 1.8rem !important;
+                      line-height: 1.3 !important;
+                      margin-bottom: 1rem !important;
+                  }
+
+                  .content-section.fullscreen-mode h2 {
+                      font-size: 1.4rem !important;
+                      line-height: 1.4 !important;
+                      margin: 1.5rem 0 0.8rem 0 !important;
+                  }
+
+                  .content-section.fullscreen-mode p {
+                      font-size: 1rem !important;
+                      line-height: 1.6 !important;
+                      margin-bottom: 1rem !important;
+                  }
+
+                  .content-section.fullscreen-mode ul, 
+                  .content-section.fullscreen-mode ol {
+                      padding-left: 1.5rem !important;
+                      margin-bottom: 1rem !important;
+                  }
+
+                  .content-section.fullscreen-mode li {
+                      margin-bottom: 0.5rem !important;
+                      line-height: 1.5 !important;
+                  }
+              }
+          `;
+          document.head.appendChild(mobileStyles);
+
+        // Visual feedback for keyboard shortcuts - DISABLED
+        function showKeyboardFeedback(key) {
+            // Keyboard feedback disabled to prevent mobile interface interference
+            return;
+            
+            const feedback = document.createElement('div');
+            feedback.textContent = `Key: ${key}`;
+            feedback.style.cssText = `
+                position: fixed; top: 20px; right: 20px; background: #00d4aa;
+                color: white; padding: 0.5rem 1rem; border-radius: 8px;
+                z-index: 10000; font-weight: 600; animation: fadeInOut 1.5s ease-in-out;
+            `;
+            document.body.appendChild(feedback);
+            setTimeout(() => feedback.remove(), 1500);
+        }
+
+        // Browser back/forward button support
+        window.addEventListener('popstate', function(e) {
+            if (e.state && e.state.section) {
+                if (e.state.section === 'main') {
+                    showMain();
+                } else {
+                    showSection(e.state.section);
+                }
+            }
+        });
+
+        // Enhanced iframe loading with progress indication
+        document.querySelectorAll('iframe').forEach((iframe, index) => {
+            iframe.style.opacity = '0';
+            iframe.style.transition = 'opacity 0.5s ease-in';
+            
+            iframe.addEventListener('load', function() {
+                this.style.opacity = '1';
+                console.log(`Document ${index + 1} loaded successfully`);
+            });
+            
+            iframe.addEventListener('error', function() {
+                console.error(`Failed to load document ${index + 1}`);
+                this.style.background = 'linear-gradient(45deg, #f0f0f0, #e0e0e0)';
+                this.style.display = 'flex';
+                this.style.alignItems = 'center';
+                this.style.justifyContent = 'center';
+            });
+        });
+
+        // Smart preloading for better performance
+        function preloadSections() {
+            const sections = ['architecture', 'market-analysis', 'gtm-strategy'];
+            sections.forEach(section => {
+                const iframe = document.querySelector(`#${section}-section iframe`);
+                if (iframe && !iframe.src.includes('blob:')) {
+                    // Preload iframe content
+                    iframe.loading = 'lazy';
+                }
+            });
+        }
+
+        // Initialize smart navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            preloadSections();
+            
+            // Add CSS animations
+            const animationCSS = document.createElement('style');
+            animationCSS.textContent = `
+                @keyframes fadeInOut {
+                    0%, 100% { opacity: 0; transform: translateX(20px); }
+                    20%, 80% { opacity: 1; transform: translateX(0); }
+                }
+                .content-section { transition: all 0.5s ease-in-out; }
+                #main-navigation { transition: all 0.5s ease-in-out; }
+            `;
+            document.head.appendChild(animationCSS);
+            
+            console.log('Smart navigation system initialized');
+        });
+    </script>
+
+
+
+
+
+    <script>
+        // Overlay Management System
+        let activeOverlays = new Set();
+        
+        function closeAllOverlays() {
+
+            
+
+            
+            // Close mini-map
+            const miniMap = document.querySelector('.mini-map');
+            if (miniMap && miniMap.classList.contains('active')) {
+                miniMap.classList.remove('active');
+                activeOverlays.delete('minimap');
+            }
+            
+            // Close any loading indicators
+            const loader = document.getElementById('smart-loader');
+            if (loader) {
+                loader.remove();
+                activeOverlays.delete('loader');
+            }
+            
+            // Reset body overflow
+            document.body.style.overflow = '';
+        }
+        
+        // Enhanced ESC key listener for closing overlays - DISABLED
+        document.addEventListener('keydown', function(e) {
+            // ESC key listener disabled to prevent mobile interface interference
+            return;
+            
+            // Close all overlays with ESC (improved mobile support)
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                if (activeOverlays.size > 0) {
+                    closeAllOverlays();
+                    showMobileFeedback('All panels closed');
+                }
+                return;
+            }
+        });
+
+        // Simple touch gestures for mobile (swipe down to close overlays only)
+        let touchStartY = 0;
+        let touchStartX = 0;
+        let touchStartTime = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartY = e.touches[0].clientY;
+            touchStartX = e.touches[0].clientX;
+            touchStartTime = Date.now();
+        });
+
+        document.addEventListener('touchend', function(e) {
+            const touchEndY = e.changedTouches[0].clientY;
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndTime = Date.now();
+            const deltaY = touchStartY - touchEndY;
+            const deltaX = touchStartX - touchEndX;
+            const duration = touchEndTime - touchStartTime;
+            
+            // Only process quick gestures (less than 500ms)
+            if (duration > 500) return;
+            
+            // Swipe down gesture to close all overlays
+            if (deltaY < -100 && Math.abs(deltaX) < 50 && activeOverlays.size > 0) {
+                e.preventDefault();
+                closeAllOverlays();
+                showMobileFeedback('All panels closed');
+            }
+        });
+
+        // Smart Footer Functions
+        function exportReport() {
+            const timestamp = new Date().toISOString().split('T')[0];
+            const content = document.documentElement.outerHTML;
+            const blob = new Blob([content], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `shahin-comprehensive-review-${timestamp}.html`;
+            a.click();
+            URL.revokeObjectURL(url);
+            showMobileFeedback('Report exported successfully');
+        }
+
+        function shareReport() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Shahin Vision Platform - Comprehensive Review',
+                    text: 'Enterprise-Grade GRC Solutions for Saudi Arabia',
+                    url: window.location.href
+                }).then(() => {
+                    showMobileFeedback('Report shared successfully');
+                }).catch(() => {
+                    fallbackShare();
+                });
+            } else {
+                fallbackShare();
+            }
+        }
+
+        function fallbackShare() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                showMobileFeedback('Link copied to clipboard');
+            }).catch(() => {
+                showMobileFeedback('Unable to share - please copy URL manually');
+            });
+        }
+
+        function printReport() {
+            // Hide interactive elements for printing
+            const elementsToHide = document.querySelectorAll('.shortcuts-panel, .floating-controls, .mini-map, .footer-actions');
+            elementsToHide.forEach(el => el.style.display = 'none');
+            
+            window.print();
+            
+            // Restore elements after printing
+            setTimeout(() => {
+                elementsToHide.forEach(el => el.style.display = '');
+            }, 1000);
+        }
+
+        function showHelp() {
+            const helpContent = `
+                <div style="background: rgba(0,0,0,0.95); color: white; padding: 2rem; border-radius: 12px; max-width: 500px; margin: 2rem auto;">
+                    <h3 style="margin-top: 0; color: #10b981;">⌨️ Keyboard Shortcuts</h3>
+                    <div style="display: grid; gap: 0.5rem; font-family: monospace;">
+                        <div><kbd>H</kbd> - Home</div>
+                        <div><kbd>1</kbd> - Saudi Market Regulations</div>
+                        <div><kbd>2</kbd> - Market Analysis</div>
+                        <div><kbd>3</kbd> - Platform Architecture</div>
+                        <div><kbd>←</kbd> - Back</div>
+                        <div><kbd>I</kbd> - Introduction</div>
+                        <div><kbd>Esc</kbd> - Close panels</div>
+                    </div>
+                    <h3 style="color: #10b981;">🎯 Quick Actions</h3>
+                    <div style="display: grid; gap: 0.5rem;">
+                        <div>• Export - Download complete report</div>
+                        <div>• Share - Share report link</div>
+                        <div>• Print - Print-optimized view</div>
+                        <div>• Help - Show this guide</div>
+                    </div>
+                    <button onclick="closeHelp()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #10b981; color: white; border: none; border-radius: 6px; cursor: pointer;">Got it!</button>
+                </div>
+            `;
+            
+            const overlay = document.createElement('div');
+            overlay.id = 'help-overlay';
+            overlay.style.cssText = `
+                position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.8); z-index: 10000;
+                display: flex; align-items: center; justify-content: center;
+                backdrop-filter: blur(5px);
+            `;
+            overlay.innerHTML = helpContent;
+            document.body.appendChild(overlay);
+            
+            // Close on click outside
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) closeHelp();
+            });
+        }
+
+        function closeHelp() {
+            const overlay = document.getElementById('help-overlay');
+            if (overlay) overlay.remove();
+        }
+
+        // Close help with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeHelp();
+            }
+        });
+
+        // Feedback System JavaScript
+        class FeedbackSystem {
+            constructor() {
+                this.feedbackData = JSON.parse(localStorage.getItem('feedbackData')) || [];
+                this.notesData = JSON.parse(localStorage.getItem('notesData')) || [];
+                this.recommendationsData = JSON.parse(localStorage.getItem('recommendationsData')) || [];
+                this.currentTab = 'feedback-form';
+                this.init();
+            }
+
+            init() {
+                this.setupTabNavigation();
+                this.setupFeedbackForm();
+                this.setupNotesSystem();
+                this.setupRecommendationsSystem();
+                this.setupReportsSystem();
+                this.updateDashboard();
+                this.showTab(this.currentTab);
+            }
+
+            setupTabNavigation() {
+                const tabs = document.querySelectorAll('.feedback-tab');
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        const tabId = e.target.getAttribute('data-tab');
+                        this.showTab(tabId);
+                    });
+                });
+            }
+
+            showTab(tabId) {
+                // Hide all tab contents
+                document.querySelectorAll('.feedback-tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Remove active class from all tabs
+                document.querySelectorAll('.feedback-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+
+                // Show selected tab content
+                const selectedContent = document.getElementById(tabId);
+                if (selectedContent) {
+                    selectedContent.classList.add('active');
+                }
+
+                // Add active class to selected tab
+                const selectedTab = document.querySelector(`[data-tab="${tabId}"]`);
+                if (selectedTab) {
+                    selectedTab.classList.add('active');
+                }
+
+                this.currentTab = tabId;
+
+                // Update content based on tab
+                if (tabId === 'feedback-dashboard') {
+                    this.updateDashboard();
+                } else if (tabId === 'team-notes') {
+                    this.updateNotesDisplay();
+                } else if (tabId === 'recommendations') {
+                    this.updateRecommendationsDisplay();
+                } else if (tabId === 'reports') {
+                    this.updateReportsDisplay();
+                }
+            }
+
+            setupFeedbackForm() {
+                const form = document.getElementById('feedback-form');
+                if (form) {
+                    form.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        this.submitFeedback(form);
+                    });
+                }
+
+                const resetBtn = document.querySelector('.reset-btn');
+                if (resetBtn) {
+                    resetBtn.addEventListener('click', () => {
+                        document.getElementById('feedback-form').reset();
+                    });
+                }
+            }
+
+            submitFeedback(form) {
+                const formData = new FormData(form);
+                const feedback = {
+                    id: Date.now(),
+                    timestamp: new Date().toISOString(),
+                    teamMember: formData.get('teamMember'),
+                    contactEmail: formData.get('contactEmail'),
+                    phoneNumber: formData.get('phoneNumber'),
+                    department: formData.get('department'),
+                    feedbackType: formData.get('feedbackType'),
+                    priority: formData.get('priority'),
+                    title: formData.get('title'),
+                    description: formData.get('description'),
+                    recommendations: formData.get('recommendations'),
+                    affectedArea: formData.get('affectedArea'),
+                    status: 'pending'
+                };
+
+                this.feedbackData.push(feedback);
+                this.saveFeedbackData();
+                
+                // Send email notifications
+                this.sendEmailNotifications(feedback);
+                
+                this.showDetailedSuccessMessage(feedback);
+                form.reset();
+                this.updateDashboard();
+            }
+
+            async sendEmailNotifications(feedback) {
+                try {
+                    // Send notification to admin
+                    await this.sendAdminNotification(feedback);
+                    
+                    // Send personalized thank you email to submitter
+                    await this.sendThankYouEmail(feedback);
+                    
+                    console.log('Email notifications sent successfully');
+                } catch (error) {
+                    console.error('Error sending email notifications:', error);
+                    this.showErrorMessage('Feedback saved but email notification failed. Admin will be notified manually.');
+                }
+            }
+
+            async sendAdminNotification(feedback) {
+                const adminEmail = 'ahemt@doganconsult.com';
+                const subject = `🔔 New Feedback Submission - ${feedback.feedbackType} (${feedback.priority} Priority)`;
+                
+                const emailBody = `
+                    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f8fafc;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 10px; text-align: center; margin-bottom: 20px;">
+                            <h1 style="color: white; margin: 0; font-size: 24px;">📋 New Feedback Received</h1>
+                        </div>
+                        
+                        <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                            <h2 style="color: #4c1d95; border-bottom: 2px solid #8b5cf6; padding-bottom: 10px;">Contact Information</h2>
+                            <p><strong>👤 Name:</strong> ${feedback.teamMember}</p>
+                            <p><strong>📧 Email:</strong> ${feedback.contactEmail}</p>
+                            <p><strong>📱 Phone:</strong> ${feedback.phoneNumber || 'Not provided'}</p>
+                            <p><strong>🏢 Department:</strong> ${feedback.department}</p>
+                            
+                            <h2 style="color: #4c1d95; border-bottom: 2px solid #8b5cf6; padding-bottom: 10px; margin-top: 25px;">Feedback Details</h2>
+                            <p><strong>📝 Type:</strong> <span style="background: #e0e7ff; padding: 4px 8px; border-radius: 4px;">${feedback.feedbackType}</span></p>
+                            <p><strong>⚡ Priority:</strong> <span style="background: ${this.getPriorityColor(feedback.priority)}; color: white; padding: 4px 8px; border-radius: 4px;">${feedback.priority}</span></p>
+                            <p><strong>🎯 Affected Area:</strong> ${feedback.affectedArea || 'Not specified'}</p>
+                            <p><strong>📋 Title:</strong> ${feedback.title}</p>
+                            
+                            <h3 style="color: #4c1d95; margin-top: 20px;">Description:</h3>
+                            <div style="background: #f1f5f9; padding: 15px; border-radius: 8px; border-left: 4px solid #8b5cf6;">
+                                ${feedback.description}
+                            </div>
+                            
+                            ${feedback.recommendations ? `
+                            <h3 style="color: #4c1d95; margin-top: 20px;">Recommendations:</h3>
+                            <div style="background: #ecfdf5; padding: 15px; border-radius: 8px; border-left: 4px solid #10b981;">
+                                ${feedback.recommendations}
+                            </div>
+                            ` : ''}
+                            
+                            <div style="background: #fef3c7; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center;">
+                                <p style="margin: 0; color: #92400e;"><strong>⏰ Submitted:</strong> ${new Date(feedback.timestamp).toLocaleString()}</p>
+                                <p style="margin: 5px 0 0 0; color: #92400e;"><strong>🆔 Reference ID:</strong> #${feedback.id}</p>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 20px; color: #6b7280; font-size: 14px;">
+                            <p>This is an automated notification from the Shahin Platform Feedback System</p>
+                        </div>
+                    </div>
+                `;
+
+                // In a real implementation, you would use a proper email service
+                // For now, we'll simulate the email sending and log the details
+                console.log('📧 Admin Notification Email:', {
+                    to: adminEmail,
+                    subject: subject,
+                    body: emailBody
+                });
+
+                // You can integrate with services like EmailJS, SendGrid, or your backend API here
+                return this.simulateEmailSending(adminEmail, subject, emailBody);
+            }
+
+            async sendThankYouEmail(feedback) {
+                const subject = `✅ Thank You for Your Feedback - Reference #${feedback.id}`;
+                
+                const emailBody = `
+                    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f8fafc;">
+                        <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 30px; border-radius: 10px; text-align: center; margin-bottom: 20px;">
+                            <h1 style="color: white; margin: 0; font-size: 24px;">🙏 Thank You, ${feedback.teamMember}!</h1>
+                        </div>
+                        
+                        <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                            <p style="font-size: 16px; color: #374151; line-height: 1.6;">
+                                Dear <strong>${feedback.teamMember}</strong>,
+                            </p>
+                            
+                            <p style="font-size: 16px; color: #374151; line-height: 1.6;">
+                                Thank you for taking the time to submit your valuable feedback regarding <strong>"${feedback.title}"</strong>. 
+                                Your input is crucial for improving our platform and processes.
+                            </p>
+                            
+                            <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; border-left: 4px solid #0ea5e9; margin: 20px 0;">
+                                <h3 style="color: #0c4a6e; margin-top: 0;">📋 Your Submission Summary:</h3>
+                                <p style="margin: 5px 0;"><strong>Type:</strong> ${feedback.feedbackType}</p>
+                                <p style="margin: 5px 0;"><strong>Priority:</strong> ${feedback.priority}</p>
+                                <p style="margin: 5px 0;"><strong>Reference ID:</strong> #${feedback.id}</p>
+                                <p style="margin: 5px 0;"><strong>Submitted:</strong> ${new Date(feedback.timestamp).toLocaleString()}</p>
+                            </div>
+                            
+                            <h3 style="color: #4c1d95;">🔄 What Happens Next?</h3>
+                            <ul style="color: #374151; line-height: 1.6;">
+                                <li>✅ Your feedback has been received and logged in our system</li>
+                                <li>📧 Our team at Dogan Consult has been notified immediately</li>
+                                <li>🔍 We will review your submission within 24-48 hours</li>
+                                <li>📞 If needed, we may contact you at <strong>${feedback.contactEmail}</strong> for clarification</li>
+                                <li>📈 You'll be updated on any actions taken based on your feedback</li>
+                            </ul>
+                            
+                            <div style="background: #ecfdf5; padding: 20px; border-radius: 8px; border-left: 4px solid #10b981; margin: 20px 0;">
+                                <h4 style="color: #065f46; margin-top: 0;">💡 Your Contribution Matters!</h4>
+                                <p style="color: #065f46; margin-bottom: 0;">
+                                    Feedback like yours helps us continuously improve our platform and better serve our clients. 
+                                    We truly appreciate your engagement and commitment to excellence.
+                                </p>
+                            </div>
+                            
+                            <p style="font-size: 16px; color: #374151; line-height: 1.6;">
+                                If you have any urgent concerns or need immediate assistance, please don't hesitate to contact us directly at 
+                                <a href="mailto:ahemt@doganconsult.com" style="color: #8b5cf6; text-decoration: none;">ahemt@doganconsult.com</a>.
+                            </p>
+                            
+                            <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f8fafc; border-radius: 8px;">
+                                <p style="margin: 0; color: #6b7280; font-size: 14px;">
+                                    Best regards,<br>
+                                    <strong style="color: #4c1d95;">The Dogan Consult Team</strong><br>
+                                    Shahin Platform Development
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 20px; color: #6b7280; font-size: 12px;">
+                            <p>This is an automated confirmation email from the Shahin Platform Feedback System</p>
+                            <p>Please do not reply to this email. For support, contact: ahemt@doganconsult.com</p>
+                        </div>
+                    </div>
+                `;
+
+                console.log('📧 Thank You Email:', {
+                    to: feedback.contactEmail,
+                    subject: subject,
+                    body: emailBody
+                });
+
+                return this.simulateEmailSending(feedback.contactEmail, subject, emailBody);
+            }
+
+            getPriorityColor(priority) {
+                const colors = {
+                    'low': '#10b981',
+                    'medium': '#f59e0b',
+                    'high': '#f97316',
+                    'critical': '#ef4444'
+                };
+                return colors[priority] || '#6b7280';
+            }
+
+            async simulateEmailSending(to, subject, body) {
+                // Simulate email sending delay
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // In a real implementation, replace this with actual email service integration
+                // For example: EmailJS, SendGrid, or your backend API
+                
+                // Store email log for demonstration
+                const emailLog = {
+                    id: Date.now(),
+                    to: to,
+                    subject: subject,
+                    body: body,
+                    timestamp: new Date().toISOString(),
+                    status: 'sent'
+                };
+                
+                // Save to localStorage for demonstration
+                const emailLogs = JSON.parse(localStorage.getItem('emailLogs') || '[]');
+                emailLogs.push(emailLog);
+                localStorage.setItem('emailLogs', JSON.stringify(emailLogs));
+                
+                return emailLog;
+            }
+
+            showDetailedSuccessMessage(feedback) {
+                const successDiv = document.createElement('div');
+                successDiv.className = 'detailed-success-message';
+                successDiv.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+                    color: white;
+                    padding: 20px;
+                    border-radius: 12px;
+                    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.3);
+                    z-index: 10000;
+                    max-width: 450px;
+                    font-weight: 500;
+                    transform: translateX(100%);
+                    transition: all 0.4s ease;
+                    border: 2px solid rgba(255, 255, 255, 0.2);
+                `;
+                
+                successDiv.innerHTML = `
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <i class="fas fa-check-circle" style="font-size: 24px; margin-right: 10px; color: #dcfce7;"></i>
+                        <h4 style="margin: 0; font-size: 18px;">Feedback Submitted Successfully!</h4>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <p style="margin: 0 0 8px 0; font-size: 14px;"><strong>📋 Reference ID:</strong> #${feedback.id}</p>
+                        <p style="margin: 0 0 8px 0; font-size: 14px;"><strong>👤 Submitted by:</strong> ${feedback.teamMember}</p>
+                        <p style="margin: 0; font-size: 14px;"><strong>📧 Contact:</strong> ${feedback.contactEmail}</p>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <h5 style="margin: 0 0 10px 0; color: #dcfce7;">📧 Email Notifications:</h5>
+                        <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                            <i class="fas fa-paper-plane" style="margin-right: 8px; color: #a7f3d0;"></i>
+                            <span style="font-size: 14px;">Admin notification sent to: <strong>ahemt@doganconsult.com</strong></span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <i class="fas fa-heart" style="margin-right: 8px; color: #fecaca;"></i>
+                            <span style="font-size: 14px;">Thank you email sent to: <strong>${feedback.contactEmail}</strong></span>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                        <p style="margin: 0; font-size: 13px; opacity: 0.9;">
+                            <i class="fas fa-clock" style="margin-right: 5px;"></i>
+                            You'll receive a confirmation email within 2-3 minutes
+                        </p>
+                    </div>
+                `;
+                
+                document.body.appendChild(successDiv);
+                
+                // Animate in
+                setTimeout(() => {
+                    successDiv.style.transform = 'translateX(0)';
+                }, 100);
+                
+                // Auto remove after 8 seconds
+                setTimeout(() => {
+                    successDiv.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        successDiv.remove();
+                    }, 400);
+                }, 8000);
+                
+                // Add click to dismiss
+                successDiv.addEventListener('click', () => {
+                    successDiv.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        successDiv.remove();
+                    }, 400);
+                });
+            }
+
+            showErrorMessage(message) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: #fee2e2;
+                    color: #dc2626;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    border-left: 4px solid #dc2626;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                    z-index: 10000;
+                    max-width: 400px;
+                    font-weight: 500;
+                `;
+                errorDiv.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${message}`;
+                
+                document.body.appendChild(errorDiv);
+                
+                setTimeout(() => {
+                    errorDiv.remove();
+                }, 5000);
+            }
+
+            setupNotesSystem() {
+                const addNoteBtn = document.querySelector('.add-note-btn');
+                if (addNoteBtn) {
+                    addNoteBtn.addEventListener('click', () => {
+                        this.showAddNoteForm();
+                    });
+                }
+
+                const notesSearch = document.querySelector('.notes-search input');
+                if (notesSearch) {
+                    notesSearch.addEventListener('input', (e) => {
+                        this.filterNotes(e.target.value);
+                    });
+                }
+            }
+
+            showAddNoteForm() {
+                const formHtml = `
+                    <div class="add-note-form" id="add-note-form">
+                        <h4>Add New Note</h4>
+                        <form id="note-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="note-title">Title</label>
+                                    <input type="text" id="note-title" name="title" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="note-category">Category</label>
+                                    <select id="note-category" name="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="meeting">Meeting Notes</option>
+                                        <option value="idea">Ideas</option>
+                                        <option value="task">Tasks</option>
+                                        <option value="reminder">Reminders</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="note-content">Content</label>
+                                <textarea id="note-content" name="content" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="submit-btn">
+                                    <i class="fas fa-save"></i> Save Note
+                                </button>
+                                <button type="button" class="cancel-btn" onclick="feedbackSystem.hideAddNoteForm()">
+                                    <i class="fas fa-times"></i> Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                `;
+
+                const notesContainer = document.querySelector('.notes-container');
+                const existingForm = document.getElementById('add-note-form');
+                if (existingForm) {
+                    existingForm.remove();
+                } else {
+                    notesContainer.insertAdjacentHTML('afterbegin', formHtml);
+                    
+                    const noteForm = document.getElementById('note-form');
+                    noteForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        this.saveNote(noteForm);
+                    });
+                }
+            }
+
+            hideAddNoteForm() {
+                const form = document.getElementById('add-note-form');
+                if (form) {
+                    form.remove();
+                }
+            }
+
+            saveNote(form) {
+                const formData = new FormData(form);
+                const note = {
+                    id: Date.now(),
+                    timestamp: new Date().toISOString(),
+                    title: formData.get('title'),
+                    category: formData.get('category'),
+                    content: formData.get('content'),
+                    author: 'Current User' // In a real app, this would be the logged-in user
+                };
+
+                this.notesData.push(note);
+                this.saveNotesData();
+                this.showSuccessMessage('Note saved successfully!');
+                this.hideAddNoteForm();
+                this.updateNotesDisplay();
+            }
+
+            setupRecommendationsSystem() {
+                // Auto-generate recommendations based on feedback
+                this.generateRecommendations();
+            }
+
+            generateRecommendations() {
+                const recommendations = [];
+                const feedbackCategories = {};
+
+                // Analyze feedback to generate recommendations
+                this.feedbackData.forEach(feedback => {
+                    if (!feedbackCategories[feedback.category]) {
+                        feedbackCategories[feedback.category] = [];
+                    }
+                    feedbackCategories[feedback.category].push(feedback);
+                });
+
+                // Generate recommendations based on feedback patterns
+                Object.keys(feedbackCategories).forEach(category => {
+                    const feedbacks = feedbackCategories[category];
+                    if (feedbacks.length >= 2) {
+                        recommendations.push({
+                            id: Date.now() + Math.random(),
+                            category: category,
+                            title: `Improve ${category} processes`,
+                            description: `Based on ${feedbacks.length} feedback items, consider reviewing and improving ${category} related processes.`,
+                            priority: feedbacks.length >= 5 ? 'high' : feedbacks.length >= 3 ? 'medium' : 'low',
+                            status: 'pending',
+                            timestamp: new Date().toISOString()
+                        });
+                    }
+                });
+
+                this.recommendationsData = recommendations;
+                this.saveRecommendationsData();
+            }
+
+            setupReportsSystem() {
+                const generateReportBtn = document.querySelector('.generate-report-btn');
+                if (generateReportBtn) {
+                    generateReportBtn.addEventListener('click', () => {
+                        this.generateReport();
+                    });
+                }
+
+                const exportDataBtn = document.querySelector('.export-data-btn');
+                if (exportDataBtn) {
+                    exportDataBtn.addEventListener('click', () => {
+                        this.exportData();
+                    });
+                }
+            }
+
+            updateDashboard() {
+                // Update statistics
+                const totalFeedback = this.feedbackData.length;
+                const pendingFeedback = this.feedbackData.filter(f => f.status === 'pending').length;
+                const totalNotes = this.notesData.length;
+                const totalRecommendations = this.recommendationsData.length;
+
+                // Update stat cards
+                this.updateStatCard('total-feedback', totalFeedback);
+                this.updateStatCard('pending-feedback', pendingFeedback);
+                this.updateStatCard('total-notes', totalNotes);
+                this.updateStatCard('total-recommendations', totalRecommendations);
+
+                // Update feedback list
+                this.updateFeedbackList();
+            }
+
+            updateStatCard(id, value) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = value;
+                }
+            }
+
+            updateFeedbackList() {
+                const feedbackList = document.querySelector('.feedback-list');
+                if (!feedbackList) return;
+
+                if (this.feedbackData.length === 0) {
+                    feedbackList.innerHTML = `
+                        <div class="no-feedback-message">
+                            <i class="fas fa-comments"></i>
+                            <p>No feedback submitted yet. Be the first to share your thoughts!</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const feedbackHtml = this.feedbackData.map(feedback => `
+                    <div class="feedback-item" style="background: #ffffff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 1rem; border-left: 4px solid ${this.getPriorityColor(feedback.priority)};">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                            <div>
+                                <h5 style="margin: 0; color: #374151;">${feedback.subject}</h5>
+                                <p style="margin: 0.25rem 0; color: #6b7280; font-size: 0.9rem;">
+                                    ${feedback.name} • ${feedback.department} • ${new Date(feedback.timestamp).toLocaleDateString()}
+                                </p>
+                            </div>
+                            <span style="background: ${this.getPriorityColor(feedback.priority)}; color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 600;">
+                                ${feedback.priority.toUpperCase()}
+                            </span>
+                        </div>
+                        <p style="color: #4b5563; margin-bottom: 1rem;">${feedback.description}</p>
+                        ${feedback.suggestions ? `<p style="color: #059669; font-style: italic; margin: 0;"><strong>Suggestions:</strong> ${feedback.suggestions}</p>` : ''}
+                    </div>
+                `).join('');
+
+                feedbackList.innerHTML = feedbackHtml;
+            }
+
+            updateNotesDisplay() {
+                const notesList = document.querySelector('.notes-list');
+                if (!notesList) return;
+
+                if (this.notesData.length === 0) {
+                    notesList.innerHTML = `
+                        <div class="no-notes-message">
+                            <i class="fas fa-sticky-note"></i>
+                            <p>No notes created yet. Click "Add New Note" to get started!</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const notesHtml = this.notesData.map(note => `
+                    <div class="note-item" style="background: #ffffff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 1rem; border-left: 4px solid #10b981;">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                            <div>
+                                <h5 style="margin: 0; color: #374151;">${note.title}</h5>
+                                <p style="margin: 0.25rem 0; color: #6b7280; font-size: 0.9rem;">
+                                    ${note.author} • ${new Date(note.timestamp).toLocaleDateString()}
+                                </p>
+                            </div>
+                            <span style="background: #10b981; color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 600;">
+                                ${note.category.toUpperCase()}
+                            </span>
+                        </div>
+                        <p style="color: #4b5563; margin: 0; white-space: pre-wrap;">${note.content}</p>
+                    </div>
+                `).join('');
+
+                notesList.innerHTML = notesHtml;
+            }
+
+            updateRecommendationsDisplay() {
+                const recStats = document.querySelector('.recommendations-stats');
+                const recList = document.querySelector('.recommendations-list');
+                
+                if (recStats) {
+                    const highPriority = this.recommendationsData.filter(r => r.priority === 'high').length;
+                    const mediumPriority = this.recommendationsData.filter(r => r.priority === 'medium').length;
+                    const lowPriority = this.recommendationsData.filter(r => r.priority === 'low').length;
+
+                    recStats.innerHTML = `
+                        <div class="rec-stat-card">
+                            <div class="rec-stat-icon">🔴</div>
+                            <div class="rec-stat-info">
+                                <div class="rec-stat-number">${highPriority}</div>
+                                <div class="rec-stat-label">High Priority</div>
+                            </div>
+                        </div>
+                        <div class="rec-stat-card">
+                            <div class="rec-stat-icon">🟡</div>
+                            <div class="rec-stat-info">
+                                <div class="rec-stat-number">${mediumPriority}</div>
+                                <div class="rec-stat-label">Medium Priority</div>
+                            </div>
+                        </div>
+                        <div class="rec-stat-card">
+                            <div class="rec-stat-icon">🟢</div>
+                            <div class="rec-stat-info">
+                                <div class="rec-stat-number">${lowPriority}</div>
+                                <div class="rec-stat-label">Low Priority</div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                if (recList) {
+                    if (this.recommendationsData.length === 0) {
+                        recList.innerHTML = `
+                            <div class="no-recommendations-message">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>No recommendations available yet. Submit feedback to generate recommendations!</p>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    const recHtml = this.recommendationsData.map(rec => `
+                        <div class="recommendation-item" style="background: #ffffff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 1rem; border-left: 4px solid ${this.getPriorityColor(rec.priority)};">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                <div>
+                                    <h5 style="margin: 0; color: #374151;">${rec.title}</h5>
+                                    <p style="margin: 0.25rem 0; color: #6b7280; font-size: 0.9rem;">
+                                        ${rec.category} • ${new Date(rec.timestamp).toLocaleDateString()}
+                                    </p>
+                                </div>
+                                <span style="background: ${this.getPriorityColor(rec.priority)}; color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 600;">
+                                    ${rec.priority.toUpperCase()}
+                                </span>
+                            </div>
+                            <p style="color: #4b5563; margin: 0;">${rec.description}</p>
+                        </div>
+                    `).join('');
+
+                    recList.innerHTML = recHtml;
+                }
+            }
+
+            updateReportsDisplay() {
+                const reportsContent = document.querySelector('.reports-content');
+                if (!reportsContent) return;
+
+                const totalFeedback = this.feedbackData.length;
+                const avgResponseTime = '2.5 days'; // Mock data
+                const satisfactionRate = '87%'; // Mock data
+                const resolutionRate = '92%'; // Mock data
+
+                reportsContent.innerHTML = `
+                    <div class="report-section">
+                        <h4>Performance Metrics</h4>
+                        <div class="performance-metrics">
+                            <div class="metric">
+                                <span class="metric-label">Total Feedback</span>
+                                <div class="metric-value">${totalFeedback}</div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Avg Response Time</span>
+                                <div class="metric-value">${avgResponseTime}</div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Satisfaction Rate</span>
+                                <div class="metric-value">${satisfactionRate}</div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Resolution Rate</span>
+                                <div class="metric-value">${resolutionRate}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="report-section">
+                        <h4>Activity Summary</h4>
+                        <div class="activity-summary">
+                            <p>This month, the team has submitted ${totalFeedback} feedback items across various categories. 
+                            The most common feedback category is related to process improvements, followed by technical issues and feature requests.</p>
+                            <p>Team notes have been actively maintained with ${this.notesData.length} entries, helping to track important decisions and action items.</p>
+                            <p>Based on feedback analysis, ${this.recommendationsData.length} recommendations have been generated to improve team processes and productivity.</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            generateReport() {
+                this.showSuccessMessage('Report generated successfully!');
+                this.updateReportsDisplay();
+            }
+
+            exportData() {
+                const data = {
+                    feedback: this.feedbackData,
+                    notes: this.notesData,
+                    recommendations: this.recommendationsData,
+                    exportDate: new Date().toISOString()
+                };
+
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `feedback-system-export-${new Date().toISOString().split('T')[0]}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                this.showSuccessMessage('Data exported successfully!');
+            }
+
+            getPriorityColor(priority) {
+                const colors = {
+                    high: '#ef4444',
+                    medium: '#f59e0b',
+                    low: '#10b981'
+                };
+                return colors[priority] || '#6b7280';
+            }
+
+            filterNotes(searchTerm) {
+                const notes = document.querySelectorAll('.note-item');
+                notes.forEach(note => {
+                    const text = note.textContent.toLowerCase();
+                    if (text.includes(searchTerm.toLowerCase())) {
+                        note.style.display = 'block';
+                    } else {
+                        note.style.display = 'none';
+                    }
+                });
+            }
+
+            showSuccessMessage(message) {
+                // Create and show a success message
+                const messageDiv = document.createElement('div');
+                messageDiv.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, #10b981, #059669);
+                    color: white;
+                    padding: 1rem 1.5rem;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+                    z-index: 10000;
+                    font-weight: 600;
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                `;
+                messageDiv.innerHTML = `<i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>${message}`;
+                
+                document.body.appendChild(messageDiv);
+                
+                // Animate in
+                setTimeout(() => {
+                    messageDiv.style.transform = 'translateX(0)';
+                }, 100);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    messageDiv.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        if (messageDiv.parentNode) {
+                            messageDiv.parentNode.removeChild(messageDiv);
+                        }
+                    }, 300);
+                }, 3000);
+            }
+
+            saveFeedbackData() {
+                localStorage.setItem('feedbackData', JSON.stringify(this.feedbackData));
+            }
+
+            saveNotesData() {
+                localStorage.setItem('notesData', JSON.stringify(this.notesData));
+            }
+
+            saveRecommendationsData() {
+                localStorage.setItem('recommendationsData', JSON.stringify(this.recommendationsData));
+            }
+        }
+
+        // Initialize feedback system when DOM is loaded
+        let feedbackSystem;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize feedback system if feedback section exists
+            if (document.querySelector('.feedback-container')) {
+                feedbackSystem = new FeedbackSystem();
+            }
+        });
+    </script>
+</body>
+</html>

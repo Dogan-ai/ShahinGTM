@@ -749,9 +749,129 @@
                 box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.15);
             }
         }
+        
+        /* Unified Navigation Styles */
+        .unified-nav {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
+            padding: 0.75rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .unified-nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+        
+        .nav-brand {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-brand:hover {
+            color: #fbbf24;
+            transform: translateY(-1px);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            border: 1px solid transparent;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            transform: translateY(-1px);
+            border-color: rgba(255,255,255,0.2);
+        }
+        
+        .nav-link.active {
+            background: rgba(255,255,255,0.2);
+            color: #fbbf24;
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+        
+        .nav-link i {
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .unified-nav-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 0.5rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.3rem;
+            }
+            
+            .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Unified Navigation -->
+    <nav class="unified-nav">
+        <div class="unified-nav-content">
+            <a href="./dashboard.html" class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                Shahin Vision Platform
+            </a>
+            <div class="nav-links">
+                <a href="./dashboard.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+                <a href="./regulations.html" class="nav-link">
+                    <i class="fas fa-gavel"></i>
+                    Regulations
+                </a>
+                <a href="./grc-analysis.html" class="nav-link active">
+                    <i class="fas fa-chart-line"></i>
+                    GRC Analysis
+                </a>
+                <a href="./architecture.html" class="nav-link">
+                    <i class="fas fa-layer-group"></i>
+                    Architecture
+                </a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <div class="header">
             <h1>⚠️ GRC Platform Problems, Gaps & Solutions in KSA</h1>
@@ -1334,13 +1454,64 @@
 
 
 
-        <!-- Footer -->
-        <div style="text-align: center; margin-top: 1.5rem; padding: 1rem; background: #f9fafb; border-radius: 0.5rem;">
-            <p style="color: #6b7280; font-size: 0.85rem; margin: 0; line-height: 1.4;">
-                ⚠️ Comprehensive analysis of GRC platform gaps and solutions in KSA | Data from 15 project files<br>
-                🚀 Doğan AI Lab Compliance Platform: Addressing all 10 critical market gaps | 2025 Q3
-            </p>
-        </div>
+        <!-- Unified Footer -->
+        <footer style="margin-top: 3rem; background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%); color: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+            <div style="padding: 2rem;">
+                <!-- Footer Navigation -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                    <div>
+                        <h3 style="color: #fbbf24; margin-bottom: 1rem; font-size: 1.1rem;">
+                            <i class="fas fa-shield-alt"></i> Shahin Vision Platform
+                        </h3>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.5;">
+                            Comprehensive GRC solutions for Saudi Arabia's Vision 2030 digital transformation.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #fbbf24; margin-bottom: 1rem; font-size: 1rem;">Quick Navigation</h4>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <a href="./dashboard.html" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 0.3rem 0; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;" onmouseover="this.style.color='#fbbf24'; this.style.transform='translateX(5px)'" onmouseout="this.style.color='rgba(255,255,255,0.9)'; this.style.transform='translateX(0)'">
+                                <i class="fas fa-home"></i> Dashboard
+                            </a>
+                            <a href="./regulations.html" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 0.3rem 0; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;" onmouseover="this.style.color='#fbbf24'; this.style.transform='translateX(5px)'" onmouseout="this.style.color='rgba(255,255,255,0.9)'; this.style.transform='translateX(0)'">
+                                <i class="fas fa-gavel"></i> Regulations
+                            </a>
+                            <a href="./grc-analysis.html" style="color: #fbbf24; text-decoration: none; padding: 0.3rem 0; display: flex; align-items: center; gap: 0.5rem; font-weight: 600;">
+                                <i class="fas fa-chart-line"></i> GRC Analysis (Current)
+                            </a>
+                            <a href="./architecture.html" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 0.3rem 0; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;" onmouseover="this.style.color='#fbbf24'; this.style.transform='translateX(5px)'" onmouseout="this.style.color='rgba(255,255,255,0.9)'; this.style.transform='translateX(0)'">
+                                <i class="fas fa-layer-group"></i> Architecture
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: #fbbf24; margin-bottom: 1rem; font-size: 1rem;">Contact & Support</h4>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <a href="mailto:info@doganconsult.com" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 0.3rem 0; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;" onmouseover="this.style.color='#fbbf24'; this.style.transform='translateX(5px)'" onmouseout="this.style.color='rgba(255,255,255,0.9)'; this.style.transform='translateX(0)'">
+                                <i class="fas fa-envelope"></i> Email Support
+                            </a>
+                            <a href="#" onclick="window.print(); return false;" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 0.3rem 0; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;" onmouseover="this.style.color='#fbbf24'; this.style.transform='translateX(5px)'" onmouseout="this.style.color='rgba(255,255,255,0.9)'; this.style.transform='translateX(0)'">
+                                <i class="fas fa-print"></i> Print Report
+                            </a>
+                            <a href="#" onclick="if(navigator.share){navigator.share({title:document.title,url:window.location.href})}else{navigator.clipboard.writeText(window.location.href);alert('Link copied to clipboard!')}; return false;" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 0.3rem 0; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;" onmouseover="this.style.color='#fbbf24'; this.style.transform='translateX(5px)'" onmouseout="this.style.color='rgba(255,255,255,0.9)'; this.style.transform='translateX(0)'">
+                                <i class="fas fa-share-alt"></i> Share Report
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer Bottom -->
+                <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem; text-align: center;">
+                    <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin: 0; line-height: 1.4;">
+                        ⚠️ Comprehensive analysis of GRC platform gaps and solutions in KSA | Data from 15 project files<br>
+                        🚀 Doğan AI Lab Compliance Platform: Addressing all 10 critical market gaps | 2025 Q3<br>
+                        <span style="color: #fbbf24;">DoganConsult</span> | Dr. Ahmet Dogan
+                    </p>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>

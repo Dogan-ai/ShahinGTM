@@ -11,6 +11,16 @@
     <meta name="msapplication-navbutton-color" content="#10b981">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
+    
+    <!-- Security Meta Tags -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
     <title>Shahin Vision Platform - Comprehensive Review Index</title>
     
     <!-- Favicon and Icons -->
@@ -46,127 +56,33 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             min-height: 100vh;
             color: var(--dark-color);
         }
 
         .header {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
             text-align: center;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-lg);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .header-brand {
-            flex: 1;
-            text-align: left;
         }
 
         .header h1 {
             color: var(--primary-color);
-            font-size: 2rem;
-            margin: 0;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
             font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
-        .header-subtitle {
+        .header p {
             color: var(--dark-color);
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             opacity: 0.8;
-            margin-top: 0.25rem;
-            font-weight: 500;
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 0.75rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .header-action {
-            padding: 0.4rem 0.8rem;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: 6px;
-            color: #10b981;
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .header-action:hover {
-            background: rgba(16, 185, 129, 0.2);
-            border-color: rgba(16, 185, 129, 0.5);
-            color: #0d9488;
-            transform: translateY(-1px);
-        }
-
-        .header-link {
-            color: #10b981;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid transparent;
-        }
-
-        .header-link:hover {
-            color: #0d9488;
-            border-bottom-color: #10b981;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 0.75rem 0;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .header-brand {
-                text-align: center;
-            }
-            
-            .header h1 {
-                font-size: 1.75rem;
-                justify-content: center;
-            }
-            
-            .header-actions {
-                justify-content: center;
-            }
-            
-            .header-action {
-                padding: 0.35rem 0.7rem;
-                font-size: 0.75rem;
-            }
         }
 
         .container {
@@ -429,10 +345,10 @@
 
         .footer {
             text-align: center;
-            padding: 1rem 2rem;
+            padding: 1rem;
             color: rgba(255, 255, 255, 0.9);
-            margin-top: 2rem;
-            background: rgba(0, 0, 0, 0.1);
+            margin-top: 1.5rem;
+            background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px 12px 0 0;
@@ -443,7 +359,7 @@
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 1rem;
         }
 
         .footer-main {
@@ -455,46 +371,40 @@
         }
 
         .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            font-size: 1rem;
+            flex: 1;
+            text-align: left;
         }
 
         .footer-actions {
             display: flex;
-            gap: 1rem;
-            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
         .footer-action {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.9);
             padding: 0.5rem 1rem;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.3);
             border-radius: 6px;
+            color: #10b981;
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 500;
+            cursor: pointer;
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .footer-action:hover {
-            background: rgba(16, 185, 129, 0.2);
-            border-color: #10b981;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.3);
+            border-color: rgba(16, 185, 129, 0.5);
+            color: #ffffff;
+            transform: translateY(-1px);
         }
 
         .footer-info {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.4;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            opacity: 0.8;
         }
 
         .footer-highlight {
@@ -504,8 +414,8 @@
 
         @media (max-width: 768px) {
             .footer {
-                padding: 0.75rem 1rem;
-                margin-top: 1.5rem;
+                padding: 0.75rem;
+                margin-top: 1rem;
             }
             
             .footer-main {
@@ -513,8 +423,11 @@
                 text-align: center;
             }
             
+            .footer-brand {
+                text-align: center;
+            }
+            
             .footer-actions {
-                flex-wrap: wrap;
                 justify-content: center;
             }
             
@@ -1080,50 +993,12 @@
 </head>
 <body>
     <div class="header">
-        <div class="header-content">
-            <div class="header-brand">
-                <h1><i class="fas fa-shield-alt"></i> Shahin Vision Platform</h1>
-                <div class="header-subtitle">
-                    Comprehensive Review Index - Team Collaboration Hub | 
-                    <a href="https://www.doganconsult.com" target="_blank" class="header-link">DoganConsult</a> | 
-                    Led by <a href="https://www.doganahmet.com" target="_blank" class="header-link">Dr. Ahmet Dogan</a>
-                </div>
-            </div>
-            <div class="header-actions">
-                <button class="header-action" onclick="showSection('regulations')" title="Saudi Market Regulations">
-                    <i class="fas fa-gavel"></i> Regulations
-                </button>
-                <button class="header-action" onclick="showSection('grc')" title="GRC Analysis">
-                    <i class="fas fa-chart-line"></i> GRC
-                </button>
-                <button class="header-action" onclick="showSection('architecture')" title="Platform Architecture">
-                    <i class="fas fa-layer-group"></i> Architecture
-                </button>
-                <button class="header-action" onclick="showHelp()" title="Help & Shortcuts">
-                    <i class="fas fa-question-circle"></i> Help
-                </button>
-            </div>
-        </div>
+        <h1><i class="fas fa-shield-alt"></i> Shahin Vision Platform</h1>
+        <p>Comprehensive Review Index - Team Collaboration Hub</p>
 
     </div>
 
     <div class="container">
-        <!-- Introduction Section -->
-        <div id="intro-section" class="intro-section" style="margin-bottom: 2rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5)); border-radius: 12px; border-left: 5px solid #00d4aa; backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); transition: all 0.5s ease; position: relative; overflow: hidden;">
-          <div class="intro-toggle" onclick="toggleIntro()" style="position: absolute; top: 10px; right: 15px; cursor: pointer; color: #00d4aa; font-size: 1.2rem; z-index: 10; transition: all 0.3s ease;" title="Toggle Introduction">
-              <i class="fas fa-chevron-up" id="intro-toggle-icon"></i>
-          </div>
-          <div id="intro-content" class="intro-content" style="transition: all 0.5s ease;">
-              <p style="margin: 0; font-size: 1.15rem; line-height: 1.7; color: #ffffff; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">This comprehensive platform integrates advanced GRC architecture, regulatory compliance frameworks, and strategic market analysis to deliver enterprise-grade governance solutions for the Saudi Arabian market. The documentation encompasses technical specifications, regulatory mappings, and implementation strategies designed to meet the highest standards of government and enterprise requirements.</p>
-              <p style="margin: 1rem 0 0 0; font-size: 1rem; color: #00d4aa; text-align: right; font-weight: 600; text-shadow: 1px 1px 2px rgba(0,0,0,0.7);"><i class="fas fa-certificate" style="color: #00d4aa;"></i> <a href="https://www.doganconsult.com" target="_blank" style="font-weight: 800; color: #ffffff; cursor: pointer; transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#ffffff'">DoganConsult</a> | <span style="color: #e0f7f3;">Engineering Consultant Accredited by Saudi Engineering Council</span> | <span style="color: #ffffff;">Strategic Advisory Excellence</span> | Led by <a href="https://www.doganahmet.com" target="_blank" style="font-weight: 700; color: #00d4aa; text-decoration: none;">Dr. Ahmet Dogan</a></p>
-          </div>
-          <div class="intro-collapsed" id="intro-collapsed" style="display: none; text-align: center; padding: 0.75rem; color: #ffffff; font-weight: 500; background: rgba(0, 212, 170, 0.1); border-radius: 8px; border-left: 3px solid #00d4aa;">
-              <i class="fas fa-chart-line" style="color: #00d4aa; margin-right: 8px;"></i>
-              <span style="color: #00d4aa; font-weight: 600;">DoganConsult</span> 
-              <span style="color: rgba(255, 255, 255, 0.8); margin: 0 8px;">|</span>
-              <span style="color: rgba(255, 255, 255, 0.9);">Comprehensive Review Dashboard</span>
-          </div>
-        </div>
 
         <!-- Main Navigation -->
         <div id="main-navigation">
@@ -1148,7 +1023,7 @@
 
             <div class="navigation-grid">
                 <!-- Saudi Market Regulations Document -->
-                <div class="nav-card gtm-strategy" onclick="showSection('gtm-strategy')">
+                <div class="nav-card gtm-strategy" onclick="openPageInNewTab('./regulations.html')">
                     <i class="fas fa-balance-scale nav-icon"></i>
                     <h3 class="nav-title"><span class="clickable-text" data-action="gtm-strategy">Saudi Market Regulations</span></h3>
                     <p class="nav-description">
@@ -1162,16 +1037,16 @@
                         <li><span class="clickable-feature" data-action="gtm-strategy">Industry Regulations</span></li>
                     </ul>
                     <div class="quick-actions">
-                        <span class="quick-link" onclick="event.stopPropagation(); showSection('gtm-strategy')">⚖️ View Regulations</span>
-                        <span class="quick-link" onclick="event.stopPropagation(); openFullscreen('gtm-strategy')">Fullscreen</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./regulations.html')">⚖️ View Regulations</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./regulations.html')">🔗 Open in New Tab</span>
                     </div>
                     <button class="nav-button">
-                        <i class="fas fa-arrow-right"></i> View Regulations
+                        <i class="fas fa-external-link-alt"></i> Open in New Tab
                     </button>
                 </div>
 
                 <!-- Market Analysis Document -->
-                <div class="nav-card market-analysis" onclick="showSection('market-analysis')">
+                <div class="nav-card market-analysis" onclick="openPageInNewTab('./grc-analysis.html')">
                     <i class="fas fa-chart-line nav-icon"></i>
                     <h3 class="nav-title"><span class="clickable-text" data-action="market-analysis">Market Analysis & Gaps</span></h3>
                     <p class="nav-description">
@@ -1185,16 +1060,16 @@
                         <li><span class="clickable-feature" data-action="market-analysis">Solution Positioning</span></li>
                     </ul>
                     <div class="quick-actions">
-                        <span class="quick-link" onclick="event.stopPropagation(); showSection('market-analysis')">View Analysis</span>
-                        <span class="quick-link" onclick="event.stopPropagation(); openFullscreen('market-analysis')">Fullscreen</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./grc-analysis.html')">📊 View Analysis</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./grc-analysis.html')">🔗 Open in New Tab</span>
                     </div>
                     <button class="nav-button">
-                        <i class="fas fa-arrow-right"></i> View Analysis
+                        <i class="fas fa-external-link-alt"></i> Open in New Tab
                     </button>
                 </div>
 
                 <!-- Architecture Document -->
-                <div class="nav-card architecture" onclick="showSection('architecture')">
+                <div class="nav-card architecture" onclick="openPageInNewTab('./architecture.html')">
                     <i class="fas fa-layer-group nav-icon"></i>
                     <h3 class="nav-title"><span class="clickable-text" data-action="architecture">Platform Architecture</span></h3>
                     <p class="nav-description">
@@ -1208,11 +1083,11 @@
                         <li><span class="clickable-feature" data-action="architecture">Security Framework</span></li>
                     </ul>
                     <div class="quick-actions">
-                        <span class="quick-link" onclick="event.stopPropagation(); showSection('architecture')">📖 View Details</span>
-                        <span class="quick-link" onclick="event.stopPropagation(); openFullscreen('architecture')">Fullscreen</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./architecture.html')">📖 View Details</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./architecture.html')">🔗 Open in New Tab</span>
                     </div>
                     <button class="nav-button">
-                        <i class="fas fa-arrow-right"></i> View Architecture
+                        <i class="fas fa-external-link-alt"></i> Open in New Tab
                     </button>
                 </div>
             </div>
@@ -1236,7 +1111,7 @@
                 <h2><i class="fas fa-layer-group"></i> Platform Architecture</h2>
                 <p>7-Layer Shahin Vision Architecture with Complete Technical Specifications</p>
             </div>
-            <iframe src="./Shahin_Architecture_Platform_Comprehensive.html" class="iframe-container"></iframe>
+            <iframe src="./architecture.html" class="iframe-container"></iframe>
         </div>
 
         <div id="market-analysis-section" class="content-section">
@@ -1256,7 +1131,7 @@
                 <h2><i class="fas fa-chart-line"></i> Market Analysis & Gaps</h2>
                 <p>Comprehensive GRC Market Analysis for Saudi Arabia</p>
             </div>
-            <iframe src="./GRC_Problems_Gaps_Solutions_KSA_Comprehensive.html" class="iframe-container"></iframe>
+            <iframe src="./grc-analysis.html" class="iframe-container"></iframe>
         </div>
 
         <div id="gtm-strategy-section" class="content-section">
@@ -1276,7 +1151,7 @@
                 <h2><i class="fas fa-balance-scale"></i> Saudi Market Regulations</h2>
                 <p>Comprehensive Regulatory Framework and Compliance Requirements</p>
             </div>
-            <iframe src="./Saudi_Market_Regulations_Requirements_Comprehensive.html" class="iframe-container"></iframe>
+            <iframe src="./regulations.html" class="iframe-container"></iframe>
         </div>
     </div>
 
@@ -1284,30 +1159,30 @@
         <div class="footer-content">
             <div class="footer-main">
                 <div class="footer-brand">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Shahin Vision Platform</span>
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">
+                        <i class="fas fa-shield-alt"></i> <span class="footer-highlight">Shahin Vision Platform</span>
+                    </div>
+                    <div class="footer-info">
+                        Enterprise-Grade GRC Solutions | <a href="https://www.doganconsult.com" target="_blank" class="footer-highlight" style="text-decoration: none;">DoganConsult</a> - Engineering Consultant Accredited by Saudi Engineering Council
+                    </div>
                 </div>
                 <div class="footer-actions">
-                    <a href="#" class="footer-action" onclick="exportReport()" title="Export comprehensive report">
-                        <i class="fas fa-download"></i>
-                        <span>Export</span>
-                    </a>
-                    <a href="#" class="footer-action" onclick="shareReport()" title="Share report">
-                        <i class="fas fa-share-alt"></i>
-                        <span>Share</span>
-                    </a>
-                    <a href="#" class="footer-action" onclick="printReport()" title="Print report">
-                        <i class="fas fa-print"></i>
-                        <span>Print</span>
-                    </a>
-                    <a href="#" class="footer-action" onclick="showHelp()" title="Help & shortcuts">
-                        <i class="fas fa-question-circle"></i>
-                        <span>Help</span>
-                    </a>
+                    <button class="footer-action" onclick="exportReport()" title="Download complete report">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                    <button class="footer-action" onclick="shareReport()" title="Share report link">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                    <button class="footer-action" onclick="printReport()" title="Print-optimized view">
+                        <i class="fas fa-print"></i> Print
+                    </button>
+                    <button class="footer-action" onclick="showHelp()" title="Show keyboard shortcuts and help">
+                        <i class="fas fa-question-circle"></i> Help
+                    </button>
                 </div>
             </div>
-            <div class="footer-info">
-                Enterprise-Grade GRC Solutions | <a href="https://www.doganconsult.com" target="_blank" class="footer-highlight" style="text-decoration: none;">DoganConsult</a> - Engineering Consultant Accredited by Saudi Engineering Council | Led by <a href="https://www.doganahmet.com" target="_blank" class="footer-highlight" style="text-decoration: none;">Dr. Ahmet Dogan</a>
+            <div class="footer-info" style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.75rem;">
+                Led by <span class="footer-highlight">Dr. Ahmet Dogan</span> | Comprehensive Review & Analysis Platform
             </div>
         </div>
     </div>
@@ -1412,6 +1287,11 @@
         // Fullscreen mode function
         function openFullscreen(sectionName) {
             showSection(sectionName, true);
+        }
+
+        // Open page in new tab function
+        function openPageInNewTab(url) {
+            window.open(url, '_blank', 'noopener,noreferrer');
         }
 
         // Auto-hide header functionality
@@ -1885,104 +1765,8 @@
 
 
 
-         // Auto-hide intro section functionality
-         let introAutoHideTimer;
-         let introCollapsed = false;
-
-         function initializeIntroAutoHide() {
-             // Start auto-hide timer after 8 seconds
-             introAutoHideTimer = setTimeout(() => {
-                 if (!introCollapsed) {
-                     collapseIntro();
-                 }
-             }, 8000);
-
-             // Add event listeners to pause auto-hide on interaction
-             const introSection = document.getElementById('intro-section');
-             if (introSection) {
-                 introSection.addEventListener('mouseenter', pauseAutoHide);
-                 introSection.addEventListener('mouseleave', resumeAutoHide);
-             }
-
-             // Pause auto-hide when user interacts with navigation
-             document.addEventListener('click', function(e) {
-                 if (e.target.closest('.navigation-card') || e.target.closest('.clickable-text')) {
-                     pauseAutoHide();
-                 }
-             });
-         }
-
-         function toggleIntro() {
-             const introSection = document.getElementById('intro-section');
-             const introIcon = document.getElementById('intro-toggle-icon');
-             
-             if (introCollapsed) {
-                 expandIntro();
-             } else {
-                 collapseIntro();
-             }
-         }
-
-         function collapseIntro() {
-             const introSection = document.getElementById('intro-section');
-             const introIcon = document.getElementById('intro-toggle-icon');
-             const introContent = document.getElementById('intro-content');
-             const introCollapsedDiv = document.getElementById('intro-collapsed');
-             
-             if (introSection && !introCollapsed) {
-                 introSection.classList.add('collapsed');
-                 introIcon.className = 'fas fa-chevron-down';
-                 introContent.style.display = 'none';
-                 introCollapsedDiv.style.display = 'block';
-                 introCollapsed = true;
-                 
-                 // Clear any existing timer
-                 clearTimeout(introAutoHideTimer);
-                 
-                 // Show feedback
-                 showKeyboardFeedback('📄 Introduction Collapsed');
-             }
-         }
-
-         function expandIntro() {
-             const introSection = document.getElementById('intro-section');
-             const introIcon = document.getElementById('intro-toggle-icon');
-             const introContent = document.getElementById('intro-content');
-             const introCollapsedDiv = document.getElementById('intro-collapsed');
-             
-             if (introSection && introCollapsed) {
-                 introSection.classList.remove('collapsed');
-                 introIcon.className = 'fas fa-chevron-up';
-                 introContent.style.display = 'block';
-                 introCollapsedDiv.style.display = 'none';
-                 introCollapsed = false;
-                 
-                 // Restart auto-hide timer
-                 resumeAutoHide();
-                 
-                 // Show feedback
-                 showKeyboardFeedback('📄 Introduction Expanded');
-             }
-         }
-
-         function pauseAutoHide() {
-             clearTimeout(introAutoHideTimer);
-         }
-
-         function resumeAutoHide() {
-             if (!introCollapsed) {
-                 clearTimeout(introAutoHideTimer);
-                 introAutoHideTimer = setTimeout(() => {
-                     if (!introCollapsed) {
-                         collapseIntro();
-                     }
-                 }, 5000); // Resume with 5 seconds
-             }
-         }
-
-         // Initialize auto-hide when page loads
+         // Initialize mobile enhancements when page loads
          document.addEventListener('DOMContentLoaded', function() {
-             initializeIntroAutoHide();
              initializeMobileEnhancements();
          });
 
@@ -2160,8 +1944,7 @@
              const menuItems = [
                  { icon: 'fas fa-home', text: 'Home', action: () => backToMain() },
                  { icon: 'fas fa-expand', text: 'Fullscreen', action: () => currentSection && openFullscreen(currentSection) },
-                 { icon: 'fas fa-map', text: 'Mini Map', action: () => toggleMiniMap() },
-                 { icon: 'fas fa-eye', text: 'Toggle Intro', action: () => toggleIntro() }
+                 { icon: 'fas fa-map', text: 'Mini Map', action: () => toggleMiniMap() }
              ];
 
              menuItems.forEach(item => {

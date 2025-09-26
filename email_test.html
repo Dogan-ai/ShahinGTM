@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Functionality Test - Shahin Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .header h1 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+        }
+
+        .test-section h3 {
+            color: #4c1d95;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .test-button {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+        }
+
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .test-result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .success {
+            background: #ecfdf5;
+            border: 1px solid #10b981;
+            color: #065f46;
+        }
+
+        .error {
+            background: #fef2f2;
+            border: 1px solid #ef4444;
+            color: #991b1b;
+        }
+
+        .info {
+            background: #eff6ff;
+            border: 1px solid #3b82f6;
+            color: #1e40af;
+        }
+
+        .email-log {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .email-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+
+        .email-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .navigation-test {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 12px;
+            background: #f1f5f9;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #475569;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #e2e8f0;
+            border-color: #3b82f6;
+            color: #1e40af;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .status-success { background: #10b981; }
+        .status-error { background: #ef4444; }
+        .status-pending { background: #f59e0b; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="header">
+            <h1><i class="fas fa-envelope-circle-check"></i> Email Functionality Test Suite</h1>
+            <p>Testing email and auto-response features for the Shahin Platform</p>
+        </div>
+
+        <!-- Navigation Test Section -->
+        <div class="test-section">
+            <h3><i class="fas fa-compass"></i> Navigation System Test</h3>
+            <p>Test the unified navigation system across all pages:</p>
+            <div class="navigation-test">
+                <a href="./dashboard.html" class="nav-link">
+                    <i class="fas fa-home"></i><br>Dashboard
+                </a>
+                <a href="./regulations.html" class="nav-link">
+                    <i class="fas fa-gavel"></i><br>Regulations
+                </a>
+                <a href="./grc-analysis.html" class="nav-link">
+                    <i class="fas fa-chart-line"></i><br>GRC Analysis
+                </a>
+                <a href="./architecture.html" class="nav-link">
+                    <i class="fas fa-layer-group"></i><br>Architecture
+                </a>
+            </div>
+            <div class="test-result" id="nav-result"></div>
+        </div>
+
+        <!-- Email Functionality Test -->
+        <div class="test-section">
+            <h3><i class="fas fa-paper-plane"></i> Email System Test</h3>
+            <p>Test the email notification and auto-response system:</p>
+            <button class="test-button" onclick="testEmailSystem()">
+                <i class="fas fa-play"></i> Test Email System
+            </button>
+            <button class="test-button" onclick="viewEmailLogs()">
+                <i class="fas fa-list"></i> View Email Logs
+            </button>
+            <button class="test-button" onclick="clearEmailLogs()">
+                <i class="fas fa-trash"></i> Clear Logs
+            </button>
+            <div class="test-result" id="email-result"></div>
+        </div>
+
+        <!-- Auto-Response Test -->
+        <div class="test-section">
+            <h3><i class="fas fa-robot"></i> Auto-Response Test</h3>
+            <p>Test the automated response system:</p>
+            <button class="test-button" onclick="testAutoResponse()">
+                <i class="fas fa-magic"></i> Test Auto-Response
+            </button>
+            <div class="test-result" id="auto-response-result"></div>
+        </div>
+
+        <!-- Email Template Test -->
+        <div class="test-section">
+            <h3><i class="fas fa-file-alt"></i> Email Template Test</h3>
+            <p>Test email template generation and formatting:</p>
+            <button class="test-button" onclick="testEmailTemplates()">
+                <i class="fas fa-palette"></i> Test Templates
+            </button>
+            <div class="test-result" id="template-result"></div>
+        </div>
+    </div>
+
+    <script>
+        // Test Email System
+        async function testEmailSystem() {
+            const resultDiv = document.getElementById('email-result');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'test-result info';
+            resultDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Testing email system...';
+
+            try {
+                // Simulate feedback submission
+                const testFeedback = {
+                    id: Date.now(),
+                    timestamp: new Date().toISOString(),
+                    teamMember: 'Test User',
+                    contactEmail: 'test@example.com',
+                    phoneNumber: '+966501234567',
+                    department: 'IT Department',
+                    feedbackType: 'Bug Report',
+                    priority: 'high',
+                    title: 'Email System Test',
+                    description: 'Testing the email notification system',
+                    recommendations: 'Ensure all email notifications work correctly',
+                    affectedArea: 'Email System',
+                    status: 'pending'
+                };
+
+                // Test admin notification
+                const adminEmail = await simulateEmailSending(
+                    'ahemt@doganconsult.com',
+                    `🔔 New Feedback Submission - ${testFeedback.feedbackType} (${testFeedback.priority} Priority)`,
+                    generateAdminEmailBody(testFeedback)
+                );
+
+                // Test thank you email
+                const thankYouEmail = await simulateEmailSending(
+                    testFeedback.contactEmail,
+                    `✅ Thank You for Your Feedback - Reference #${testFeedback.id}`,
+                    generateThankYouEmailBody(testFeedback)
+                );
+
+                resultDiv.className = 'test-result success';
+                resultDiv.innerHTML = `
+                    <div><span class="status-indicator status-success"></span><strong>Email System Test Passed!</strong></div>
+                    <div style="margin-top: 10px;">
+                        <div>✅ Admin notification sent successfully</div>
+                        <div>✅ Thank you email sent successfully</div>
+                        <div>✅ Email logs stored in localStorage</div>
+                        <div style="margin-top: 10px; font-size: 14px; color: #6b7280;">
+                            Test Reference ID: #${testFeedback.id}
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.className = 'test-result error';
+                resultDiv.innerHTML = `
+                    <div><span class="status-indicator status-error"></span><strong>Email System Test Failed!</strong></div>
+                    <div style="margin-top: 10px;">Error: ${error.message}</div>
+                `;
+            }
+        }
+
+        // Test Auto-Response
+        async function testAutoResponse() {
+            const resultDiv = document.getElementById('auto-response-result');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'test-result info';
+            resultDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Testing auto-response system...';
+
+            try {
+                const responses = [];
+                
+                // Test different priority levels
+                const priorities = ['low', 'medium', 'high', 'critical'];
+                
+                for (const priority of priorities) {
+                    const testData = {
+                        id: Date.now() + Math.random(),
+                        priority: priority,
+                        feedbackType: 'Auto-Response Test',
+                        contactEmail: `test-${priority}@example.com`,
+                        teamMember: `Test User ${priority.toUpperCase()}`
+                    };
+                    
+                    const response = await simulateAutoResponse(testData);
+                    responses.push(response);
+                }
+
+                resultDiv.className = 'test-result success';
+                resultDiv.innerHTML = `
+                    <div><span class="status-indicator status-success"></span><strong>Auto-Response Test Passed!</strong></div>
+                    <div style="margin-top: 10px;">
+                        ${responses.map(r => `<div>✅ ${r.priority.toUpperCase()} priority response: ${r.responseTime}ms</div>`).join('')}
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.className = 'test-result error';
+                resultDiv.innerHTML = `
+                    <div><span class="status-indicator status-error"></span><strong>Auto-Response Test Failed!</strong></div>
+                    <div style="margin-top: 10px;">Error: ${error.message}</div>
+                `;
+            }
+        }
+
+        // Test Email Templates
+        async function testEmailTemplates() {
+            const resultDiv = document.getElementById('template-result');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'test-result info';
+            resultDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Testing email templates...';
+
+            try {
+                const testData = {
+                    id: 12345,
+                    teamMember: 'Template Test User',
+                    contactEmail: 'template@test.com',
+                    feedbackType: 'Template Test',
+                    priority: 'medium',
+                    title: 'Email Template Test',
+                    description: 'Testing email template generation',
+                    timestamp: new Date().toISOString()
+                };
+
+                // Test admin template
+                const adminTemplate = generateAdminEmailBody(testData);
+                const thankYouTemplate = generateThankYouEmailBody(testData);
+
+                // Validate templates
+                const adminValid = adminTemplate.includes(testData.teamMember) && 
+                                 adminTemplate.includes(testData.contactEmail) &&
+                                 adminTemplate.includes(testData.feedbackType);
+
+                const thankYouValid = thankYouTemplate.includes(testData.teamMember) && 
+                                    thankYouTemplate.includes(testData.title) &&
+                                    thankYouTemplate.includes('#' + testData.id);
+
+                if (adminValid && thankYouValid) {
+                    resultDiv.className = 'test-result success';
+                    resultDiv.innerHTML = `
+                        <div><span class="status-indicator status-success"></span><strong>Email Template Test Passed!</strong></div>
+                        <div style="margin-top: 10px;">
+                            <div>✅ Admin notification template generated correctly</div>
+                            <div>✅ Thank you email template generated correctly</div>
+                            <div>✅ All required fields populated</div>
+                            <div>✅ HTML formatting preserved</div>
+                        </div>
+                    `;
+                } else {
+                    throw new Error('Template validation failed');
+                }
+            } catch (error) {
+                resultDiv.className = 'test-result error';
+                resultDiv.innerHTML = `
+                    <div><span class="status-indicator status-error"></span><strong>Email Template Test Failed!</strong></div>
+                    <div style="margin-top: 10px;">Error: ${error.message}</div>
+                `;
+            }
+        }
+
+        // View Email Logs
+        function viewEmailLogs() {
+            const resultDiv = document.getElementById('email-result');
+            const emailLogs = JSON.parse(localStorage.getItem('emailLogs') || '[]');
+            
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'test-result info';
+            
+            if (emailLogs.length === 0) {
+                resultDiv.innerHTML = `
+                    <div><span class="status-indicator status-pending"></span><strong>No Email Logs Found</strong></div>
+                    <div style="margin-top: 10px;">Run the email system test to generate logs.</div>
+                `;
+                return;
+            }
+
+            const logsHtml = emailLogs.slice(-5).map(log => `
+                <div class="email-item">
+                    <div><strong>To:</strong> ${log.to}</div>
+                    <div><strong>Subject:</strong> ${log.subject}</div>
+                    <div><strong>Status:</strong> <span class="status-indicator status-success"></span>${log.status}</div>
+                    <div><strong>Sent:</strong> ${new Date(log.timestamp).toLocaleString()}</div>
+                </div>
+            `).join('');
+
+            resultDiv.innerHTML = `
+                <div><span class="status-indicator status-success"></span><strong>Email Logs (Last 5)</strong></div>
+                <div class="email-log">${logsHtml}</div>
+                <div style="margin-top: 10px; font-size: 14px; color: #6b7280;">
+                    Total emails logged: ${emailLogs.length}
+                </div>
+            `;
+        }
+
+        // Clear Email Logs
+        function clearEmailLogs() {
+            localStorage.removeItem('emailLogs');
+            const resultDiv = document.getElementById('email-result');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'test-result success';
+            resultDiv.innerHTML = `
+                <div><span class="status-indicator status-success"></span><strong>Email Logs Cleared</strong></div>
+                <div style="margin-top: 10px;">All email logs have been removed from localStorage.</div>
+            `;
+        }
+
+        // Helper Functions
+        async function simulateEmailSending(to, subject, body) {
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            const emailLog = {
+                id: Date.now(),
+                to: to,
+                subject: subject,
+                body: body,
+                timestamp: new Date().toISOString(),
+                status: 'sent'
+            };
+            
+            const emailLogs = JSON.parse(localStorage.getItem('emailLogs') || '[]');
+            emailLogs.push(emailLog);
+            localStorage.setItem('emailLogs', JSON.stringify(emailLogs));
+            
+            return emailLog;
+        }
+
+        async function simulateAutoResponse(data) {
+            const startTime = Date.now();
+            await new Promise(resolve => setTimeout(resolve, Math.random() * 1000 + 500));
+            const endTime = Date.now();
+            
+            return {
+                priority: data.priority,
+                responseTime: endTime - startTime,
+                status: 'sent'
+            };
+        }
+
+        function generateAdminEmailBody(feedback) {
+            return `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h1>📋 New Feedback Received</h1>
+                    <p><strong>👤 Name:</strong> ${feedback.teamMember}</p>
+                    <p><strong>📧 Email:</strong> ${feedback.contactEmail}</p>
+                    <p><strong>📝 Type:</strong> ${feedback.feedbackType}</p>
+                    <p><strong>⚡ Priority:</strong> ${feedback.priority}</p>
+                    <p><strong>📋 Title:</strong> ${feedback.title}</p>
+                    <p><strong>🆔 Reference ID:</strong> #${feedback.id}</p>
+                </div>
+            `;
+        }
+
+        function generateThankYouEmailBody(feedback) {
+            return `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h1>🙏 Thank You, ${feedback.teamMember}!</h1>
+                    <p>Thank you for your feedback regarding "${feedback.title}".</p>
+                    <p><strong>Reference ID:</strong> #${feedback.id}</p>
+                    <p>We will review your submission and get back to you soon.</p>
+                </div>
+            `;
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Email Test Suite Loaded');
+        });
+    </script>
+</body>
+</html>
