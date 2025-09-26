@@ -23,6 +23,18 @@
     {
       "source": "/grc-analysis",
       "destination": "/grc-analysis.html"
+    },
+    {
+      "source": "/test",
+      "destination": "/test_suite.html"
+    },
+    {
+      "source": "/responsive",
+      "destination": "/responsive_test.html"
+    },
+    {
+      "source": "/email",
+      "destination": "/email_test.html"
     }
   ],
   "headers": [
@@ -86,7 +98,7 @@
           "value": "http"
         }
       ],
-      "destination": "https://shahin-vision.vercel.app/$1",
+      "destination": "https://$host/$1",
       "permanent": true
     }
   ]
