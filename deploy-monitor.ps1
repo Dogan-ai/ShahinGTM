@@ -161,9 +161,10 @@ function Start-DeploymentMonitoring {
     Write-Log "Successful: $SuccessfulChecks" "INFO"
     Write-Log "Failed: $FailedChecks" "INFO"
     Write-Log "Auto-corrections: $CorrectionAttempts" "INFO"
-    Write-Log "Success rate: $([math]::Round(($SuccessfulChecks / $TotalChecks) * 100, 2))%" "INFO"
+    $successRate = if ($TotalChecks -gt 0) { [math]::Round(($SuccessfulChecks / $TotalChecks) * 100, 2) } else { 0 }
+    Write-Log "Success rate: $successRate%" "INFO"
     
-    Send-Notification "Deployment monitoring completed. Success rate: $([math]::Round(($SuccessfulChecks / $TotalChecks) * 100, 2))%" "INFO"
+    Send-Notification "Deployment monitoring completed. Success rate: $successRate%" "INFO"
 }
 
 # Initialize logging
