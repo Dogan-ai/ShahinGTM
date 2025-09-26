@@ -1,0 +1,80 @@
+{
+  "Timestamp": "2025-09-26 20:08:58",
+  "Recommendations": [
+    "Consider optimizing page load times - current average score: 0",
+    "Implement lazy loading for images to improve performance",
+    "Improve security headers implementation - current score: 0"
+  ],
+  "Metrics": {
+    "PageTests": {
+      "TotalTests": 5,
+      "SuccessfulTests": 0,
+      "AverageScore": 0,
+      "Pages": {
+        "Home": {
+          "StatusCode": -1,
+          "ContentSize": -1,
+          "LoadTime": -1,
+          "LoadScore": 0,
+          "Error": "Response status code does not indicate success: 401 (Unauthorized).",
+          "SizeScore": 0,
+          "Success": false
+        },
+        "Regulations": {
+          "StatusCode": -1,
+          "ContentSize": -1,
+          "LoadTime": -1,
+          "LoadScore": 0,
+          "Error": "Response status code does not indicate success: 401 (Unauthorized).",
+          "SizeScore": 0,
+          "Success": false
+        },
+        "Architecture": {
+          "StatusCode": -1,
+          "ContentSize": -1,
+          "LoadTime": -1,
+          "LoadScore": 0,
+          "Error": "Response status code does not indicate success: 401 (Unauthorized).",
+          "SizeScore": 0,
+          "Success": false
+        },
+        "GRC Analysis": {
+          "StatusCode": -1,
+          "ContentSize": -1,
+          "LoadTime": -1,
+          "LoadScore": 0,
+          "Error": "Response status code does not indicate success: 401 (Unauthorized).",
+          "SizeScore": 0,
+          "Success": false
+        },
+        "Dashboard": {
+          "StatusCode": -1,
+          "ContentSize": -1,
+          "LoadTime": -1,
+          "LoadScore": 0,
+          "Error": "Response status code does not indicate success: 401 (Unauthorized).",
+          "SizeScore": 0,
+          "Success": false
+        }
+      }
+    },
+    "SecurityHeaders": {
+      "SecurityScore": 0,
+      "Success": false,
+      "Error": "Response status code does not indicate success: 401 (Unauthorized)."
+    },
+    "HTMLStructure": {
+      "SEOScore": 0,
+      "Success": false,
+      "Error": "Response status code does not indicate success: 401 (Unauthorized)."
+    }
+  },
+  "OverallScore": 0.0,
+  "Status": {
+    "Status": "poor",
+    "Score": 0,
+    "Color": "red",
+    "BadgeUrl": "https://img.shields.io/badge/Performance-0%25-red"
+  },
+  "TestUrl": "https://shahin-ai-business-analysis-csbu8c5nt-dogan-consult.vercel.app"
+}

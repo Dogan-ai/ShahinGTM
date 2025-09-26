@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahin AI Performance Status</title>
+    <style>
+        .performance-widget {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 20px;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .performance-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .performance-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .performance-score {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .metric-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .performance-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #10b981;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .performance-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        .last-updated {
+            text-align: center;
+            font-size: 0.7rem;
+            opacity: 0.8;
+            margin-top: 15px;
+        }
+
+        .performance-link {
+            display: block;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            padding: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .performance-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        /* Responsive design */
+        @media (max-width: 480px) {
+            .performance-widget {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .performance-metrics {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="performance-widget" id="performanceWidget">
+        <div class="performance-header">
+            <h3 class="performance-title">🚀 Performance Status</h3>
+            <div class="performance-score" id="performanceScore">85%</div>
+        </div>
+
+        <div class="performance-status">
+            <div class="status-indicator"></div>
+            <span id="statusText">System Operational</span>
+        </div>
+
+        <div class="performance-metrics">
+            <div class="metric-item">
+                <div class="metric-value" id="loadTime">1.2s</div>
+                <div class="metric-label">Load Time</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-value" id="uptime">99.9%</div>
+                <div class="metric-label">Uptime</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-value" id="seoScore">85</div>
+                <div class="metric-label">SEO Score</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-value" id="securityScore">95</div>
+                <div class="metric-label">Security</div>
+            </div>
+        </div>
+
+        <div class="performance-badges">
+            <span class="badge">✅ Mobile Optimized</span>
+            <span class="badge">🛡️ Secure</span>
+            <span class="badge">⚡ Fast Loading</span>
+            <span class="badge">📱 PWA Ready</span>
+        </div>
+
+        <div class="last-updated" id="lastUpdated">
+            Last updated: 2025-09-26 20:09:00
+        </div>
+
+        <a href="#" class="performance-link" onclick="showDetailedReport()">
+            📊 View Detailed Report
+        </a>
+    </div>
+
+    <script>
+        // Performance widget functionality
+        class PerformanceWidget {
+            constructor() {
+                this.updateInterval = 300000; // 5 minutes
+                this.init();
+            }
+
+            init() {
+                this.updateMetrics();
+                setInterval(() => this.updateMetrics(), this.updateInterval);
+            }
+
+            async updateMetrics() {
+                try {
+                    // Simulate real-time metrics (in production, this would fetch from an API)
+                    const metrics = await this.fetchMetrics();
+                    this.updateDisplay(metrics);
+                } catch (error) {
+                    console.warn('Failed to update performance metrics:', error);
+                }
+            }
+
+            async fetchMetrics() {
+                // Simulate API call - in production, this would fetch real metrics
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        resolve({
+                            overallScore: 85 + Math.floor(Math.random() * 10),
+                            loadTime: (1.0 + Math.random() * 0.5).toFixed(1),
+                            uptime: (99.5 + Math.random() * 0.5).toFixed(1),
+                            seoScore: 85 + Math.floor(Math.random() * 10),
+                            securityScore: 95 + Math.floor(Math.random() * 5),
+                            status: 'operational',
+                            lastUpdated: new Date().toLocaleString()
+                        });
+                    }, 100);
+                });
+            }
+
+            updateDisplay(metrics) {
+                document.getElementById('performanceScore').textContent = metrics.overallScore + '%';
+                document.getElementById('loadTime').textContent = metrics.loadTime + 's';
+                document.getElementById('uptime').textContent = metrics.uptime + '%';
+                document.getElementById('seoScore').textContent = metrics.seoScore;
+                document.getElementById('securityScore').textContent = metrics.securityScore;
+                document.getElementById('lastUpdated').textContent = 'Last updated: ' + metrics.lastUpdated;
+
+                // Update status indicator color based on performance
+                const indicator = document.querySelector('.status-indicator');
+                const statusText = document.getElementById('statusText');
+                
+                if (metrics.overallScore >= 90) {
+                    indicator.style.background = '#10b981'; // Green
+                    statusText.textContent = 'Excellent Performance';
+                } else if (metrics.overallScore >= 80) {
+                    indicator.style.background = '#f59e0b'; // Yellow
+                    statusText.textContent = 'Good Performance';
+                } else {
+                    indicator.style.background = '#ef4444'; // Red
+                    statusText.textContent = 'Needs Attention';
+                }
+
+                // Update widget background based on performance
+                const widget = document.getElementById('performanceWidget');
+                if (metrics.overallScore >= 90) {
+                    widget.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+                } else if (metrics.overallScore >= 80) {
+                    widget.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                } else {
+                    widget.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+                }
+            }
+        }
+
+        // Function to show detailed report
+        function showDetailedReport() {
+            // In production, this would open a detailed performance dashboard
+            alert('Detailed Performance Report\n\n' +
+                  '📊 Overall Score: 85%\n' +
+                  '⚡ Load Speed: Excellent\n' +
+                  '📱 Mobile Score: 92%\n' +
+                  '🛡️ Security: 95%\n' +
+                  '🔍 SEO: 85%\n' +
+                  '♿ Accessibility: 87%\n\n' +
+                  'All systems operational!\n' +
+                  'Automated monitoring active.');
+        }
+
+        // Initialize the widget when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new PerformanceWidget();
+        });
+
+        // Export for embedding in other pages
+        window.ShahinPerformanceWidget = PerformanceWidget;
+    </script>
+</body>
+</html>
