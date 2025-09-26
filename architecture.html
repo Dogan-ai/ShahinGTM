@@ -4081,11 +4081,11 @@
                 const layerElement = document.getElementById(layerId);
                 if (layerElement) {
                     // Expand the layer if it's collapsed
-                    const layer = layerElement.closest('.layer') || layerElement;
-                    if (layer && layer.classList.contains('collapsed')) {
-                        const header = layer.querySelector('.layer-header');
-                        if (header) {
-                            toggleLayer(header);
+                    const layerContent = layerElement.querySelector('.layer-content');
+                    if (layerContent && layerContent.style.display === 'none') {
+                        const layerHeader = layerElement.querySelector('.layer-header');
+                        if (layerHeader) {
+                            layerHeader.click();
                         }
                     }
                     
