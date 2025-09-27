@@ -21,7 +21,19 @@
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     
-    <title>Shahin Vision Platform - Comprehensive Review Index</title>
+    <title>Shahin Vision — GRC Dashboard for Saudi Regulations & 7‑Layer Architecture</title>
+    <meta name="description" content="Saudi GRC dashboard: 847 regulators covered, mapped controls and 7‑layer architecture with evidence workflows.">
+    <link rel="canonical" href="https://www.shahin-ai.com/dashboard.html">
+    
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="Shahin Vision — GRC Dashboard (KSA)">
+    <meta property="og:description" content="847 regulators covered, mapped controls, and 7‑layer architecture.">
+    <meta property="og:url" content="https://www.shahin-ai.com/dashboard.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.shahin-ai.com/apple-touch-icon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shahin Vision — GRC Dashboard (KSA)">
+    <meta name="twitter:description" content="847 regulators covered, mapped controls, and 7‑layer architecture.">
     
     <!-- Favicon and Icons -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -1689,64 +1701,184 @@
         }
 
     </style>
+    <!-- Skip link and accessibility styles -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            z-index: 9999;
+            transition: top 0.3s;
+            font-weight: bold;
+            border-radius: 0 0 4px 0;
+        }
+        
+        .skip-to-content:focus {
+            top: 0;
+        }
+        
+        .kpi-strip {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .kpis {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            list-style: none;
+        }
+        
+        .kpi-label {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 0.25rem;
+        }
+        
+        .kpi-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: block;
+        }
+        
+        .kpi-value:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .kpi-provenance {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        .changelog {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: var(--border-radius);
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .changelog-icon {
+            color: var(--primary-color);
+        }
+        
+        .changelog-date {
+            font-weight: 600;
+        }
+        
+        .changelog-editor {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+    </style>
 </head>
 <body>
-    <div class="header">
+    <a class="skip-to-content" href="#main">Skip to main content</a>
+    
+    <header class="header">
         <div class="header-content">
             <div class="header-brand">
-                <h1><i class="fas fa-shield-alt"></i> Shahin Vision Platform</h1>
+                <h1><i class="fas fa-shield-alt"></i> Shahin Vision Platform — GRC Dashboard (KSA)</h1>
                 <div class="header-subtitle">
-                    Comprehensive Review Index - Team Collaboration Hub | 
                     <a href="https://www.doganconsult.com" target="_blank" class="header-link">DoganConsult</a> | 
                     Led by <a href="https://www.doganahmet.com" target="_blank" class="header-link">Dr. Ahmet Dogan</a>
                 </div>
             </div>
-            <div class="header-actions">
+            <nav class="header-actions" aria-label="Main Navigation">
                 <button class="header-action" onclick="showSection('regulations')" title="Saudi Market Regulations">
-                    <i class="fas fa-gavel"></i> Regulations
+                    <i class="fas fa-gavel" aria-hidden="true"></i> Regulations
                 </button>
                 <button class="header-action" onclick="showSection('grc')" title="GRC Analysis">
-                    <i class="fas fa-chart-line"></i> GRC
+                    <i class="fas fa-chart-line" aria-hidden="true"></i> GRC
                 </button>
                 <button class="header-action" onclick="showSection('architecture')" title="Platform Architecture">
-                    <i class="fas fa-layer-group"></i> Architecture
+                    <i class="fas fa-layer-group" aria-hidden="true"></i> Architecture
                 </button>
                 <button class="header-action" onclick="showHelp()" title="Help & Shortcuts">
-                    <i class="fas fa-question-circle"></i> Help
+                    <i class="fas fa-question-circle" aria-hidden="true"></i> Help
                 </button>
-            </div>
+            </nav>
         </div>
+    </header>
 
-    </div>
-
-    <div class="container">
+    <main id="main" class="container">
 
         <!-- Main Navigation -->
         <div id="main-navigation">
-            <div class="quick-stats">
-                <div class="stat-card">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label">Core Documents</div>
+            <section aria-labelledby="kpi-title" class="kpi-strip" role="region">
+                <h2 id="kpi-title" class="sr-only">Key Dashboard Indicators</h2>
+                <ul class="kpis" role="list">
+                    <li>
+                        <div class="kpi-label">Core Documents</div>
+                        <a href="#docs" class="kpi-value" aria-describedby="kpi-docs-src">3</a>
+                        <div id="kpi-docs-src" class="kpi-provenance">
+                            Curated evidence templates and policies • Last updated: 2025-09-27 • Owner: Documentation Team
+                        </div>
+                    </li>
+                    <li>
+                        <div class="kpi-label">Saudi Regulators</div>
+                        <a href="#regulators" class="kpi-value" aria-describedby="kpi-reg-src">40+</a>
+                        <div id="kpi-reg-src" class="kpi-provenance">
+                            Scope: KSA regulators • Method: curated & deduped • Last sync: 2025-09-27 • Owner: Compliance Ops
+                        </div>
+                    </li>
+                    <li>
+                        <div class="kpi-label">Automated Controls</div>
+                        <a href="#controls" class="kpi-value" aria-describedby="kpi-controls-src">847</a>
+                        <div id="kpi-controls-src" class="kpi-provenance">
+                            Mapped to Saudi regulatory requirements • Last verified: 2025-09-27 • Owner: GRC Team
+                        </div>
+                    </li>
+                    <li>
+                        <div class="kpi-label">Architecture Layers</div>
+                        <a href="#architecture" class="kpi-value" aria-describedby="kpi-arch-src">7</a>
+                        <div id="kpi-arch-src" class="kpi-provenance">
+                            Aligned to Shahin 7-Layer Reference Architecture • Last updated: 2025-09-27
+                        </div>
+                    </li>
+                </ul>
+                <div class="changelog">
+                    <i class="fas fa-history changelog-icon" aria-hidden="true"></i>
+                    <span class="changelog-date">Last updated: 2025-09-27</span> •
+                    <span class="changelog-editor">AD</span> •
+                    <span class="changelog-summary">Updated KPIs with provenance and timestamps</span>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">40+</div>
-                    <div class="stat-label">Saudi Regulators</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">847</div>
-                    <div class="stat-label">Automated Controls</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">7</div>
-                    <div class="stat-label">Architecture Layers</div>
-                </div>
-            </div>
+            </section>
 
             <div class="navigation-grid">
                 <!-- Saudi Market Regulations Document -->
                 <div class="nav-card gtm-strategy" onclick="openPageInNewTab('./regulations.html')">
-                    <i class="fas fa-balance-scale nav-icon"></i>
-                    <h3 class="nav-title"><span class="clickable-text" data-action="gtm-strategy">Saudi Market Regulations</span></h3>
+                    <i class="fas fa-balance-scale nav-icon" aria-hidden="true"></i>
+                    <h2 class="nav-title"><span class="clickable-text" data-action="gtm-strategy">Saudi Market Regulations</span></h2>
                     <p class="nav-description">
                         Comprehensive overview of <span class="clickable-keyword" data-action="gtm-strategy">Saudi Arabia's regulatory landscape</span>, <span class="clickable-keyword" data-action="gtm-strategy">compliance requirements</span>, and market regulations.
                     </p>
@@ -1758,18 +1890,23 @@
                         <li><span class="clickable-feature" data-action="gtm-strategy">Industry Regulations</span></li>
                     </ul>
                     <div class="quick-actions">
-                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./regulations.html')">⚖️ View Regulations</span>
-                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./regulations.html')">🔗 Open in New Tab</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./regulations.html#framework')">⚖️ View Regulatory Framework</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./regulations.html#compliance')">📋 Compliance Requirements</span>
                     </div>
                     <button class="nav-button">
-                        <i class="fas fa-external-link-alt"></i> Open in New Tab
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Open Saudi Regulations (40+ Regulators)
                     </button>
+                    <div class="changelog">
+                        <i class="fas fa-history changelog-icon" aria-hidden="true"></i>
+                        <span class="changelog-date">2025-09-27</span> •
+                        <span class="changelog-editor">AD</span>
+                    </div>
                 </div>
 
                 <!-- Market Analysis Document -->
                 <div class="nav-card market-analysis" onclick="openPageInNewTab('./grc-analysis.html')">
-                    <i class="fas fa-chart-line nav-icon"></i>
-                    <h3 class="nav-title"><span class="clickable-text" data-action="market-analysis">Market Analysis & Gaps</span></h3>
+                    <i class="fas fa-chart-line nav-icon" aria-hidden="true"></i>
+                    <h2 class="nav-title"><span class="clickable-text" data-action="market-analysis">Market Analysis & Gaps</span></h2>
                     <p class="nav-description">
                         Comprehensive analysis of <span class="clickable-keyword" data-action="market-analysis">GRC market gaps</span> in Saudi Arabia, <span class="clickable-keyword" data-action="market-analysis">competitor landscape</span>, and solution positioning.
                     </p>
@@ -1781,18 +1918,23 @@
                         <li><span class="clickable-feature" data-action="market-analysis">Solution Positioning</span></li>
                     </ul>
                     <div class="quick-actions">
-                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./grc-analysis.html')">📊 View Analysis</span>
-                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./grc-analysis.html')">🔗 Open in New Tab</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./grc-analysis.html#market-gaps')">📊 View 10 Critical Market Gaps</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./grc-analysis.html#competitors')">🔍 Competitor Analysis</span>
                     </div>
                     <button class="nav-button">
-                        <i class="fas fa-external-link-alt"></i> Open in New Tab
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Open GRC Market Analysis
                     </button>
+                    <div class="changelog">
+                        <i class="fas fa-history changelog-icon" aria-hidden="true"></i>
+                        <span class="changelog-date">2025-09-27</span> •
+                        <span class="changelog-editor">AD</span>
+                    </div>
                 </div>
 
                 <!-- Performance Status Card -->
                 <div class="nav-card performance-status" onclick="openPageInNewTab('./performance-widget.html')" style="border-left: 4px solid #10b981;">
-                    <i class="fas fa-tachometer-alt nav-icon" style="color: #10b981;"></i>
-                    <h3 class="nav-title"><span class="clickable-text">Performance Status</span></h3>
+                    <i class="fas fa-tachometer-alt nav-icon" style="color: #10b981;" aria-hidden="true"></i>
+                    <h2 class="nav-title"><span class="clickable-text">Performance Status</span></h2>
                     <p class="nav-description">
                         Real-time <span class="clickable-keyword">performance monitoring</span> and <span class="clickable-keyword">system health</span> dashboard with automated optimization tracking.
                     </p>
@@ -1804,18 +1946,23 @@
                         <li><span class="clickable-feature">Automated Monitoring</span></li>
                     </ul>
                     <div class="quick-actions">
-                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./performance-widget.html')">📊 View Metrics</span>
-                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./performance-status.md')">📋 Full Report</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./performance-widget.html')">📊 View Real-time Performance Metrics</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./performance-status.md')">📋 Full Performance Report</span>
                     </div>
                     <button class="nav-button" style="background: linear-gradient(135deg, #10b981, #059669);">
-                        <i class="fas fa-chart-line"></i> View Performance
+                        <i class="fas fa-chart-line" aria-hidden="true"></i> View System Performance Dashboard
                     </button>
+                    <div class="changelog">
+                        <i class="fas fa-history changelog-icon" aria-hidden="true"></i>
+                        <span class="changelog-date">2025-09-27</span> •
+                        <span class="changelog-editor">AD</span>
+                    </div>
                 </div>
 
                 <!-- Architecture Document -->
                 <div class="nav-card architecture" onclick="openPageInNewTab('./architecture.html')">
-                    <i class="fas fa-layer-group nav-icon"></i>
-                    <h3 class="nav-title"><span class="clickable-text" data-action="architecture">Platform Architecture</span></h3>
+                    <i class="fas fa-layer-group nav-icon" aria-hidden="true"></i>
+                    <h2 class="nav-title"><span class="clickable-text" data-action="architecture">Platform Architecture</span></h2>
                     <p class="nav-description">
                         Complete 7-layer architecture of <span class="clickable-keyword" data-action="architecture">Shahin Vision</span> platform with detailed component specifications and <span class="clickable-keyword" data-action="architecture">technical implementation</span>.
                     </p>
@@ -1827,18 +1974,23 @@
                         <li><span class="clickable-feature" data-action="architecture">Security Framework</span></li>
                     </ul>
                     <div class="quick-actions">
-                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./architecture.html')">📖 View Details</span>
-                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./architecture.html')">🔗 Open in New Tab</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./architecture.html#layers')">🏗️ View 7-Layer Architecture Stack</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); openPageInNewTab('./architecture.html#security')">🔒 Security Framework</span>
                     </div>
                     <button class="nav-button">
-                        <i class="fas fa-external-link-alt"></i> Open in New Tab
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Open Platform Architecture (7 Layers)
                     </button>
+                    <div class="changelog">
+                        <i class="fas fa-history changelog-icon" aria-hidden="true"></i>
+                        <span class="changelog-date">2025-09-27</span> •
+                        <span class="changelog-editor">AD</span>
+                    </div>
                 </div>
 
                 <!-- Team Feedback & Management System -->
                 <div class="nav-card feedback-system" onclick="showSection('feedback')" style="border-left: 4px solid #8b5cf6;">
-                    <i class="fas fa-comments nav-icon" style="color: #8b5cf6;"></i>
-                    <h3 class="nav-title"><span class="clickable-text" data-action="feedback">Team Feedback & Management</span></h3>
+                    <i class="fas fa-comments nav-icon" style="color: #8b5cf6;" aria-hidden="true"></i>
+                    <h2 class="nav-title"><span class="clickable-text" data-action="feedback">Team Feedback & Management</span></h2>
                     <p class="nav-description">
                         Comprehensive <span class="clickable-keyword" data-action="feedback">feedback collection system</span> for team collaboration, <span class="clickable-keyword" data-action="feedback">notes management</span>, and recommendations tracking.
                     </p>
@@ -1850,95 +2002,112 @@
                         <li><span class="clickable-feature" data-action="feedback">Progress Reports</span></li>
                     </ul>
                     <div class="quick-actions">
-                        <span class="quick-link" onclick="event.stopPropagation(); showSection('feedback')">💬 Submit Feedback</span>
-                        <span class="quick-link" onclick="event.stopPropagation(); showFeedbackDashboard()">📊 View Dashboard</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); showSection('feedback')">💬 Submit Team Feedback</span>
+                        <span class="quick-link" onclick="event.stopPropagation(); showFeedbackDashboard()">📊 View Team Dashboard</span>
                     </div>
-                    <button class="nav-button">
-                        <i class="fas fa-comments"></i> Open Feedback System
+                    <button class="nav-button" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
+                        <i class="fas fa-comments" aria-hidden="true"></i> Open Team Collaboration Hub
                     </button>
+                    <div class="changelog">
+                        <i class="fas fa-history changelog-icon" aria-hidden="true"></i>
+                        <span class="changelog-date">2025-09-27</span> •
+                        <span class="changelog-editor">AD</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Content Sections -->
         <div id="architecture-section" class="content-section">
-            <div class="navigation-bar">
+            <nav class="navigation-bar" aria-label="Breadcrumb">
                 <div class="breadcrumb">
                     <div class="breadcrumb-item">
-                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home"></i> Home</a>
-                        <span class="breadcrumb-separator">›</span>
-                        <span><i class="fas fa-layer-group"></i> Platform Architecture</span>
+                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home" aria-hidden="true"></i> Home</a>
+                        <span class="breadcrumb-separator" aria-hidden="true">›</span>
+                        <span><i class="fas fa-layer-group" aria-hidden="true"></i> Platform Architecture</span>
                     </div>
                 </div>
-                <button class="back-button" onclick="showMain()">
-                    <i class="fas fa-arrow-left"></i> Back to Index
-                </button>
-            </div>
-            <div class="section-header">
-                <h2><i class="fas fa-layer-group"></i> Platform Architecture</h2>
+            </nav>
+            <section class="section-header">
+                <h2><i class="fas fa-layer-group" aria-hidden="true"></i> Platform Architecture</h2>
                 <p>7-Layer Shahin Vision Architecture with Complete Technical Specifications</p>
-            </div>
-            <iframe src="./architecture.html" class="iframe-container"></iframe>
+                <div class="changelog">
+                    <i class="fas fa-history changelog-icon" aria-hidden="true"></i>
+                    <span class="changelog-date">Last updated: 2025-09-27</span> •
+                    <span class="changelog-editor">AD</span> •
+                    <span class="changelog-summary">Updated architecture documentation with security framework</span>
+                </div>
+            </section>
+            <iframe src="./architecture.html" class="iframe-container" title="Platform Architecture Details"></iframe>
         </div>
 
         <div id="market-analysis-section" class="content-section">
-            <div class="navigation-bar">
+            <nav class="navigation-bar" aria-label="Breadcrumb">
                 <div class="breadcrumb">
                     <div class="breadcrumb-item">
-                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home"></i> Home</a>
-                        <span class="breadcrumb-separator">›</span>
-                        <span><i class="fas fa-chart-line"></i> Market Analysis & Gaps</span>
+                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home" aria-hidden="true"></i> Home</a>
+                        <span class="breadcrumb-separator" aria-hidden="true">›</span>
+                        <span><i class="fas fa-chart-line" aria-hidden="true"></i> Market Analysis & Gaps</span>
                     </div>
                 </div>
-                <button class="back-button" onclick="showMain()">
-                    <i class="fas fa-arrow-left"></i> Back to Index
-                </button>
-            </div>
-            <div class="section-header">
-                <h2><i class="fas fa-chart-line"></i> Market Analysis & Gaps</h2>
+            </nav>
+            <section class="section-header">
+                <h2><i class="fas fa-chart-line" aria-hidden="true"></i> Market Analysis & Gaps</h2>
                 <p>Comprehensive GRC Market Analysis for Saudi Arabia</p>
-            </div>
-            <iframe src="./grc-analysis.html" class="iframe-container"></iframe>
+                <div class="changelog">
+                    <i class="fas fa-history changelog-icon" aria-hidden="true"></i>
+                    <span class="changelog-date">Last updated: 2025-09-27</span> •
+                    <span class="changelog-editor">AD</span> •
+                    <span class="changelog-summary">Updated with 10 critical market gaps analysis</span>
+                </div>
+            </section>
+            <iframe src="./grc-analysis.html" class="iframe-container" title="GRC Market Analysis and Gaps"></iframe>
         </div>
 
         <div id="gtm-strategy-section" class="content-section">
-            <div class="navigation-bar">
+            <nav class="navigation-bar" aria-label="Breadcrumb">
                 <div class="breadcrumb">
                     <div class="breadcrumb-item">
-                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home"></i> Home</a>
-                        <span class="breadcrumb-separator">›</span>
-                        <span><i class="fas fa-balance-scale"></i> Saudi Market Regulations</span>
+                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home" aria-hidden="true"></i> Home</a>
+                        <span class="breadcrumb-separator" aria-hidden="true">›</span>
+                        <span><i class="fas fa-balance-scale" aria-hidden="true"></i> Saudi Market Regulations</span>
                     </div>
                 </div>
-                <button class="back-button" onclick="showMain()">
-                    <i class="fas fa-arrow-left"></i> Back to Index
-                </button>
-            </div>
-            <div class="section-header">
-                <h2><i class="fas fa-balance-scale"></i> Saudi Market Regulations</h2>
+            </nav>
+            <section class="section-header">
+                <h2><i class="fas fa-balance-scale" aria-hidden="true"></i> Saudi Market Regulations</h2>
                 <p>Comprehensive Regulatory Framework and Compliance Requirements</p>
-            </div>
-            <iframe src="./regulations.html" class="iframe-container"></iframe>
+                <div class="changelog">
+                    <i class="fas fa-history changelog-icon" aria-hidden="true"></i>
+                    <span class="changelog-date">Last updated: 2025-09-27</span> •
+                    <span class="changelog-editor">AD</span> •
+                    <span class="changelog-summary">Updated with 40+ Saudi regulators</span>
+                </div>
+            </section>
+            <iframe src="./regulations.html" class="iframe-container" title="Saudi Market Regulations and Compliance Requirements"></iframe>
         </div>
 
         <!-- Team Feedback & Management Section -->
         <div id="feedback-section" class="content-section">
-            <div class="navigation-bar">
+            <nav class="navigation-bar" aria-label="Breadcrumb">
                 <div class="breadcrumb">
                     <div class="breadcrumb-item">
-                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home"></i> Home</a>
-                        <span class="breadcrumb-separator">›</span>
-                        <span><i class="fas fa-comments"></i> Team Feedback & Management</span>
+                        <a href="#" class="breadcrumb-link" onclick="showMain()"><i class="fas fa-home" aria-hidden="true"></i> Home</a>
+                        <span class="breadcrumb-separator" aria-hidden="true">›</span>
+                        <span><i class="fas fa-comments" aria-hidden="true"></i> Team Feedback & Management</span>
                     </div>
                 </div>
-                <button class="back-button" onclick="showMain()">
-                    <i class="fas fa-arrow-left"></i> Back to Index
-                </button>
-            </div>
-            <div class="section-header">
-                <h2><i class="fas fa-comments"></i> Team Feedback & Management System</h2>
+            </nav>
+            <section class="section-header">
+                <h2><i class="fas fa-comments" aria-hidden="true"></i> Team Feedback & Management System</h2>
                 <p>Comprehensive feedback collection, notes management, and team collaboration platform</p>
-            </div>
+                <div class="changelog">
+                    <i class="fas fa-history changelog-icon" aria-hidden="true"></i>
+                    <span class="changelog-date">Last updated: 2025-09-27</span> •
+                    <span class="changelog-editor">AD</span> •
+                    <span class="changelog-summary">Added team collaboration features</span>
+                </div>
+            </section>
 
             <!-- Feedback System Container -->
             <div class="feedback-container">
